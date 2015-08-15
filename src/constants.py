@@ -11,6 +11,7 @@ HAND_DICT = {1:'Royal Flush', 2:'Straight Flush', 3:'Four of a Kind', 4:'Full Ho
              ,7:'Three of a Kind',8:'Two Pairs',9:'One Pair',10:'High Card'}
 QUERY_DICT={'Name':0, 'NumHands':1, 'VPIP_Perc':2, 'PFR_Perc':3, 'Call_Perc':4, 'CBet_Perc':5, 'CBet_Fold_Perc':6
           , 'CBet_Call_Perc':7, 'CBet_Raise_Perc':8, 'CBet_Turn_Perc':9}
+ACTION_DICT={0:'X', 1:'C', 2:'R', 3:'A'}
 #These card positions are hardcoded
 #Hero cards
 CARD1POS = (215, 222, 245, 239)
@@ -59,6 +60,11 @@ PF_CALL_PERC = 0.3 #Perc of a PF open call
 PF_STEAL = 0.3 #Perc of trying to steal from button or more
 PF_OTHER_HANDS_OPEN = 0.8 #Perc of PF opening the pot with other hand > 10%
 PF_OTHER_HANDS_CALL = 0.7 #Perc of PF callling into the pot with other hand > 10%
+BH_THRESHOLD = 0.85 #Odds of winning threshold to assume best hand
+BH_FP_RAISE = 0.2 #When reraise a bet on flop when have BH
+FLOP_CBET = 0.5 #How often CBet the flop
+FLOP_STEAL = 0.2 #How often try to steal a flop
+
 
 if __name__ == "__main__":
 	pass
