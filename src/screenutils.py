@@ -1,24 +1,13 @@
 __author__ = 'Ahab'
 
 import math
-import csv
-import sys
-import random
-import operator
-import functools
-import random
 import win32api
 import win32con
 import win32gui
-from PIL import Image, ImageFilter, ImageGrab, ImageEnhance, ImageChops
 import time
 import pyperclip
-import tkinter
-import psycopg2
-import fileinput
-import linecache
-import logging
-import logging.config
+
+import constants as c
 
 def click(p):
     (x,y) = p
@@ -47,8 +36,6 @@ def gethandleofNLH():
     emptylist =[]
     win32gui.EnumWindows(callback, emptylist)
     emptylist = [(e1,e2,e3,e4,e5,e6,e7) for (e1,e2,e3,e4,e5,e6,e7) in emptylist if "NLH" in e2]
-    logging.debug("gethandleofNLH ")
-    logging.debug(str(emptylist))
     if len(emptylist) == 1:
         return(emptylist[0][0])
     else:
@@ -91,31 +78,60 @@ def bettingAction(action, amount, wait = 2):
 
 def allInAction(wait):
     time.sleep(wait)
-    move(ALLINPOTBETBOXPOS, 0.1)
-    click(BETBOXPOS)
-    move(RAISEBUTTONPOS,0.1)
-    click(RAISEBUTTONPOS)
+    move(c.ALLINPOTBETBOXPOS, 0.1)
+    click(c.BETBOXPOS)
+    move(c.RAISEBUTTONPOS,0.1)
+    click(c.RAISEBUTTONPOS)
     return True
 
 def betAction(amount, wait):
     time.sleep(wait)
-    move(BETBOXPOS,0.1)
-    click(BETBOXPOS)
+    move(c.BETBOXPOS,0.1)
+    click(c.BETBOXPOS)
     pyperclip.copy(str(amount))
     time.sleep(0.1)
     dokey(0x43,17)
-    move(RAISEBUTTONPOS,0.1)
-    click(RAISEBUTTONPOS)
+    move(c.RAISEBUTTONPOS,0.1)
+    click(c.RAISEBUTTONPOS)
     return True
 
 def callAction(wait):
     time.sleep(wait)
-    move(CALLBUTTONPOS,0.1)
-    click(CALLBUTTONPOS)
+    move(c.CALLBUTTONPOS,0.1)
+    click(c.CALLBUTTONPOS)
     return True
 
 def foldAction(wait):
     time.sleep(wait)
-    move(FOLDBUTTONPOS,0.1)
-    click(FOLDBUTTONPOS)
+    move(c.FOLDBUTTONPOS,0.1)
+    click(c.FOLDBUTTONPOS)
     return True
+
+def getbetamount(p):
+    move(p,0.1)
+    click(p)
+    click(p)
+    time.sleep(0.1)
+    #Copy all text
+    dokey(0x43,17)
+    variable = pyperclip.paste()
+    return float(float(variable) * 100)
+
+def getpotamount(p1,p2):
+    move(p1, 0.1)
+    click(p1)
+    time.sleep(0.1)
+    amount = getbetamount(p2)
+    return amount
+
+def getpotsize(potbetbox,betbox):
+    move(potbetbox,0.01)
+    click(potbetbox)
+    time.sleep(0.01)
+    move(betbox,0.01)
+    click(betbox)
+    click(betbox)
+    dokey(0x41,17)
+    dokey(0x43,17)
+    variable = pyperclip.paste()
+    return variable

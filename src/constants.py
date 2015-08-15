@@ -1,9 +1,11 @@
 __author__ = 'Ahab'
 
+#TODO read this from a csv file instead of being hardcoded
 LOG_FILE_DIR = "C:\\Users\\Ahab\\Desktop"
 LOG_FILE_NAME = "\\PokerEnging.log"
 HAND_HISTORY_DIR ="C:\\Users\\Ahab\\AppData\\Roaming\\PacificPoker\\HandHistory\\tinoater"
-PF_ODDS_FILENAME = 'PreFlop.csv'
+MEDIA_DIR = "Media"
+PF_ODDS_FILENAME = '\\PreFlop.csv'
 RANK_DICT = {2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'T',11:'J',12:'Q',13:'K',14:'A'}
 SUIT_DICT = {1:'H',2:'D',3:'S',4:'C'}
 PREM_PARIS = [14,13,12]
@@ -52,13 +54,18 @@ PF_PREM_RERAISE_PERC = 0.2 #How often reraise preflop curr bet >3BB
 PF_PP_BELOW_9_RAISE =  0.3 #How often open raise preflop with PP <9
 PF_PP_BELOW_9_CALL = 1 #How often open call with PF with PP <9
 PF_SMALL_PAIR = 25 * BIGBLIND #Threshold to call PF with pocket pairs, per player
-PF_FL_STR_DRAW = 20 * BIGBLIND #Threshold to call PF with suited or connected
+PF_FL_DRAW = 2 #Amount the pot will scale by from PF to SD for flush draw
+PF_STR_DRAW = 2 #Amount the pot will scale by from PF to SD for straight draw
+PF_STRFL_DRAW = 2 #Amount the pot will scale by from PF to SD for straight draw
+PF_FL_ODDS = 10 #Threshold for how often try to draw for a flush
+PF_STR_ODDS = 7 #Threshold for how often try to draw for a flush
+PF_STRFL_ODDS = 13 #Threshold for how often try to draw with straightflush draw
 RAISE_TO_ALLIN_THRESH = 0.2 #If 1+this * raise >= cash then go all in
 
 PF_CALL_AFTER_RAISE_PERC = 0.8 #Perc of a PF call of a raise
 PF_CALL_PERC = 0.3 #Perc of a PF open call
 PF_STEAL = 0.3 #Perc of trying to steal from button or more
-PF_OTHER_HANDS_OPEN = 0.8 #Perc of PF opening the pot with other hand > 10%
+PF_OTHER_HANDS_OPEN = 0.2 #Perc of PF opening the pot with other hand > 10%
 PF_OTHER_HANDS_CALL = 0.7 #Perc of PF callling into the pot with other hand > 10%
 BH_THRESHOLD = 0.85 #Odds of winning threshold to assume best hand
 BH_FP_RAISE = 0.2 #When reraise a bet on flop when have BH

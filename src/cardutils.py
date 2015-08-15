@@ -2,25 +2,20 @@ __author__ = 'Ahab'
 
 import math
 import csv
-import sys
-import random
 import operator
 import functools
 import random
-import win32api
-import win32con
-import win32gui
 from PIL import Image, ImageFilter, ImageGrab, ImageEnhance, ImageChops
 import time
-import pyperclip
-import tkinter
 import psycopg2
 import fileinput
 import linecache
 import logging
 import logging.config
+import itertools
 
 import screenutils
+import constants as c
 
 class Card:
 
@@ -34,7 +29,7 @@ class Card:
         return (self._rank == other.getRank() and self._suit == other.getSuit())
 
     def __str__(self):
-        return RANK_DICT[self._rank]+ SUIT_DICT[self._suit]
+        return c.RANK_DICT[self._rank]+ c.SUIT_DICT[self._suit]
 
     def getRank(self):
         return (self._rank)
@@ -140,7 +135,7 @@ class Hand:
             card_list = card_list + [each.getSuit()]
 
         if card_list[0] == card_list[2]:
-            if card_list[0] in PREM_PARIS:
+            if card_list[0] in c.PREM_PARIS:
                 self.PremInd = 1
         elif self.suitedInd == 1:
             if (card_list[0] == '14' and card_list[2] == '13'):
@@ -327,7 +322,7 @@ class Hand:
         #sort desc.
         card_list.sort(reverse=True)
 
-        return RANK_DICT[card_list[0]]+RANK_DICT[card_list[1]]+suited_ind
+        return c.RANK_DICT[card_list[0]] + c.RANK_DICT[card_list[1]]+suited_ind
 
     def getPreHandOdds(self,players):
         target_players = players
@@ -337,7 +332,7 @@ class Hand:
 
         targethand = self.getPreHandSimple()
 
-        pf_file = open(PF_ODDS_FILENAME,"r")
+        pf_file = open(c.MEDIA_DIR + c.PF_ODDS_FILENAME,"r")
         pf_reader = csv.reader(pf_file)
 
         for row in pf_reader:
@@ -349,25 +344,25 @@ class Hand:
         return odds
 
     def getPostCurrentHandString(self):
-        HandOutput = HAND_DICT[self.PostHandType]
+        HandOutput = c.HAND_DICT[self.PostHandType]
         if self.PostHandType == 2:
-            HandOutput = HandOutput + " " + RANK_DICT[self.HighCard] + " high"
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.HighCard] + " high"
         elif self.PostHandType == 3:
-            HandOutput = HandOutput + " " + RANK_DICT[self.QuadRank] + "s"
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.QuadRank] + "s"
         elif self.PostHandType == 4:
-            HandOutput = HandOutput + " " + RANK_DICT[self.TripRank] + "s over " + RANK_DICT[self.Pair1Rank]
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.TripRank] + "s over " + c.RANK_DICT[self.Pair1Rank]
         elif self.PostHandType == 5:
-            HandOutput = HandOutput + " " + RANK_DICT[self.HighCard]
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.HighCard]
         elif self.PostHandType == 6:
-            HandOutput = HandOutput + " High card " + RANK_DICT[self.StraightHead]
+            HandOutput = HandOutput + " High card " + c.RANK_DICT[self.StraightHead]
         elif self.PostHandType == 7:
-            HandOutput = HandOutput + " " + RANK_DICT[self.TripRank] + "s"
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.TripRank] + "s"
         elif self.PostHandType == 8:
-            HandOutput = HandOutput + " " + RANK_DICT[self.Pair1Rank] + "s and " + RANK_DICT[self.Pair2Rank] + "s"
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.Pair1Rank] + "s and " + c.RANK_DICT[self.Pair2Rank] + "s"
         elif self.PostHandType == 9:
-            HandOutput = HandOutput + " " + RANK_DICT[self.Pair1Rank] + "s"
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.Pair1Rank] + "s"
         elif self.PostHandType == 10:
-            HandOutput = HandOutput + " " + RANK_DICT[self.HighCard]
+            HandOutput = HandOutput + " " + c.RANK_DICT[self.HighCard]
         return HandOutput
 
 class Deck:
@@ -421,7 +416,7 @@ class Game:
         self.potsize = 0
         self.initnumplayers = len(self.player)
         self.position = None
-        #TODO need to implement the aggro parameter
+        #TODO need to implement an aggro parameter
         self.preFlopOdds = hand.PreFlopOdds
         self.preFlopOdds10 = hand.preFlopOdds10
         self.postFlopOdds = hand.PostFlopOdds
@@ -478,13 +473,13 @@ class Game:
     def betoutput(self, action, street, wait, logstring, bet = 0, cBetInd = 0):
         if action == 1:
             bet = self.currbet
-        if float(self.herocash) * 100 <= bet:
+        if self.herocash * 100 <= bet:
             logstring += ". Not enough cash so going all-in"
-            self.updateHeroBetting(ACTION_DICT[3],street, logstring, self.herocash)
+            self.updateHeroBetting(c.ACTION_DICT[3],street, logstring, self.herocash)
             return 3, 0, wait
-        elif float(self.herocash) * 100 - float(bet) <= bet*RAISE_TO_ALLIN_THRESH:
+        elif self.herocash * 100 - float(bet) <= bet * c.RAISE_TO_ALLIN_THRESH:
             logstring += ". Rounding up to all in"
-            self.updateHeroBetting(ACTION_DICT[3],street, logstring, self.herocash)
+            self.updateHeroBetting(c.ACTION_DICT[3],street, logstring, self.herocash)
             return 3, 0, wait
         else:
             self.updateHeroBetting(action,street,logstring,bet)
@@ -528,13 +523,13 @@ class Game:
                 logstr += "Open pot with a raise"
                 return self.betoutput(2,0,wait,logstr,bet)
             else:
-                if self.currbet <= 3 * BIGBLIND:
+                if self.currbet <= 3 * c.BIGBLIND:
                     bet = round(self.currbet * (random.uniform(2,3)))
                     logstr += "Will reraise as currbet:" + str(self.currbet)
                     return self.betoutput(2,0,wait,logstr,bet)
                 else:
-                    if random.uniform(0,1) <= PF_PREM_RERAISE_PERC:
-                        logstr += "Currbet is large, but will reraise anyway. Parameter:" + str(PF_PREM_RERAISE_PERC)
+                    if random.uniform(0,1) <= c.PF_PREM_RERAISE_PERC:
+                        logstr += "Currbet is large, but will reraise anyway. Parameter:" + str(c.PF_PREM_RERAISE_PERC)
                         bet = round(self.currbet * (random.uniform(2,3)))
                         return self.betoutput(2,0,wait,logstr,bet)
                     else:
@@ -549,21 +544,21 @@ class Game:
                 logstr += "First to enter the pot "
                 if self.hand.PPCard >= 9:
                     logstr += "Strong pair so raise "
-                    bet = round(BIGBLIND * (random.uniform(2,3)))
+                    bet = round(c.BIGBLIND * (random.uniform(2,3)))
                     return self.betoutput(2,0,wait,logstr,bet)
                 else:
-                    if random.uniform(0,1) <= PF_PP_BELOW_9_RAISE:
-                        bet = round(BIGBLIND * (random.uniform(2,3)))
-                        logstr += "Weak pair but raise anyway. Parameter:" + str(PF_PP_BELOW_9_RAISE)
+                    if random.uniform(0,1) <= c.PF_PP_BELOW_9_RAISE:
+                        bet = round(c.BIGBLIND * (random.uniform(2,3)))
+                        logstr += "Weak pair but raise anyway. Parameter:" + str(c.PF_PP_BELOW_9_RAISE)
                         return self.betoutput(2,0,wait,logstr,bet)
-                    elif random.uniform(0,1) <= PF_PP_BELOW_9_CALL:
+                    elif random.uniform(0,1) <= c.PF_PP_BELOW_9_CALL:
                         logstr += "Call to draw to set"
                         return self.betoutput(1,0,wait,logstr,bet)
                     else:
                         return self.betoutput(0,0,wait,logstr,bet)
             else:
-                logstr += "\n Other players are in the pot. Prediction of pot size is:" + str(PF_SMALL_PAIR * ((movedPlayers * PF_CALL_AFTER_RAISE_PERC) + (unmovedPlayers * PF_CALL_PERC)))
-                if PF_SMALL_PAIR / 10 * ((movedPlayers * PF_CALL_AFTER_RAISE_PERC) + (unmovedPlayers * PF_CALL_PERC)) \
+                logstr += "\n Other players are in the pot. Prediction of pot size is:" + str(c.PF_SMALL_PAIR * ((movedPlayers * c.PF_CALL_AFTER_RAISE_PERC) + (unmovedPlayers * c.PF_CALL_PERC)))
+                if c.PF_SMALL_PAIR / 10 * ((movedPlayers * c.PF_CALL_AFTER_RAISE_PERC) + (unmovedPlayers * c.PF_CALL_PERC)) \
                         >= self.currbet:
                     logstr += " Call worth it"
                     return self.betoutput(1,0,wait,logstr,bet)
@@ -573,39 +568,62 @@ class Game:
 
         #Flush or Straight Draws
         if self.drawInd == 1:
+            if self.hand.suitedInd == 1 & self.hand.connectedInd == 1:
+                logstr += ",have a connected flush draw"
+                predictedSDPot = c.PF_STRFL_DRAW * ((movedPlayers * c.PF_CALL_AFTER_RAISE_PERC
+                                                 + unmovedPlayers * c.PF_CALL_PERC) * self.currbet + self.potamount)
+                logstr += "\n Predicted pot size / factor >= bet * high card scale?:"
+                logstr += str(predictedSDPot) + " / " + str(c.PF_STRFL_ODDS) + " >= " + str(self.currbet) + " * "\
+                          + str(14/self.hand.highcard) + " ? \n"
+                if predictedSDPot / c.PF_STRFL_ODDS >= (self.currbet * 14 / self.hand.highcard):
+                    logstr += " Call worth it"
+                    return self.betoutput(1,0,wait,logstr,bet)
             logstr += "Have a flush or straight draw"
-            logstr += "\n Prediction of pot size is:" + str(PF_FL_STR_DRAW * ((movedPlayers * PF_CALL_AFTER_RAISE_PERC)
-                                                                              + (unmovedPlayers * PF_CALL_PERC))
-                                                                                + self.potamount)
-            if PF_FL_STR_DRAW / 10 * ((movedPlayers * PF_CALL_AFTER_RAISE_PERC) + (unmovedPlayers * PF_CALL_PERC)) + self.potamount \
-                    >= (self.currbet * 14 / self.hand.highcard):
-                logstr += " Call worth it"
-                return self.betoutput(1,0,wait,logstr,bet)
+            if self.hand.suitedInd == 1:
+                logstr += ",have a flush draw"
+                predictedSDPot = c.PF_FL_DRAW * ((movedPlayers * c.PF_CALL_AFTER_RAISE_PERC
+                                                 + unmovedPlayers * c.PF_CALL_PERC) * self.currbet + self.potamount)
+                logstr += "\n Predicted pot size / factor >= bet * high card scale?:"
+                logstr += str(predictedSDPot) + " / " + str(c.PF_FL_ODDS) + " >= " + str(self.currbet) + " * "\
+                          + str(14/self.hand.highcard) + " ? \n"
+                if predictedSDPot / c.PF_FL_ODDS >= (self.currbet * 14 / self.hand.highcard):
+                    logstr += " Call worth it"
+                    return self.betoutput(1,0,wait,logstr,bet)
+            if self.hand.connectedInd == 1:
+                logstr += ",have a straight draw"
+                predictedSDPot = c.PF_STR_DRAW * ((movedPlayers * c.PF_CALL_AFTER_RAISE_PERC
+                                                 + unmovedPlayers * c.PF_CALL_PERC) * self.currbet + self.potamount)
+                logstr += "\n Predicted pot size / factor >= bet * high card scale?:"
+                logstr += str(predictedSDPot) + " / " + str(c.PF_STR_ODDS) + " >= " + str(self.currbet) + " * "\
+                          + str(14/self.hand.highcard) + " ? \n"
+                if predictedSDPot / c.PF_STR_ODDS >= (self.currbet * 14 / self.hand.highcard):
+                    logstr += " Call worth it"
+                    return self.betoutput(1,0,wait,logstr,bet)
         #All other hands
         logstr += "Misc. hands"
         if checkedPot == 1:
             logstr += "No one has entered pot "
             logstr += "\n Hand Odds are:" + str(self.preFlopOdds10 / 100) + " Adjusted odds are:" \
-                      + str((self.preFlopOdds10 / 100 * random.uniform(0,1))) + " threshold is:" + str(PF_OTHER_HANDS_OPEN)
-            if self.preFlopOdds10 >= 10 & (self.preFlopOdds10 / 100 * random.uniform(0,1) <= PF_OTHER_HANDS_OPEN):
-                bet = round(BIGBLIND * (random.uniform(2,3)))
+                      + str((self.preFlopOdds10 / 100 * random.uniform(0,1))) + " threshold is:" + str(c.PF_OTHER_HANDS_OPEN)
+            if self.preFlopOdds10 >= 10 & (self.preFlopOdds10 / 100 * random.uniform(0,1) <= c.PF_OTHER_HANDS_OPEN):
+                bet = round(c.BIGBLIND * (random.uniform(2,3)))
                 logstr += "Open raise"
                 return self.betoutput(2,0,wait,logstr,bet)
 
         if checkedPot == 0:
             logstr += " People have entered the pot"
             logstr += " Hand Odds are:" + str(self.preFlopOdds10) + " Adjusted odds are:" \
-                      + str((self.preFlopOdds10 / 100 * random.uniform(0,1))) + " threshold is:" + str(PF_OTHER_HANDS_CALL)
-            if self.preFlopOdds10 >= 10 & (self.preFlopOdds10 / 100 * random.uniform(0,1) <= PF_OTHER_HANDS_CALL):
-                if self.currbet <= 3 * BIGBLIND:
+                      + str((self.preFlopOdds10 / 100 * random.uniform(0,1))) + " threshold is:" + str(c.PF_OTHER_HANDS_CALL)
+            if self.preFlopOdds10 >= 10 & (self.preFlopOdds10 / 100 * random.uniform(0,1) <= c.PF_OTHER_HANDS_CALL):
+                if self.currbet <= 3 * c.BIGBLIND:
                     return self.betoutput(1,0,wait,logstr,bet)
 
         #If no one has opened the pot then try to steal
         if checkedPot == 1:
             logstr += " No one has entered the pot"
-            logstr += " Steal threshold is:" + str(PF_STEAL)
-            if unmovedPlayers <=3 & (random.uniform(0,1) <= PF_STEAL):
-                bet = round(BIGBLIND * (random.uniform(2,3)))
+            logstr += " Steal threshold is:" + str(c.PF_STEAL)
+            if unmovedPlayers <=3 & (random.uniform(0,1) <= c.PF_STEAL):
+                bet = round(c.BIGBLIND * (random.uniform(2,3)))
                 logstr += " Attempt to steal"
                 return self.betoutput(2,0,wait,logstr,bet)
 
@@ -614,7 +632,7 @@ class Game:
             return self.betoutput(0,0,wait,logstr,bet)
 
     def analyseBoard(self,street):
-        if self.hand.PostFlopOdds >= BH_THRESHOLD:
+        if self.hand.PostFlopOdds >= c.BH_THRESHOLD:
             self.BHInd = 1
         else:
             self.BHInd = 0
@@ -679,14 +697,14 @@ class Game:
 
     def shouldCBet(self):
         #TODO: Improve this Cbet proc
-        if random.uniform(0,1) <= FLOP_CBET:
+        if random.uniform(0,1) <= c.FLOP_CBET:
             return 1
         else:
             return 0
 
     def shouldFSteal(self):
         #TODO: Improve the flop steal
-        if random.uniform(0,1) <= FLOP_STEAL:
+        if random.uniform(0,1) <= c.FLOP_STEAL:
             return 1
         else:
             return 0
@@ -711,9 +729,9 @@ class Game:
         else:
             return 0
 
-    def betFlop(self,currbet,potamount):
-        self.currbet = currbet
-        self.potamount = potamount
+    def betFlop(self):
+        currbet = self.currbet
+        potamount = self.potamount
         herocash = self.herocash - self.totalhandbet
         self.streetcount =+ 1
         #set wait to zero as getting pot odds takes so long
@@ -747,43 +765,43 @@ class Game:
                     logstr += "Check to PF raiser "
                     self.updateHeroBetting("C",1, logstr, 0)
                 elif self.PFAggresActed == 0 & checkedPot == 0 & self.streetcount == 0:
-                    if random.uniform(0,1) <= BH_FP_RAISE:
-                        logstr += "will reraise due to threshold " + str(BH_FP_RAISE)
+                    if random.uniform(0,1) <= c.BH_FP_RAISE:
+                        logstr += "will reraise due to threshold " + str(c.BH_FP_RAISE)
                         bet = round(currbet * random.uniform(2,3))
-                        return self.betoutput(2, bet, wait)
+                        return self.betoutput(2,wait,logstr,bet)
                     else:
                         logstr += "call the flop bet"
-                        return self.betoutput(1, bet, wait)
+                        return self.betoutput(1,wait,logstr,bet)
                 elif self.streetcount == 0:
                     if self.player[self.PFAggressor].bHist[1] == "C":
                         logstr += "PF raiser checked(called), "
                         if checkedPot == 1:
                             bet = round(potamount * (random.uniform(0.5,0.7)))
                             logstr += "unopened pot so bet"
-                            return self.betoutput(2, bet, wait)
-                        elif random.uniform(0,1) <= BH_FP_RAISE:
-                            logstr += "will reraise due to threshold " + str(BH_FP_RAISE)
+                            return self.betoutput(2,wait,logstr,bet)
+                        elif random.uniform(0,1) <= c.BH_FP_RAISE:
+                            logstr += "will reraise due to threshold " + str(c.BH_FP_RAISE)
                             bet = round(currbet * random.uniform(2,3))
-                            return self.betoutput(2, bet, wait)
+                            return self.betoutput(2,wait,logstr,bet)
                         else:
                             logstr += "call the flop bet"
-                            return self.betoutput(1, bet, wait)
+                            return self.betoutput(1,wait,logstr,bet)
                 else:
                     logstr += " further round of betting, so reraise"
                     bet = round(currbet * random.uniform(2,3))
-                    return self.betoutput(2, bet, wait)
+                    return self.betoutput(2,wait,logstr,bet)
             if self.PFAggressor == 1 & checkedPot == 1:
                 bet = round(self.potamount * (random.uniform(0.5,0.7)))
                 logstr += " Open pot with a raise"
-                return self.betoutput(2, bet, wait, 1)
+                return self.betoutput(2, wait,logstr,bet)
             elif self.PFAggressor == 1 & checkedPot == 0:
-                logstr += " will reraise due to threshold " + str(BH_FP_RAISE) + "."
+                logstr += " will reraise due to threshold " + str(c.BH_FP_RAISE) + "."
                 bet = round(currbet * random.uniform(2,3))
-                return self.betoutput(2, bet, wait)
+                return self.betoutput(2, wait,logstr,bet)
             else:
                 logstr += "No action defined!"
                 logging.error("No action defined in Flop bet BH==1")
-                return self.betoutput(0, bet, wait)
+                return self.betoutput(0, wait,logstr,bet)
 
         #Try CBet, else check/call
         if self.drawInd == 1:
@@ -796,24 +814,24 @@ class Game:
                         self.CBetInd == 1
                         logstr += "Will CBet anyway."
                         bet = round(self.potamount * random.uniform(0.5,0.7))
-                        return self.betoutput(2, bet, wait)
+                        return self.betoutput(2, wait,logstr,bet)
                     else:
                         logstr += "Will try to draw for free."
-                        return self.betoutput(1, bet, wait)
+                        return self.betoutput(1, wait,logstr,bet)
                 else:
                     logstr += "Was not the PF Agrssor."
                     if self.shouldFSteal == 1:
                         logstr += "Try to steal flop."
                         bet = round(self.potamount * random.uniform(0.5,0.7))
-                        return self.betoutput(2, bet, wait)
+                        return self.betoutput(2, wait,logstr,bet)
                     else:
                         logstr += "Will try to draw for free."
-                        return self.betoutput(1, bet, wait)
+                        return self.betoutput(1, wait,logstr,bet)
             else:
                 logstr += "Pots been opened."
                 if self.shouldDraw == 1:
                     logstr += "Try to draw."
-                    return self.betoutput(1, bet, wait)
+                    return self.betoutput(1, wait,logstr,bet)
 
         #TODO: Add some generic call logic function here
         if self.madeInd == 1:
@@ -821,10 +839,10 @@ class Game:
             if checkedPot == 1:
                 logstr += "Open the pot."
                 bet = round(self.potamount * random.uniform(0.5,0.7))
-                return self.betoutput(2,bet,wait)
+                return self.betoutput(2,wait,logstr,bet)
             else:
                 logstr += "Call the bet."
-                return self.betoutput(1,bet,wait)
+                return self.betoutput(1,wait,logstr,bet)
 
         #TODO: Add logic to steal a boring looking flop
         else:
@@ -836,22 +854,41 @@ class Game:
                     if self.shouldCBet() == 1:
                         logstr += "Will try to CBet."
                         bet = round(self.potamount * random.uniform(0.5,0.7))
-                        return self.betoutput(2,bet,wait)
+                        return self.betoutput(2,wait,logstr,bet)
                     else:
                         logstr += "Won't CBet"
-                        return self.betoutput(1,bet,wait)
+                        return self.betoutput(1,wait,logstr,bet)
                 else:
                     logstr += "Pot has been opened."
                     if self.shouldCall() == 1:
                         logstr += "Will call"
-                        return self.betoutput(1,bet,wait)
+                        return self.betoutput(1,wait,logstr,bet)
                     else:
                         logstr += "Will fold"
-                        return self.betoutput(0,bet,wait)
+                        return self.betoutput(0,wait,logstr,bet)
+            else:
+                logstr += "Was not the PF aggressor."
+                if checkedPot == 1:
+                    logstr += "Pot has been checked"
+                    if self.shouldFSteal() == 1:
+                        logstr += "Will try to Steal."
+                        bet = round(self.potamount * random.uniform(0.5,0.7))
+                        return self.betoutput(2,wait,logstr,bet)
+                    else:
+                        logstr += "Won't Steal."
+                        return self.betoutput(1,wait,logstr,bet)
+                else:
+                    logstr += "Pot has been opened."
+                    if self.shouldCall() == 1:
+                        logstr += "Will call"
+                        return self.betoutput(1,wait,logstr,bet)
+                    else:
+                        logstr += "Will fold"
+                        return self.betoutput(0,wait,logstr,bet)
 
 #Card functions
 def findcardrank(cardimage, suitInd):
-    deckfilename = "Deck1_" + SUIT_DICT[suitInd] + ".bmp"
+    deckfilename = c.MEDIA_DIR + "\\Deck1_" + c.SUIT_DICT[suitInd] + ".bmp"
     try:
         deckcard = Image.open(deckfilename)
     except:
@@ -870,8 +907,8 @@ def findcardrank(cardimage, suitInd):
         deckcardtry = ImageEnhance.Color(deckcardtry).enhance(0.0)
         deckcardtry = deckcardtry.filter(ImageFilter.CONTOUR)
         deckcardtry = deckcardtry.crop(cardbox)
-        if DEBUGPRINT == True:
-            deckcardtry.save("DECKCARDTRY "+ str(i+2) + SUIT_DICT[suitInd] +".jpg")
+        if c.DEBUGPRINT == True:
+            deckcardtry.save("DECKCARDTRY "+ str(i+2) + c.SUIT_DICT[suitInd] +".jpg")
 
         rms = rmsdiff(deckcardtry, cardimage)
         #print("This is card number: " + str(i + 2) + " with difference: " + str(rms))
@@ -934,17 +971,17 @@ def findplayeraction(box):
     r, g, b = playerim.getpixel((30,0))
     rgbint = r*256^2 + g*256 + b
 
-    if abs(rgbint - PLAYERFOLDRGB) <=1000:
+    if abs(rgbint - c.PLAYERFOLDRGB) <=1000:
         return "X"
-    elif abs(rgbint - PLAYERCALLRGB) <=1000:
+    elif abs(rgbint - c.PLAYERCALLRGB) <=1000:
         return "C"
-    elif abs(rgbint - PLAYERRAISERGB) <=1000:
+    elif abs(rgbint - c.PLAYERRAISERGB) <=1000:
         return "R"
-    elif abs(rgbint - PLAYERALLINRGB) <=1000:
+    elif abs(rgbint - c.PLAYERALLINRGB) <=1000:
         return "A"
-    elif abs(rgbint - PLAYERSBRGB) <=10:
+    elif abs(rgbint - c.PLAYERSBRGB) <=10:
         return "SB"
-    elif abs(rgbint - PLAYERBBRGB) <=10:
+    elif abs(rgbint - c.PLAYERBBRGB) <=10:
         return "BB"
     else:
         return
@@ -960,7 +997,7 @@ def processflopcard(cardim):
     cardim = ImageEnhance.Color(cardim).enhance(0.0)
     cardim = ImageEnhance.Sharpness(cardim).enhance(2)
     cardim = cardim.crop((1,1,10,15))
-    if DEBUGPRINT == True:
+    if c.DEBUGPRINT == True:
         cardim.save("Card"+str(time.time())+".jpg")
     return cardim
 
@@ -973,9 +1010,6 @@ def grabstreetcard(box):
     cardim = ImageEnhance.Color(cardim).enhance(0.0)
     cardim = ImageEnhance.Sharpness(cardim).enhance(2)
     card = Card(findcardrank(cardim,suit),suit)
-    #if DEBUGPRINT:
-    #    print(card)
-
     return card
 
 def updatetablebetting(game, street, poslist):
@@ -984,8 +1018,8 @@ def updatetablebetting(game, street, poslist):
         position = each.seat
         if position == 0:
             continue
-        game.numplayers += findplayerpresent(PLAYERPOSLIST[position])
-        betstring = findplayeraction(PLAYERACTIONPOSLIST[position])
+        game.numplayers += findplayerpresent(c.PLAYERPOSLIST[position])
+        betstring = findplayeraction(c.PLAYERACTIONPOSLIST[position])
         if betstring != None:
             each.bHist[street].append(betstring)
             if betstring == "X":
@@ -1018,15 +1052,15 @@ def pollforheroturn(box):
             total[i % 256] = total[i % 256] + value
 
         if total[255] >= sum(total)*0.6:
-            return 1, findstreet(STREETBOXPOS)
+            return 1, findstreet(c.STREETBOXPOS)
 
         count = count + 1
-        if DEBUGPRINT == True:
+        if c.DEBUGPRINT == True:
             if count % 10 == 0:
                 logging.debug("Poll for Hero Turn sleeping " + str(count))
 
         if count >= 600:
-            if DEBUGPRINT == True:
+            if c.DEBUGPRINT == True:
                 logging.critical("Timeout - exiting Poll for Hero Turn")
             return 0
         time.sleep(0.5)
@@ -1038,7 +1072,7 @@ def findstreet(box):
     streetboxim = streetboxim.filter(ImageFilter.CONTOUR)
 
     #check for flop
-    streetfilename = "0-PreFlop.jpg"
+    streetfilename = c.MEDIA_DIR + "\\0-PreFlop.jpg"
     try:
         streetim = Image.open(streetfilename)
     except:
@@ -1052,7 +1086,7 @@ def findstreet(box):
 
     #test for flop
     streetboxim = streetboxim.crop((101,0,165,12))
-    streetfilename = "1-Flop.jpg"
+    streetfilename = c.MEDIA_DIR + "\\1-Flop.jpg"
     try:
         streetim = Image.open(streetfilename)
     except:
@@ -1066,7 +1100,7 @@ def findstreet(box):
 
     #test for turn
     streetboxim = streetboxim.crop((32,0,64,12))
-    streetfilename = "2-Turn.jpg"
+    streetfilename = c.MEDIA_DIR + "\\2-Turn.jpg"
     try:
         streetim = Image.open(streetfilename)
     except:
@@ -1081,8 +1115,9 @@ def findstreet(box):
         return 4
 
 #Game functions
-def PlayHand(NumPlayers,HeroCard1, HeroCard2, FlopCard1 = None, FlopCard2 = None, FlopCard3 = None, OutputInd = 0):
-    #Set up the Dec
+def PlayOddsHand(NumPlayers,HeroCard1, HeroCard2, FlopCard1 = None, FlopCard2 = None, FlopCard3 = None,
+                 FlopCard4 = None, FlopCard5 = None, OutputInd = 0):
+    #Set up the Deck
     FirstDeck = Deck()
     FirstDeck.shuffle()
     #Set up hero hand
@@ -1091,23 +1126,28 @@ def PlayHand(NumPlayers,HeroCard1, HeroCard2, FlopCard1 = None, FlopCard2 = None
     FirstDeck._Deck.remove(HeroCard1)
     FirstDeck._Deck.remove(HeroCard2)
 
-    #Want to randomise the Flop now
-    if FlopCard1 == None:
-        FlopCard1 = FirstDeck._Deck.pop()
-    else:
+    #Need to remove all known cards
+    if FlopCard1 is not None:
         FirstDeck._Deck.remove(FlopCard1)
-    if FlopCard2 == None:
-        FlopCard2 = FirstDeck._Deck.pop()
-    else:
+    if FlopCard2 is not None:
         FirstDeck._Deck.remove(FlopCard2)
-    if FlopCard3 == None:
-        FlopCard3 = FirstDeck._Deck.pop()
-    else:
+    if FlopCard3 is not None:
         FirstDeck._Deck.remove(FlopCard3)
+    if FlopCard4 is not None:
+        FirstDeck._Deck.remove(FlopCard4)
+    if FlopCard5 is not None:
+        FirstDeck._Deck.remove(FlopCard5)
 
-    #FirstDeck._Deck.remove(FlopCard1)
-    #FirstDeck._Deck.remove(FlopCard2)
-    #FirstDeck._Deck.remove(FlopCard3)
+    if FlopCard1 is None:
+        FlopCard1 = FirstDeck._Deck.pop()
+    if FlopCard2 is None:
+        FlopCard2 = FirstDeck._Deck.pop()
+    if FlopCard3 is None:
+        FlopCard3 = FirstDeck._Deck.pop()
+    if FlopCard4 is None:
+        FlopCard4 = FirstDeck._Deck.pop()
+    if FlopCard5 is None:
+        FlopCard5 = FirstDeck._Deck.pop()
 
     for i in range(1,NumPlayers):
         PlayerHands.append(Hand([FirstDeck._Deck.pop(),FirstDeck._Deck.pop()]))
@@ -1116,56 +1156,18 @@ def PlayHand(NumPlayers,HeroCard1, HeroCard2, FlopCard1 = None, FlopCard2 = None
             logging.debug("Player "+str(i)+" has the hand", end = " ")
             logging.debug(PlayerHands[i].getPreHandSimple())
     #Generate the flop
-    ThirdCard = FlopCard1
-    FourthCard = FlopCard2
-    FifthCard = FlopCard3
     if OutputInd != 0:
-        logging.debug("-" * 20)
-        logging.debug("FLOP")
-        logging.debug("-" * 20)
-        logging.debug(ThirdCard)
-        logging.debug(FourthCard)
-        logging.debug(FifthCard)
+        logging.debug(FlopCard1)
+        logging.debug(FlopCard2)
+        logging.debug(FlopCard3)
+        logging.debug(FlopCard4)
+        logging.debug(FlopCard5)
     for i in range(0,NumPlayers):
-        TempList = PlayerHands[i].getCards()
-        TempList.append(ThirdCard)
-        TempList.append(FourthCard)
-        TempList.append(FifthCard)
-        PlayerHands[i] = Hand(TempList)
+        PlayerHands[i].addSharedCards([FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5])
     for i in range(0,NumPlayers):
         HandValue = PlayerHands[i].getPostCurrentHandString()
-        if OutputInd != 0:
-            logging.debug("FLOP: Player "+str(i)+" has the hand "+ HandValue)
     if OutputInd != 0:
-        logging.debug("-" * 20)
-        logging.debug("TURN")
-        logging.debug("-" * 20)
-    SixthCard = FirstDeck._Deck.pop()
-    for i in range(0,NumPlayers):
-        TempList = PlayerHands[i].getCards()
-        TempList.append(SixthCard)
-        PlayerHands[i] = Hand(TempList)
-    for i in range(0,NumPlayers):
-        HandValue = PlayerHands[i].getPostCurrentHandString()
-        if OutputInd != 0:
-            logging.debug("TURN: Player "+str(i)+" has the hand "+ HandValue)
-    if OutputInd != 0:
-        logging.debug("-" * 20)
-        logging.debug("RIVER")
-        logging.debug("-" * 20)
-    SeventhCard = FirstDeck._Deck.pop()
-    for i in range(0,NumPlayers):
-        TempList = PlayerHands[i].getCards()
-        TempList.append(SeventhCard)
-        PlayerHands[i] = Hand(TempList)
-    for i in range(0,NumPlayers):
-        HandValue = PlayerHands[i].getPostCurrentHandString()
-        if OutputInd != 0:
-            logging.debug("RIVER: Player "+str(i)+" has the hand "+ HandValue)
-    if OutputInd != 0:
-        logging.debug("-" * 20)
         logging.debug("SHOWDOWN")
-        logging.debug("-" * 20)
     winningHand = []
     for i in range(0,NumPlayers):
         winningHand.append((i,PlayerHands[i].PostHandValue))
@@ -1176,47 +1178,28 @@ def PlayHand(NumPlayers,HeroCard1, HeroCard2, FlopCard1 = None, FlopCard2 = None
 
     return(winningHand[0][0])
 
-def GenerateProbabilities(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3, Runs = 1000):
+def GenerateProbabilities(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3, FlopCard4 = None, FlopCard5 = None, Runs = 1000):
     HeroWin = 0
 
-    for i in range(0,Runs):
-        result = PlayHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3)
-        if result == 0:
-            HeroWin = HeroWin + 1
-        #if (i % 1000 == 0 & DEBUGPRINT):
-        #    logging.debug(str(i))
+    #TODO Make the flop cards a list
+    if FlopCard4 is None:
+        for i in range(0,Runs):
+            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3)
+            if result == 0:
+                HeroWin += 1
+    elif FlopCard5 is None:
+        for i in range(0,Runs):
+            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3, FlopCard4)
+            if result == 0:
+                HeroWin += 1
+    else:
+        for i in range(0,Runs):
+            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5)
+            if result == 0:
+                HeroWin += 1
 
     logging.debug("Hero won " + str(HeroWin) + " out of " + str(Runs) + " : " + str(HeroWin/Runs * 100))
     return (HeroWin * 100)/Runs
-
-def getbetamount(p):
-    move(p,0.1)
-    click(p)
-    click(p)
-    time.sleep(0.1)
-    #Copy all text
-    dokey(0x43,17)
-    variable = pyperclip.paste()
-    return float(float(variable) * 100)
-
-def getpotamount(p1,p2):
-    move(p1, 0.1)
-    click(p1)
-    time.sleep(0.1)
-    amount = getbetamount(p2)
-    return amount
-
-def getpotsize(potbetbox,betbox):
-    move(potbetbox,0.01)
-    click(potbetbox)
-    time.sleep(0.01)
-    move(betbox,0.01)
-    click(betbox)
-    click(betbox)
-    dokey(0x41,17)
-    dokey(0x43,17)
-    variable = pyperclip.paste()
-    return variable
 
 def getQueryResults(names):
     """Return the DB stats for a list of players"""
@@ -1299,7 +1282,7 @@ def getplayersfor9table888(filename,heroname = 'tinoater'):
 
     pointer = 0
     GAMESTRING = '#Game No'
-    filename = HAND_HISTORY_DIR + filename
+    filename = c.HAND_HISTORY_DIR + filename
     for line in fileinput.input(filename):
         if line[0:len(GAMESTRING)] == GAMESTRING:
             pointer = fileinput.lineno()
