@@ -20,6 +20,10 @@ import constants as c
 class Card:
 
     def __init__(self, rank, suit):
+        if rank not in c.RANK_DICT:
+            raise Exception("Card rank invalid")
+        if suit not in c.SUIT_DICT:
+            raise Exception("Card suit invalid")
         self._rank = rank
         self._suit = suit
 
@@ -1157,48 +1161,54 @@ def PlayOddsHand(NumPlayers,HeroCard1, HeroCard2, FlopCard1 = None, FlopCard2 = 
             logging.debug(PlayerHands[i].getPreHandSimple())
     #Generate the flop
     if OutputInd != 0:
-        logging.debug(FlopCard1)
-        logging.debug(FlopCard2)
-        logging.debug(FlopCard3)
-        logging.debug(FlopCard4)
-        logging.debug(FlopCard5)
+        print(FlopCard1)
+        print(FlopCard2)
+        print(FlopCard3)
+        print(FlopCard4)
+        print(FlopCard5)
     for i in range(0,NumPlayers):
         PlayerHands[i].addSharedCards([FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5])
     for i in range(0,NumPlayers):
         HandValue = PlayerHands[i].getPostCurrentHandString()
     if OutputInd != 0:
-        logging.debug("SHOWDOWN")
+        print("SHOWDOWN")
     winningHand = []
     for i in range(0,NumPlayers):
         winningHand.append((i,PlayerHands[i].PostHandValue))
     winningHand.sort(key=lambda t:t[1])
     if OutputInd != 0:
-        logging.debug("The winner was Player " + str(winningHand[0][0]) + " with hand "
+        print("The winner was Player " + str(winningHand[0][0]) + " with hand "
       + PlayerHands[winningHand[0][0]].getPostCurrentHandString())
 
     return(winningHand[0][0])
 
-def GenerateProbabilities(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3, FlopCard4 = None, FlopCard5 = None, Runs = 1000):
+def GenerateProbabilities(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3, FlopCard4 = None,
+                          FlopCard5 = None, Runs = 1000, OutputInd = 0):
     HeroWin = 0
 
+    #TODO Why does this always take 12 seconds? Maybe doing the iterations is awful
     #TODO Make the flop cards a list
     if FlopCard4 is None:
         for i in range(0,Runs):
-            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3)
+            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3,
+                                  OutputInd)
             if result == 0:
                 HeroWin += 1
     elif FlopCard5 is None:
         for i in range(0,Runs):
-            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3, FlopCard4)
+            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3,
+                                  FlopCard4, OutputInd)
             if result == 0:
                 HeroWin += 1
     else:
         for i in range(0,Runs):
-            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5)
+            result = PlayOddsHand(NumPlayers,HeroCard1 ,HeroCard2 ,FlopCard1, FlopCard2,
+                                  FlopCard3, FlopCard4, FlopCard5, OutputInd)
             if result == 0:
                 HeroWin += 1
 
-    logging.debug("Hero won " + str(HeroWin) + " out of " + str(Runs) + " : " + str(HeroWin/Runs * 100))
+    if OutputInd != 0:
+        print("Hero won " + str(HeroWin) + " out of " + str(Runs) + " : " + str(HeroWin/Runs * 100))
     return (HeroWin * 100)/Runs
 
 def getQueryResults(names):
