@@ -9,6 +9,7 @@ import constants as c
 import cardutils
 import screenutils
 import cardutils
+import nlhutils
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename=c.LOG_FILE_DIR + c.LOG_FILE_NAME

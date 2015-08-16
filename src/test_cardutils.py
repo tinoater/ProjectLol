@@ -507,3 +507,13 @@ class DeckTestCase(unittest.TestCase):
     def test_deck_has_52_cards(self):
         """Does a new deck have 52 cards?"""
         self.assertEqual(len(cardutils.Deck()._Deck), 52)
+
+class PlayerTestCase(unittest.TestCase):
+    """Tests for Player class in cardutils"""
+    def test_add_player(self):
+        dummyPlayer = cardutils.Player(10,"name",3.11,[1,10])
+
+class StatsTestCase(unittest.TestCase):
+    """Tests for Stats class in cardutils"""
+    def test_add_player(self):
+        dummyStats = cardutils.Stats(100,10,3,10,10,10,10,10,10)
