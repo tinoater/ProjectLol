@@ -17,6 +17,8 @@ import itertools
 import screenutils
 import constants as c
 
+#TODO - after tests are written refactor all the variable names
+
 class Card:
 
     def __init__(self, rank, suit):
@@ -46,27 +48,25 @@ class Card:
 
 class Hand:
     def __init__(self, *cards):
+    #TODO change the *cards so its standard
         for card in cards:
             self._cards = card
         self.numCards = len(self._cards)
         if self.numCards == 2:
             self.setPreHandValue()
+            self.sharedCards = []
         elif self.numCards >= 5:
             self.setPostHandValue()
         self.PreFlopOdds = 0
         self.PostFlopOdds = 0
-        self.sharedCards = []
+    #TODO update this so the sharedCards are read from the *cards input
 
     def __add__(self, other):
-
         self._cards.append(other)
         self.numCards = len(self._cards)
         if self.numCards >= 3:
             self.sharedCards.append(other)
-        #TempList = self.getCards()
-        #TempList.append(other)
-        #self = Hand(TempList)
-        return True #(Hand(TempList))
+        return True
 
     def __radd__(self, other):
         if other == 0:
@@ -87,12 +87,10 @@ class Hand:
             self.setPostHandValue()
 
     def setPreHandValue(self):
-        card_list = []
-        for each in self._cards:
-            card_list = card_list + [each.getRank()]
-            card_list = card_list + [each.getSuit()]
+        if self.numCards != 2:
+            raise Exception("Trying to set PreHandValue with more than two cards")
 
-        if card_list[1] == card_list[3]:
+        if self._cards[0].getSuit() == self._cards[1].getSuit():
             self.suitedInd = 1
         else:
             self.suitedInd = 0
@@ -100,51 +98,35 @@ class Hand:
         self.connectedInd = 0
         self.oneSpaceConnectedInd = 0
         self.PremInd = 0
-        self.highcard = max([card_list[0], card_list[2]])
-        self.lowcard = min([card_list[0], card_list[2]])
+        self.highcard = max(self._cards[0].getRank(), self._cards[1].getRank())
+        self.lowcard = min(self._cards[0].getRank(), self._cards[1].getRank())
 
-        card_list = []
-        for each in self._cards:
-            card_list = card_list + [each.getRank()]
-            card_list = card_list + [each.getSuit()]
-
-        if abs(int(card_list[0]) - int(card_list[2])) == 1:
+        if abs(self._cards[0].getRank() - self._cards[1].getRank()) == 1:
             self.connectedInd = 1
-        elif abs(int(card_list[0]) - int(card_list[2])) == 2:
+        elif abs(self._cards[0].getRank() - self._cards[1].getRank()) == 2:
             self.oneSpaceConnectedInd = 1
-            if int(card_list[0]) == 14 and int(card_list[2]) == 2:
+            if self._cards[0].getRank() == 14 and self._cards[1].getRank() == 2:
                 self.connectedInd = 1
-            elif int(card_list[2]) == 14 and int(card_list[0]) == 2:
+            elif self._cards[1].getRank() == 14 and self._cards[0].getRank() == 2:
                 self.connectedInd = 1
-            elif int(card_list[2]) == 14 and int(card_list[0]) == 3:
+            elif self._cards[1].getRank() == 14 and self._cards[0].getRank() == 3:
                 self.oneSpaceConnectedInd = 1
-            elif int(card_list[0]) == 14 and int(card_list[2]) == 3:
+            elif self._cards[0].getRank() == 14 and self._cards[1].getRank() == 3:
                 self.oneSpaceConnectedInd = 1
 
-        card_list = []
-        for each in self._cards:
-            card_list = card_list + [each.getRank()]
-            card_list = card_list + [each.getSuit()]
-
-        if card_list[0] == card_list[2]:
+        if self._cards[0].getRank() == self._cards[1].getRank():
             self.PPInd = 1
-            self.PPCard = card_list[0]
+            self.PPCard = self._cards[0].getRank()
         else:
             self.PPInd = 0
             self.PPCard = 0
 
-        card_list = []
-        for each in self._cards:
-            card_list = card_list + [each.getRank()]
-            card_list = card_list + [each.getSuit()]
-
-        if card_list[0] == card_list[2]:
-            if card_list[0] in c.PREM_PARIS:
-                self.PremInd = 1
+        if self.PPInd == 1 and self.PPCard in c.PREM_PAIRS:
+            self.PremInd = 1
         elif self.suitedInd == 1:
-            if (card_list[0] == '14' and card_list[2] == '13'):
+            if (self._cards[0].getRank() == '14' and self._cards[1].getRank() == '13'):
                 self.PremInd =  1
-            elif (card_list[2] == '14' and card_list[0] == '13'):
+            elif (self._cards[1].getRank() == '14' and self._cards[0].getRank() == '13'):
                 self.PremInd =  1
         else:
             self.PremInd = 0
@@ -159,30 +141,21 @@ class Hand:
         self.FlushSuit = 0
         for each in self._cards:
             card_list.append([each.getRank(),each.getSuit()])
-            rank_list.append(int(each.getRank()))
+            rank_list.append(each.getRank())
             suit_list.append(each.getSuit())
         card_list = sorted(card_list, key=lambda tup: tup[0], reverse = True)
 
         #Check for flushInd
         self.FlushInd = 0
         self.FlushSuit = 0
-        for i in range(1,5):
-            count = suit_list.count(i)
-            if count >= 5:
+        for i in c.SUIT_DICT:
+            if suit_list.count(i) >= 5:
                 self.FlushInd = 1
                 self.FlushSuit = i
-                self.HighCard = 0
-                for (e1,e2) in card_list:
-                    if e2 == self.FlushSuit:
-                        if e1 > self.HighCard:
-                            self.HighCard = e1
+                self.HighCard = max([e1 for (e1,e2) in card_list if e2 == self.FlushSuit])
 
         #Check for straightInd
-        rank_list = sorted(rank_list, reverse = True)
-        straight_list = []
-        for i in rank_list:
-            if straight_list.count(i) == 0:
-                straight_list.append(i)
+        straight_list = sorted(list(set(rank_list)), reverse = True)
         i = 0
         self.StraightInd = 0
         self.StraightHead = 0
@@ -194,8 +167,7 @@ class Hand:
 
         if self.StraightInd == 0:
             #check for low card ace straight
-            straight_list = [1 if x==14 else x for x in straight_list]
-            straight_list = sorted(straight_list, reverse = True)
+            straight_list = sorted([1 if x==14 else x for x in straight_list], reverse = True)
             i = 0
             while i+5 <= straight_list.__len__():
                 if straight_list[i] - straight_list[i+4] == 4:
@@ -215,9 +187,8 @@ class Hand:
         #Check for 4 of a kind
         self.QuadInd = 0
         self.QuadRank = 0
-        for i in range(2,15):
-            count = rank_list.count(i)
-            if count == 4:
+        for i in c.RANK_DICT:
+            if rank_list.count(i) == 4:
                 self.QuadInd = 1
                 self.QuadRank = i
                 self.PostHandType = 3
@@ -229,16 +200,14 @@ class Hand:
         self.TripRank = 0
         self.FHInd = 0
         self.Pair1Rank = 0
-        for i in range(14,1,-1):
-            count = rank_list.count(i)
-            if count == 3:
+        for i in sorted(list(RANK_DICT), reverse = True):
+            if rank_list.count(i) == 3:
                 self.TripInd = 1
                 self.TripRank = i
                 #Check for full house
                 fh_list = [x for x in rank_list if x != i]
-                for j in range(14,1,-1):
-                    count2 = fh_list.count(j)
-                    if count2 == 2:
+                for j in sorted(list(RANK_DICT), reverse = True):
+                    if fh_list.count(j) == 2:
                         self.FHInd = 1
                         self.TripInd = 0
                         self.Pair1Rank = j
@@ -267,15 +236,13 @@ class Hand:
         #Check for pairs
         self.Pair1Rank = 0
         self.Pair2Rank = 0
-        for i in range(14,1,-1):
-            count = rank_list.count(i)
-            if count == 2:
+        for i in sorted(list(RANK_DICT), reverse = True):
+            if rank_list.count(i) == 2:
                 self.Pair1Rank = i
                 #Check for second pair house
                 p2_list = [x for x in rank_list if x != i]
-                for j in range(14,1,-1):
-                    count2 = p2_list.count(j)
-                    if count2 == 2:
+                for j in range(max(c.RANK_DICT),min(c.RANK_DICT),-1):
+                    if p2_list.count(j) == 2:
                         self.Pair2Rank = j
                     if self.Pair2Rank != 0:
                         break
@@ -290,9 +257,9 @@ class Hand:
             self.PostHandType = 9
             self.PostHandValue = 233 - self.Pair1Rank + 14 #245
             return True
-
+        #TODO move to a new variable called FlushHighCard?
         self.HighCard = 0
-        for i in range(14,1,-1):
+        for i in sorted(list(RANK_DICT), reverse = True):
             count = rank_list.count(i)
             if count >= 1:
                 self.HighCard = i
@@ -305,35 +272,25 @@ class Hand:
     def getCards(self):
         cardList = []
         for each in self._cards:
-            cardList = cardList + [each]
-        return(cardList)
+            cardList.append(each)
+        return cardList
 
     def getPreHandSimple(self):
-        card_list = []
-        suited_ind = ''
-        for each in self._cards:
-            card_list = card_list + [each.getRank()]
-            card_list = card_list + [each.getSuit()]
         if self.PPInd == 1:
             suited_ind == ''
         elif self.suitedInd == 1:
             suited_ind = 's'
         else:
             suited_ind = 'o'
-        #take the numbers
-        card_list.__delitem__(1)
-        card_list.__delitem__(2)
-        #sort desc.
-        card_list.sort(reverse=True)
 
-        return c.RANK_DICT[card_list[0]] + c.RANK_DICT[card_list[1]]+suited_ind
+        return c.RANK_DICT[self._cards[0].getRank()] + c.RANK_DICT[self._cards[1].getRank()]+suited_ind
+
+        #TODO change this to a setPreHandOdds function
+        #TOD the getPreHandsOdds function should just return these
 
     def getPreHandOdds(self,players):
         target_players = players
         odds = 0
-        if len(self._cards) != 2:
-            return False
-
         targethand = self.getPreHandSimple()
 
         pf_file = open(c.MEDIA_DIR + c.PF_ODDS_FILENAME,"r")
@@ -372,17 +329,13 @@ class Hand:
 class Deck:
     def __init__(self):
         self._Deck = []
-        for rank in range(2,15):
-            for suit in [1,2,3,4]:
+        for rank in c.RANK_DICT:
+            for suit in c.SUIT_DICT:
                 c = Card(rank,suit)
                 self._Deck.append(c)
 
     def shuffle(self):
         random.shuffle(self._Deck)
-
-    def print(self):
-        for each in self._Deck:
-            each.printCard()
 
 class Player:
     def __init__(self,seat,name,cash,stats):
@@ -453,17 +406,17 @@ class Game:
         heropos = self.position
         if self.street == 0:
             for each in self.player:
-                if each.FoldedInd != 0 & ((each.seat > heropos) or (each.seat in (0,1))):
+                if each.FoldedInd != 0 and ((each.seat > heropos) or (each.seat in (0,1))):
                     unMovedPlayers += 1
         else:
             for each in self.player:
-                if each.FoldedInd != 0 & each.seat > heropos:
+                if each.FoldedInd != 0 and each.seat > heropos:
                     unMovedPlayers += 1
 
         return unMovedPlayers
 
     def updateHeroBetting(self, action, street, logstring, bet = 0):
-        self.totalhandbet += float(bet)
+        self.totalhandbet += bet
         self.bettingHist[street].extend((action,bet))
         logging.info(logstring)
 
@@ -474,6 +427,8 @@ class Game:
                 self.PFAggressor = 0
         return True
 
+        #TODO set the herocash so that it is measured in pennies
+
     def betoutput(self, action, street, wait, logstring, bet = 0, cBetInd = 0):
         if action == 1:
             bet = self.currbet
@@ -481,7 +436,7 @@ class Game:
             logstring += ". Not enough cash so going all-in"
             self.updateHeroBetting(c.ACTION_DICT[3],street, logstring, self.herocash)
             return 3, 0, wait
-        elif self.herocash * 100 - float(bet) <= bet * c.RAISE_TO_ALLIN_THRESH:
+        elif self.herocash * 100 - bet <= bet * c.RAISE_TO_ALLIN_THRESH:
             logstring += ". Rounding up to all in"
             self.updateHeroBetting(c.ACTION_DICT[3],street, logstring, self.herocash)
             return 3, 0, wait
