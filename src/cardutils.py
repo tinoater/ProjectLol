@@ -17,7 +17,7 @@ import itertools
 import screenutils
 import constants as c
 
-#TODO - after tests are written refactor all the variable names
+# TODO - after tests are written refactor all the variable names
 
 class Card:
 
@@ -49,8 +49,9 @@ class Card:
 class Hand:
     def __init__(self, *cards):
     #TODO change the *cards so its standard
+        self._cards = []
         for card in cards:
-            self._cards = card
+            self._cards.append(card)
         self.numCards = len(self._cards)
         if self.numCards == 2:
             self.setPreHandValue()
@@ -124,9 +125,9 @@ class Hand:
         if self.PPInd == 1 and self.PPCard in c.PREM_PAIRS:
             self.PremInd = 1
         elif self.suitedInd == 1:
-            if (self._cards[0].getRank() == '14' and self._cards[1].getRank() == '13'):
+            if (self._cards[0].getRank() == 14 and self._cards[1].getRank() == 13):
                 self.PremInd =  1
-            elif (self._cards[1].getRank() == '14' and self._cards[0].getRank() == '13'):
+            elif (self._cards[1].getRank() == 14 and self._cards[0].getRank() == 13):
                 self.PremInd =  1
         else:
             self.PremInd = 0
@@ -259,7 +260,7 @@ class Hand:
             return True
         #TODO move to a new variable called FlushHighCard?
         self.HighCard = 0
-        for i in sorted(list(RANK_DICT), reverse = True):
+        for i in sorted(list(c.RANK_DICT), reverse = True):
             count = rank_list.count(i)
             if count >= 1:
                 self.HighCard = i
@@ -277,13 +278,14 @@ class Hand:
 
     def getPreHandSimple(self):
         if self.PPInd == 1:
-            suited_ind == ''
+            suited_ind = ''
         elif self.suitedInd == 1:
             suited_ind = 's'
         else:
             suited_ind = 'o'
 
-        return c.RANK_DICT[self._cards[0].getRank()] + c.RANK_DICT[self._cards[1].getRank()]+suited_ind
+        return c.RANK_DICT[max(self._cards[0].getRank(),self._cards[1].getRank())] \
+               + c.RANK_DICT[min(self._cards[0].getRank(),self._cards[1].getRank())]+suited_ind
 
         #TODO change this to a setPreHandOdds function
         #TOD the getPreHandsOdds function should just return these

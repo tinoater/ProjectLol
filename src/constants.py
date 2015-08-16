@@ -8,7 +8,7 @@ MEDIA_DIR = "Media"
 PF_ODDS_FILENAME = '\\PreFlop.csv'
 RANK_DICT = {2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'T',11:'J',12:'Q',13:'K',14:'A'}
 SUIT_DICT = {1:'H',2:'D',3:'S',4:'C'}
-PREM_PARIS = [14,13,12]
+PREM_PAIRS = [14,13,12]
 HAND_DICT = {1:'Royal Flush', 2:'Straight Flush', 3:'Four of a Kind', 4:'Full House', 5:'Flush', 6:'Straight'
              ,7:'Three of a Kind',8:'Two Pairs',9:'One Pair',10:'High Card'}
 QUERY_DICT={'Name':0, 'NumHands':1, 'VPIP_Perc':2, 'PFR_Perc':3, 'Call_Perc':4, 'CBet_Perc':5, 'CBet_Fold_Perc':6

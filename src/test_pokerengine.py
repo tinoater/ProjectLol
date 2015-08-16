@@ -1,6 +1,6 @@
 import unittest
 
-from cardutils import Card
+import cardutils
 
 class CardTestCase(unittest.TestCase):
     """Tests for Card class in cardutils.py."""
@@ -29,10 +29,9 @@ class AKsHandTestCase(unittest.TestCase):
     """Tests for AKs Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = Hand(Card(14,1),Card(13,1))
+        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(13,1))
 
     def tearDown(self):
-        self.hand.dispose()
         self.hand = None
 
     def test_shared_cards_are_zero(self):
@@ -49,15 +48,15 @@ class AKsHandTestCase(unittest.TestCase):
 
     def test_is_AKs_Connected(self):
         """Is AKs considered connected?"""
-        self.assertEqual(self.hand.ConnectedInd, 1)
+        self.assertEqual(self.hand.connectedInd, 1)
 
     def test_is_AKs_Suited(self):
         """Is AKs considered suited?"""
-        self.assertEqual(self.hand.SuitedInd, 1)
+        self.assertEqual(self.hand.suitedInd, 1)
 
     def test_AKs_correct_preflop_odds(self):
         """Is AKs preflop 10 player odds the correct value"""
-        self.assertEqual(self.hand.preFlopOdds10, 20.1)
+        self.assertEqual(self.hand.preFlopOdds10, 20.7)
 
     def test_is_AKs_preHandSimple_correct(self):
         """Does AKs have the correct preHandSimple expression?"""
@@ -67,10 +66,9 @@ class PocketNineHandTestCase(unittest.TestCase):
     """Tests for 99 Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = Hand(Card(9,1),Card(9,2))
+        self.hand = cardutils.Hand(cardutils.Card(9,1),cardutils.Card(9,2))
 
     def tearDown(self):
-        self.hand.dispose()
         self.hand = None
 
     def test_is_99_Premium(self):
@@ -79,7 +77,7 @@ class PocketNineHandTestCase(unittest.TestCase):
 
     def test_is_99_Connected(self):
         """Is 99 considered connected?"""
-        self.assertEqual(self.hand.ConnectedInd, 0)
+        self.assertEqual(self.hand.connectedInd, 0)
 
     def test_is_99_1SpaceConnected(self):
         """Is 99 considered 1spaceconnected?"""
@@ -87,11 +85,11 @@ class PocketNineHandTestCase(unittest.TestCase):
 
     def test_is_99_Suited(self):
         """Is 99 considered suited?"""
-        self.assertEqual(self.hand.SuitedInd, 0)
+        self.assertEqual(self.hand.suitedInd, 0)
 
     def test_99_correct_preflop_odds(self):
         """Is 99 preflop 10 player odds the correct value"""
-        self.assertEqual(self.hand.preFlopOdds10, 20.1)
+        self.assertEqual(self.hand.preFlopOdds10, 15.6)
 
     def test_is_99_a_PockedPair(self):
         """Is 99 considered a pocket pair?"""
@@ -109,10 +107,9 @@ class FiveSevenOffHandTestCase(unittest.TestCase):
     """Tests for 57o Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = Hand(Card(5,1),Card(7,2))
+        self.hand = cardutils.Hand(cardutils.Card(5,1),cardutils.Card(7,2))
 
     def tearDown(self):
-        self.hand.dispose()
         self.hand = None
 
     def test_is_57o_Premium(self):
@@ -121,7 +118,7 @@ class FiveSevenOffHandTestCase(unittest.TestCase):
 
     def test_is_57o_Connected(self):
         """Is 57o considered connected?"""
-        self.assertEqual(self.hand.ConnectedInd, 0)
+        self.assertEqual(self.hand.connectedInd, 0)
 
     def test_is_57o_1SpaceConnected(self):
         """Is 57o considered 1spaceconnected?"""
@@ -129,11 +126,11 @@ class FiveSevenOffHandTestCase(unittest.TestCase):
 
     def test_is_57o_Suited(self):
         """Is 57o considered suited?"""
-        self.assertEqual(self.hand.SuitedInd, 0)
+        self.assertEqual(self.hand.suitedInd, 0)
 
     def test_57o_correct_preflop_odds(self):
         """Is 57o preflop 10 player odds the correct value"""
-        self.assertEqual(self.hand.preFlopOdds10, 20.1)
+        self.assertEqual(self.hand.preFlopOdds10, 7.9)
 
     def test_is_57o_a_PockedPair(self):
         """Is 57o considered a pocket pair?"""
@@ -145,4 +142,4 @@ class FiveSevenOffHandTestCase(unittest.TestCase):
 
     def test_is_57o_preHandSimple_correct(self):
         """Does 57o have the correct preHandSimple expression?"""
-        self.assertEqual(self.hand.getPreHandSimple(), '57o')
+        self.assertEqual(self.hand.getPreHandSimple(), '75o')
