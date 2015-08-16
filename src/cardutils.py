@@ -14,7 +14,6 @@ import logging
 import logging.config
 import itertools
 
-import screenutils
 import constants as c
 
 # TODO - after tests are written refactor all the variable names
@@ -201,13 +200,13 @@ class Hand:
         self.TripRank = 0
         self.FHInd = 0
         self.Pair1Rank = 0
-        for i in sorted(list(RANK_DICT), reverse = True):
+        for i in sorted(list(c.RANK_DICT), reverse = True):
             if rank_list.count(i) == 3:
                 self.TripInd = 1
                 self.TripRank = i
                 #Check for full house
                 fh_list = [x for x in rank_list if x != i]
-                for j in sorted(list(RANK_DICT), reverse = True):
+                for j in sorted(list(c.RANK_DICT), reverse = True):
                     if fh_list.count(j) == 2:
                         self.FHInd = 1
                         self.TripInd = 0
@@ -237,7 +236,7 @@ class Hand:
         #Check for pairs
         self.Pair1Rank = 0
         self.Pair2Rank = 0
-        for i in sorted(list(RANK_DICT), reverse = True):
+        for i in sorted(list(c.RANK_DICT), reverse = True):
             if rank_list.count(i) == 2:
                 self.Pair1Rank = i
                 #Check for second pair house
