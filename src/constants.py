@@ -14,6 +14,18 @@ HAND_DICT = {1:'Royal Flush', 2:'Straight Flush', 3:'Four of a Kind', 4:'Full Ho
 QUERY_DICT={'Name':0, 'NumHands':1, 'VPIP_Perc':2, 'PFR_Perc':3, 'Call_Perc':4, 'CBet_Perc':5, 'CBet_Fold_Perc':6
           , 'CBet_Call_Perc':7, 'CBet_Raise_Perc':8, 'CBet_Turn_Perc':9}
 ACTION_DICT={0:'X', 1:'C', 2:'R', 3:'A'}
+
+#TODO: Implement this everywhere
+BETSTRING_FOLD = "X"
+BETSTRING_CALL = "C"
+BETSTRING_RAISE = "R"
+BETSTRING_ALLIN = "A"
+BETSTRING_SB = "SB"
+BETSTRING_BB = "BB"
+
+HERONAME = 'tinoater'
+CARDCROP_BBOX = (1,1,10,15)
+
 #These card positions are hardcoded
 #Hero cards
 CARD1POS = (215, 222, 245, 239)

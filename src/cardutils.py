@@ -1,23 +1,11 @@
 __author__ = 'Ahab'
 
-import math
 import csv
-import operator
-import functools
 import random
-from PIL import Image, ImageFilter, ImageGrab, ImageEnhance, ImageChops
-import time
-import psycopg2
-import fileinput
-import linecache
-import logging
-import logging.config
 
 import constants as c
-import nlhutils
 
 # TODO - after tests are written refactor all the variable names
-
 class Card:
 
     def __init__(self, rank, suit):
@@ -48,6 +36,8 @@ class Card:
 class Hand:
     def __init__(self, *cards):
     #TODO change the *cards so its standard
+        self.PreFlopOdds = None
+        self.PostFlopOdds = None
         self._cards = []
         for card in cards:
             self._cards.append(card)
@@ -57,8 +47,6 @@ class Hand:
             self.sharedCards = []
         elif self.numCards >= 5:
             self.setPostHandValue()
-        self.PreFlopOdds = 0
-        self.PostFlopOdds = 0
     #TODO update this so the sharedCards are read from the *cards input
 
     def __add__(self, other):
@@ -286,12 +274,12 @@ class Hand:
         return c.RANK_DICT[max(self._cards[0].getRank(),self._cards[1].getRank())] \
                + c.RANK_DICT[min(self._cards[0].getRank(),self._cards[1].getRank())]+suited_ind
 
-        #TODO change this to a setPreHandOdds function
-        #TOD the getPreHandsOdds function should just return these
-
-    def getPreHandOdds(self,players):
-        target_players = players
-        odds = 0
+    def setPreHandOdds(self,players):
+        """
+        Sets the instance Hands PreFlopOdds from a csv file
+        :param players:
+        :return:
+        """
         targethand = self.getPreHandSimple()
 
         pf_file = open(c.MEDIA_DIR + c.PF_ODDS_FILENAME,"r")
@@ -299,11 +287,22 @@ class Hand:
 
         for row in pf_reader:
             if row[0] == targethand:
-                odds = float(row[int(target_players) - 1])
+                odds = float(row[int(players) - 1])
 
         pf_file.close()
+        if odds == None:
+            raise Exception("Failed to get pre flop odds")
         self.PreFlopOdds = odds
-        return odds
+
+    def getPreHandOdds(self,players):
+        """
+        Returns the PreFlop odds of the instance Hand. If None then will set them first.
+        :param players:
+        :return: PreFlop odds
+        """
+        if self.PreFlopOdds is None:
+            self.setPreHandOdds(players)
+        return self.PreFlopOdds
 
     def getPostCurrentHandString(self):
         HandOutput = c.HAND_DICT[self.PostHandType]
@@ -340,12 +339,25 @@ class Deck:
 
 class Player:
     def __init__(self,seat,name,cash,stats):
-        self.seat = seat
+        self.seat = int(seat)
         self.name = name
-        self.cash = cash
+        self.cash = int(cash)
         self.stats = stats
         self.bHist = [[],[],[],[]]
         self.FoldedInd = 0
+
+    def updatePlayerbHist(self,street,betstring):
+        """
+        Updates the Player instances betting history and FoldedInd
+        :param street:
+        :param betstring:
+        :return:
+        """
+
+        #TODO: If i don't destroy the players I can keep a global betting move count
+        self.bHist[street].append(betstring)
+        if betstring == c.BETSTRING_FOLD:
+            self.FoldedInd = 1
 
     def debugPlayerInfo(self):
         string = self.name
@@ -367,354 +379,3 @@ class Stats:
         self.CBet_R = CBet_R
         self.CBet_T = CBet_T
 
-#Card functions
-def findcardrank(cardimage, suitInd):
-    deckfilename = c.MEDIA_DIR + "\\Deck1_" + c.SUIT_DICT[suitInd] + ".bmp"
-    try:
-        deckcard = Image.open(deckfilename)
-    except:
-        logging.critical("Unable to open deck")
-        return
-
-    xpoint = 2
-    ypoint = 2
-    width = 9
-    height = 14
-    xmove = 36
-    res = []
-    for i in range(0,14):
-        cardbox = (xpoint, ypoint, xpoint + width, ypoint + height)
-        deckcardtry = deckcard.convert("RGB")
-        deckcardtry = ImageEnhance.Color(deckcardtry).enhance(0.0)
-        deckcardtry = deckcardtry.filter(ImageFilter.CONTOUR)
-        deckcardtry = deckcardtry.crop(cardbox)
-        if c.DEBUGPRINT == True:
-            deckcardtry.save("DECKCARDTRY "+ str(i+2) + c.SUIT_DICT[suitInd] +".jpg")
-
-        rms = rmsdiff(deckcardtry, cardimage)
-        #print("This is card number: " + str(i + 2) + " with difference: " + str(rms))
-        res.append((i+2,rms))
-        xpoint = xpoint + xmove
-    res = sorted(res, key=lambda tup: tup[1])
-    found = res[0][0]
-    #print(res)
-    return(found)
-
-def rmsdiff(im1, im2):
-    "Calculate the root-mean-square difference between two images"
-
-    h = ImageChops.difference(im1, im2).histogram()
-
-    # calculate rms
-    return math.sqrt(functools.reduce(operator.add,
-        map(lambda h, i: h*(i**2), h, range(256))
-    ) / (float(im1.size[0]) * im1.size[1]))
-
-def findcardsuit(cardimage):
-    sum = [[1,0],[4,0],[2,0]]
-    for i, value in enumerate(cardimage.histogram()):
-        j = i % 256
-        if i <= 256:
-            sum[0][1] = sum[0][1] + j * value
-        elif i <= 512:
-            sum[1][1] = sum[1][1] + j * value
-        else:
-            sum[2][1] = sum[2][1] + j * value
-
-    #if all similar then a spade
-    average = (sum[0][1] + sum[1][1] + sum[2][1])/3
-    if abs(average - sum[0][1]) <= 500:
-        if abs(average - sum[1][1]) <= 500:
-            if abs(average - sum[2][1]) <= 500:
-                return 3
-
-    sum = sorted(sum, key=lambda tup:tup[1], reverse=True)
-    return sum[0][0]
-
-def findplayerpresent(box):
-    playerim = ImageGrab.grab(box)
-    sum = [[1,0],[4,0],[2,0]]
-    for i, value in enumerate(playerim.histogram()):
-        j = i % 256
-        if i <= 256:
-            sum[0][1] = sum[0][1] + j * value
-        elif i <= 512:
-            sum[1][1] = sum[1][1] + j * value
-        else:
-            sum[2][1] = sum[2][1] + j * value
-    if (sum[0][1] > sum[1][1]) & (sum[0][1] > sum[2][1]):
-        return 1
-    else:
-        return 0
-
-def findplayeraction(box):
-    playerim = ImageGrab.grab(box)
-    r, g, b = playerim.getpixel((30,0))
-    rgbint = r*256^2 + g*256 + b
-
-    if abs(rgbint - c.PLAYERFOLDRGB) <=1000:
-        return "X"
-    elif abs(rgbint - c.PLAYERCALLRGB) <=1000:
-        return "C"
-    elif abs(rgbint - c.PLAYERRAISERGB) <=1000:
-        return "R"
-    elif abs(rgbint - c.PLAYERALLINRGB) <=1000:
-        return "A"
-    elif abs(rgbint - c.PLAYERSBRGB) <=10:
-        return "SB"
-    elif abs(rgbint - c.PLAYERBBRGB) <=10:
-        return "BB"
-    else:
-        return
-
-def grabcard(x):
-    (left, top, right, bot) = x
-    cardim = ImageGrab.grab(bbox = (left, top, right, bot))
-    cardim = cardim.convert("RGB")
-    return cardim
-
-def processflopcard(cardim):
-    cardim = cardim.filter(ImageFilter.CONTOUR)
-    cardim = ImageEnhance.Color(cardim).enhance(0.0)
-    cardim = ImageEnhance.Sharpness(cardim).enhance(2)
-    cardim = cardim.crop((1,1,10,15))
-    if c.DEBUGPRINT == True:
-        cardim.save("Card"+str(time.time())+".jpg")
-    return cardim
-
-def grabstreetcard(box):
-    cardim = grabcard(box)
-    suit = findcardsuit(cardim)
-    cardim = cardim.filter(ImageFilter.CONTOUR)
-    (x,y) = cardim.size
-    cardim = cardim.crop((1,1,x - 1,y - 1))
-    cardim = ImageEnhance.Color(cardim).enhance(0.0)
-    cardim = ImageEnhance.Sharpness(cardim).enhance(2)
-    card = Card(findcardrank(cardim,suit),suit)
-    return card
-
-def pollforheroturn(box):
-    timeout = False
-    count = 0
-    while timeout == False:
-        playerbarim = ImageGrab.grab(box)
-        playerbarim = playerbarim.convert("RGB")
-
-        #Poll until it is heros turn
-        total = [0]*256
-        for i, value in enumerate(playerbarim.histogram()):
-            total[i % 256] = total[i % 256] + value
-
-        if total[255] >= sum(total)*0.6:
-            return 1, findstreet(c.STREETBOXPOS)
-
-        count = count + 1
-        if c.DEBUGPRINT == True:
-            if count % 10 == 0:
-                logging.debug("Poll for Hero Turn sleeping " + str(count))
-
-        if count >= 600:
-            if c.DEBUGPRINT == True:
-                logging.critical("Timeout - exiting Poll for Hero Turn")
-            return 0
-        time.sleep(0.5)
-
-def findstreet(box):
-    streetboxim = ImageGrab.grab(box)
-    streetboxim = streetboxim.convert("RGB")
-    streetboxim = ImageEnhance.Color(streetboxim).enhance(0.0)
-    streetboxim = streetboxim.filter(ImageFilter.CONTOUR)
-
-    #check for flop
-    streetfilename = c.MEDIA_DIR + "\\0-PreFlop.jpg"
-    try:
-        streetim = Image.open(streetfilename)
-    except:
-        logging.critical("Unable to open preflop")
-        return
-    streetim = ImageEnhance.Color(streetim).enhance(0.0)
-    streetim = streetim.filter(ImageFilter.CONTOUR)
-    rms = rmsdiff(streetim, streetboxim)
-    if rms <= 30:
-        return 1
-
-    #test for flop
-    streetboxim = streetboxim.crop((101,0,165,12))
-    streetfilename = c.MEDIA_DIR + "\\1-Flop.jpg"
-    try:
-        streetim = Image.open(streetfilename)
-    except:
-        logging.critical("Unable to open flop")
-        return
-    streetim = ImageEnhance.Color(streetim).enhance(0.0)
-    streetim = streetim.filter(ImageFilter.CONTOUR)
-    rms = rmsdiff(streetim, streetboxim)
-    if rms <=30:
-        return 2
-
-    #test for turn
-    streetboxim = streetboxim.crop((32,0,64,12))
-    streetfilename = c.MEDIA_DIR + "\\2-Turn.jpg"
-    try:
-        streetim = Image.open(streetfilename)
-    except:
-        logging.critical("Unable to open preflop")
-        return
-    streetim = ImageEnhance.Color(streetim).enhance(0.0)
-    streetim = streetim.filter(ImageFilter.CONTOUR)
-    rms = rmsdiff(streetim, streetboxim)
-    if rms <=60:
-        return 3
-    else:
-        return 4
-
-def getQueryResults(names):
-    """Return the DB stats for a list of players"""
-    namelist = []
-    for each in names:
-       namelist.append(each)
-    if len(namelist) == 1:
-        singleind = 1
-    else:
-        singleind = 0
-    try:
-        conn = psycopg2.connect(dbname = "HoldemManager2", user="postgres", host="localhost", password="postgrespass", port=5432)
-    except psycopg2.Error as e:
-        logging.critical("Cannot connect to DB")
-        logging.debug(e)
-
-    query = """SELECT p.playername
-     , SUM(totalhands) AS Total_Hands
-     , (SUM(cpr.vpiphands) * 100 / SUM(cpr.totalhands)) AS VPIP_Perc
-     , (SUM(cpr.pfrhands) * 100 / SUM(cpr.totalhands)) AS PFR_Perc
-     , CASE WHEN SUM(cpr.couldcoldcall) = 0 THEN -1
-            ELSE (SUM(cpr.didcoldcall) * 100 / SUM(cpr.couldcoldcall))
-            END AS Call_Perc
-     , CASE WHEN SUM(cpr.flopcontinuationbetpossible) = 0 THEN -1
-            ELSE (SUM(cpr.flopcontinuationbetmade) * 100 / SUM(cpr.flopcontinuationbetpossible))
-            END AS CBet_Perc
-     , CASE WHEN SUM(cpr.facingflopcontinuationbet) = 0 THEN -1
-            ELSE (SUM(cpr.foldedtoflopcontinuationbet) * 100 / SUM(cpr.facingflopcontinuationbet))
-            END AS CBet_Fold_Perc
-     , CASE WHEN SUM(cpr.facingflopcontinuationbet) = 0 THEN -1
-            ELSE (SUM(cpr.calledflopcontinuationbet) * 100 / SUM(cpr.facingflopcontinuationbet))
-            END AS CBet_Call_Perc
-     , CASE WHEN SUM(cpr.facingflopcontinuationbet) = 0 THEN -1
-            ELSE (SUM(cpr.raisedflopcontinuationbet) * 100 / SUM(cpr.facingflopcontinuationbet))
-            END AS CBet_Raise_Perc
-     , CASE WHEN SUM(cpr.turncontinuationbetpossible) = 0 THEN -1
-            ELSE (SUM(cpr.turncontinuationbetmade) * 100 / SUM(cpr.turncontinuationbetpossible))
-            END AS CBet_Turn_Perc
-  FROM players p
-  JOIN compiledplayerresults cpr
-    ON p.player_id = cpr.player_id
-  JOIN gametypes g
-    ON cpr.gametype_id = g.gametype_id
-  WHERE p.playername IN ("""
-    for name in namelist:
-        query += "'" + name + "',"
-    query = query[:-1]
-    query += """)
-    --AND p.pokersite_id = 12
-    --AND g.istourney = FALSE
-    --AND g.bigblindincents <=10
-    --AND g.tablesize <=10
-    --AND g.pokergametype_id = 0 --NLH
-  GROUP BY p.playername"""
-
-    #Connect to DB and run query
-    cur = conn.cursor()
-    cur.execute(query)
-    statlist = []
-    for row in cur.fetchall():
-        statlist += [list(row)]
-#    #append the positions
-#    for each in statlist:
-#        name = each[0]
-#        for r in names:
-#            if r == name:
-#                each.append(r[1])
-#    statlist.sort(key=lambda x: x[10])
-
-    if singleind == 1:
-        if len(statlist) == 0:
-            #if no stats found then set to zeros
-            statlist = [[0,0,0,0,0,0,0,0,0,0]]
-        return(statlist[0][1:])
-    else:
-        return(statlist)
-
-def getplayersfor9table888(filename,heroname = 'tinoater'):
-    """Returns the players and cash of the table. Hero at 0"""
-
-    pointer = 0
-    GAMESTRING = '#Game No'
-    filename = c.HAND_HISTORY_DIR + filename
-    for line in fileinput.input(filename):
-        if line[0:len(GAMESTRING)] == GAMESTRING:
-            pointer = fileinput.lineno()
-    pointer += 6
-
-    lines = []
-    for i in range(0,10):
-        line = linecache.getline(filename,pointer + i)
-        if line[:5] == "Seat ":
-            if line[6] == ":":
-                seat = int(line[5])
-                name = line[8:]
-            else:
-                seat = int(line[5:7])
-                name = line[9:]
-            a = 0
-            flag = True
-            while flag == True:
-                if name[a] == " ":
-                    name = name[:a]
-                    flag = False
-                else:
-                    a += 1
-            flag = True
-            i = 0
-            while flag == True:
-                if line[i] == "$":
-                    cash = line[i+1:]
-                    flag = False
-                else:
-                    i += 1
-            flag = True
-            i = 0
-            while flag == True:
-                if cash[i] == ")":
-                    cash = cash[:i-1]
-                    flag = False
-                else:
-                    i += 1
-            lines.append([seat,name,cash])
-
-
-    #For 9 people tables there is no Seat 8 for some reason
-    for i in range(0,len(lines)):
-        if lines[i][0] > 8:
-            lines[i][0] -= 1
-
-    maxi = max([e1 for [e1,e2,e3] in lines])
-    #Now rearrange around hero
-    for each in lines:
-        if each[1] == heroname:
-            heronum = each[0]
-    for each in lines:
-        if each[0] >= heronum:
-            each[0] -= heronum
-        else:
-            each[0] += maxi - heronum
-
-    #TODO - Look through the betting to derive current cash amounts
-
-    lines.sort(key=lambda x: x[0])
-    p=[]
-    logging.debug("Beginning queries to DB")
-    for i in range(0,len(lines)):
-        p.append(Player(lines[i][0], lines[i][1], lines[i][2]
-                        , Stats(*tuple(getQueryResults([lines[i][1]])))))
-    logging.debug("DB queries finished")
-    return p

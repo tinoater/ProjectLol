@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65bf415e-7a8c-4377-8614-d82535ce73bd" name="Default" comment="Adding project to repo, hopefully">
+    <list default="true" id="65bf415e-7a8c-4377-8614-d82535ce73bd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ToyProgram.py" />
+      <change type="MOVED" beforePath="C:\Users\Ahab\PycharmProjects\PokerEngine\src\Streamlined.py" afterPath="$PROJECT_DIR$/src/NineHandCash888.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PokerEngine.iml" afterPath="$PROJECT_DIR$/.idea/PokerEngine.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cardutils.py" afterPath="$PROJECT_DIR$/src/cardutils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_pokerengine.py" afterPath="$PROJECT_DIR$/src/test_pokerengine.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.py" afterPath="$PROJECT_DIR$/src/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nlhutils.py" afterPath="$PROJECT_DIR$/src/nlhutils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screenutils.py" afterPath="$PROJECT_DIR$/src/screenutils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_cardutils.py" afterPath="$PROJECT_DIR$/src/test_cardutils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_nlhutils.py" afterPath="$PROJECT_DIR$/src/test_nlhutils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="a0e2de8d-9b4b-4fab-99e0-7852901172bd" name="New changelist" comment="" />
@@ -26,100 +33,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Streamlined.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="207" column="47" selection-start-line="207" selection-start-column="47" selection-end-line="207" selection-end-column="47" />
-              <folding>
-                <element signature="e#21#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/constants.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="47" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="47" />
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cardutils.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+      <file leaf-file-name="nlhutils.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.027542373">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="12" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
               <folding>
-                <element signature="e#21#32#0" expanded="true" />
-                <element signature="e#386#1065#0" expanded="false" />
-                <element signature="e#1083#11519#0" expanded="false" />
-                <element signature="e#1624#1784#0" expanded="false" />
-                <element signature="e#1825#1916#0" expanded="false" />
-                <element signature="e#1949#2062#0" expanded="false" />
-                <element signature="e#2109#2224#0" expanded="false" />
-                <element signature="e#4204#9218#0" expanded="false" />
-                <element signature="e#9252#9356#0" expanded="false" />
-                <element signature="e#9398#9856#0" expanded="false" />
-                <element signature="e#9904#10296#0" expanded="false" />
-                <element signature="e#10346#11519#0" expanded="false" />
-                <element signature="e#11537#11782#0" expanded="false" />
-                <element signature="e#11565#11723#0" expanded="false" />
-                <element signature="e#12264#12589#0" expanded="false" />
-                <element signature="e#12607#34479#0" expanded="false" />
-                <element signature="e#14670#15287#0" expanded="false" />
-                <element signature="e#15323#23522#0" expanded="false" />
-                <element signature="e#23567#25941#0" expanded="false" />
-                <element signature="e#25977#26109#0" expanded="false" />
-                <element signature="e#26147#26280#0" expanded="false" />
-                <element signature="e#26316#26731#0" expanded="false" />
-                <element signature="e#26767#26878#0" expanded="false" />
-                <element signature="e#26911#34479#0" expanded="false" />
-                <element signature="e#34537#35559#0" expanded="false" />
-                <element signature="e#35588#35870#0" expanded="false" />
-                <element signature="e#35905#36524#0" expanded="false" />
-                <element signature="e#36558#36989#0" expanded="false" />
-                <element signature="e#37022#37541#0" expanded="false" />
-                <element signature="e#37564#37704#0" expanded="false" />
-                <element signature="e#37739#38027#0" expanded="false" />
-                <element signature="e#38058#38400#0" expanded="false" />
-                <element signature="e#38453#39330#0" expanded="false" />
-                <element signature="e#39362#40123#0" expanded="false" />
-                <element signature="e#40150#41641#0" expanded="false" />
-                <element signature="e#41834#43916#0" expanded="false" />
-                <element signature="e#44106#45195#0" expanded="false" />
-                <element signature="e#45229#48056#0" expanded="false" />
-                <element signature="e#48122#50300#0" expanded="false" />
+                <element signature="e#21#36#0" expanded="true" />
+                <element signature="e#205#295#1" expanded="false" />
+                <element signature="e#1396#1566#0" expanded="false" />
+                <element signature="e#1609#2142#0" expanded="false" />
+                <element signature="e#2183#2621#0" expanded="false" />
+                <element signature="e#2818#2969#0" expanded="false" />
+                <element signature="e#3027#3499#0" expanded="false" />
+                <element signature="e#3560#4289#0" expanded="false" />
+                <element signature="e#4318#5640#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_pokerengine.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test_pokerengine.py">
+      <file leaf-file-name="ToyProgram.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ToyProgram.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="509" column="0" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
+              <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#78#895#0" expanded="false" />
-                <element signature="e#943#2171#0" expanded="false" />
-                <element signature="e#2226#3545#0" expanded="false" />
-                <element signature="e#3602#4938#0" expanded="false" />
-                <element signature="e#4998#5742#0" expanded="false" />
-                <element signature="e#5793#7078#0" expanded="false" />
-                <element signature="e#7132#8455#0" expanded="false" />
-                <element signature="e#8507#9994#0" expanded="false" />
-                <element signature="e#10044#11326#0" expanded="false" />
-                <element signature="e#11372#12581#0" expanded="false" />
-                <element signature="e#12630#13877#0" expanded="false" />
-                <element signature="e#13923#15127#0" expanded="false" />
-                <element signature="e#15175#16262#0" expanded="false" />
-                <element signature="e#16307#17352#0" expanded="false" />
-                <element signature="e#17401#18485#0" expanded="false" />
+                <element signature="e#21#35#0" expanded="true" />
+                <element signature="e#121#1650#0" expanded="false" />
+                <element signature="e#179#325#0" expanded="false" />
+                <element signature="e#374#1650#0" expanded="false" />
+                <element signature="e#1748#1894#0" expanded="false" />
+                <element signature="e#3625#3881#0" expanded="false" />
+                <element signature="e#5823#5835#0" expanded="false" />
+                <element signature="e#5875#5886#0" expanded="false" />
+                <element signature="e#6060#8166#0" expanded="false" />
+                <element signature="e#8189#8271#0" expanded="false" />
+                <element signature="e#8299#8953#0" expanded="false" />
+                <element signature="e#8985#9073#0" expanded="false" />
+                <element signature="e#9105#9312#0" expanded="false" />
+                <element signature="e#9353#9580#0" expanded="false" />
+                <element signature="e#9613#9977#0" expanded="false" />
+                <element signature="e#10008#10132#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/src/screenutils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
               <folding>
                 <element signature="e#21#32#0" expanded="true" />
                 <element signature="e#152#287#0" expanded="false" />
@@ -144,9 +109,50 @@
                 <element signature="e#2447#2658#0" expanded="false" />
                 <element signature="e#2686#2775#0" expanded="false" />
                 <element signature="e#2803#2892#0" expanded="false" />
-                <element signature="e#2919#3087#0" expanded="false" />
-                <element signature="e#3118#3213#0" expanded="false" />
-                <element signature="e#3253#3464#0" expanded="false" />
+                <element signature="e#2915#3138#0" expanded="false" />
+                <element signature="e#3165#3333#0" expanded="false" />
+                <element signature="e#3364#3459#0" expanded="false" />
+                <element signature="e#3499#3710#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_nlhutils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cardutils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+              <folding>
+                <element signature="e#21#31#0" expanded="true" />
+                <element signature="e#152#831#0" expanded="false" />
+                <element signature="e#444#567#0" expanded="false" />
+                <element signature="e#849#11616#0" expanded="false" />
+                <element signature="e#1396#1556#0" expanded="false" />
+                <element signature="e#1597#1688#0" expanded="false" />
+                <element signature="e#1721#1834#0" expanded="false" />
+                <element signature="e#1881#1996#0" expanded="false" />
+                <element signature="e#2037#3934#0" expanded="false" />
+                <element signature="e#3976#8990#0" expanded="false" />
+                <element signature="e#9024#9128#0" expanded="false" />
+                <element signature="e#9170#9505#0" expanded="false" />
+                <element signature="e#9553#10077#0" expanded="false" />
+                <element signature="e#10443#11616#0" expanded="false" />
+                <element signature="e#11634#11879#0" expanded="false" />
+                <element signature="e#12566#12764#0" expanded="false" />
+                <element signature="e#12783#13108#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -174,12 +180,18 @@
       <list>
         <option value="$PROJECT_DIR$/src/OddsEngine.py" />
         <option value="$PROJECT_DIR$/src/Learning.py" />
-        <option value="$PROJECT_DIR$/src/screenutils.py" />
-        <option value="$PROJECT_DIR$/src/Streamlined.py" />
         <option value="$PROJECT_DIR$/src/Mess.py" />
-        <option value="$PROJECT_DIR$/src/constants.py" />
         <option value="$PROJECT_DIR$/src/test_pokerengine.py" />
+        <option value="$PROJECT_DIR$/src/Streamlined.py" />
+        <option value="$PROJECT_DIR$/src/screenutils.py" />
+        <option value="$PROJECT_DIR$/src/constants.py" />
+        <option value="$PROJECT_DIR$/src/test_cardutils.py" />
+        <option value="$PROJECT_DIR$/src/NineHandCash888.py" />
+        <option value="$PROJECT_DIR$/src/test_nlhutils.py" />
+        <option value="$PROJECT_DIR$/src/Other Decks/ToyProgram.py" />
         <option value="$PROJECT_DIR$/src/cardutils.py" />
+        <option value="$PROJECT_DIR$/src/ToyProgram.py" />
+        <option value="$PROJECT_DIR$/src/nlhutils.py" />
       </list>
     </option>
   </component>
@@ -215,7 +227,43 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="PokerEngine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="PokerEngine">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -238,55 +286,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Other Decks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Mess.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test_nlhutils.py" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_pokerengine">
-    <configuration default="false" name="Mess" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Mess.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="constants" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/constants.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittest CardTestCase.test_is_rank_integer" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ahab\PycharmProjects\PokerEngine\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.ToyProgram">
+    <configuration default="false" name="Unittests in test_cardutils" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -296,11 +333,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_pokerengine.py" />
-      <option name="CLASS_NAME" value="CardTestCase" />
-      <option name="METHOD_NAME" value="test_is_rank_integer" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_cardutils.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -308,7 +345,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in CardTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in GameTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -318,8 +355,8 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_pokerengine.py" />
-      <option name="CLASS_NAME" value="CardTestCase" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_nlhutils.py" />
+      <option name="CLASS_NAME" value="GameTestCase" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_CLASS" />
@@ -330,7 +367,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in test_pokerengine" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in AAsGameTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -340,7 +377,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_pokerengine.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_nlhutils.py" />
+      <option name="CLASS_NAME" value="AAsGameTestCase" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in test_nlhutils" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PokerEngine" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_nlhutils.py" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
@@ -350,6 +409,23 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ToyProgram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PokerEngine" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/ToyProgram.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -511,19 +587,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.Learning" />
       <item index="1" class="java.lang.String" itemvalue="Python.Streamlined" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Mess" />
-      <item index="3" class="java.lang.String" itemvalue="Python.constants" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest CardTestCase.test_is_rank_integer" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in CardTestCase" />
-      <item index="6" class="java.lang.String" itemvalue="Python tests.Unittests in test_pokerengine" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_cardutils" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in GameTestCase" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in AAsGameTestCase" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhutils" />
+      <item index="6" class="java.lang.String" itemvalue="Python.ToyProgram" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test_pokerengine" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in CardTestCase" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Mess" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest CardTestCase.test_is_rank_integer" />
-        <item index="4" class="java.lang.String" itemvalue="Python.constants" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ToyProgram" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhutils" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_cardutils" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in AAsGameTestCase" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in GameTestCase" />
       </list>
     </recent_temporary>
   </component>
@@ -545,7 +621,13 @@
       <option name="project" value="LOCAL" />
       <updated>1438534648883</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Unittests written for Card, Hand and Deck classes">
+      <created>1439762059586</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1439762059587</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -561,25 +643,25 @@
     <frame x="-8" y="-8" width="1296" height="816" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27421874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35588235" sideWeight="0.51783353" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3387574" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.49678457" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33050847" sideWeight="0.48216644" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3239645" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33050847" sideWeight="0.48216644" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -592,11 +674,11 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3387574" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.49678457" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27421874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3239645" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -616,15 +698,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding project to repo, hopefully" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding project to repo, hopefully" />
+    <MESSAGE value="Unittests written for Card, Hand and Deck classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unittests written for Card, Hand and Deck classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/src/cardutils.py</url>
-          <line>332</line>
-          <option name="timeStamp" value="314" />
+          <url>file://$PROJECT_DIR$/src/test_nlhutils.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="342" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -637,7 +720,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="315" />
+      <option name="time" value="373" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -646,62 +729,538 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="637" column="0" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
+          <caret line="372" column="64" selection-start-line="372" selection-start-column="64" selection-end-line="372" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
           <folding>
             <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#152#287#0" expanded="false" />
+            <element signature="e#314#575#0" expanded="false" />
+            <element signature="e#613#821#0" expanded="false" />
+            <element signature="e#849#1106#0" expanded="false" />
+            <element signature="e#1138#1411#0" expanded="false" />
+            <element signature="e#1442#1498#0" expanded="false" />
+            <element signature="e#1527#1978#0" expanded="false" />
+            <element signature="e#2029#2234#0" expanded="false" />
+            <element signature="e#2263#2412#0" expanded="false" />
+            <element signature="e#2447#2658#0" expanded="false" />
+            <element signature="e#2686#2775#0" expanded="false" />
+            <element signature="e#2803#2892#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="503" column="22" selection-start-line="503" selection-start-column="22" selection-end-line="503" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="340" column="26" selection-start-line="340" selection-start-column="22" selection-end-line="340" selection-end-column="26" />
+          <folding>
+            <element signature="e#21#31#0" expanded="true" />
+            <element signature="e#152#831#0" expanded="false" />
+            <element signature="e#444#567#0" expanded="false" />
+            <element signature="e#849#11616#0" expanded="false" />
+            <element signature="e#1396#1556#0" expanded="false" />
+            <element signature="e#1597#1688#0" expanded="false" />
+            <element signature="e#1721#1834#0" expanded="false" />
+            <element signature="e#1881#1996#0" expanded="false" />
+            <element signature="e#2037#3934#0" expanded="false" />
+            <element signature="e#3976#8990#0" expanded="false" />
+            <element signature="e#9024#9128#0" expanded="false" />
+            <element signature="e#9170#9505#0" expanded="false" />
+            <element signature="e#9553#10077#0" expanded="false" />
+            <element signature="e#10443#11616#0" expanded="false" />
+            <element signature="e#11634#11879#0" expanded="false" />
+            <element signature="e#12566#12764#0" expanded="false" />
+            <element signature="e#12783#13108#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#21#36#0" expanded="true" />
+            <element signature="e#205#295#1" expanded="false" />
+            <element signature="e#1396#1566#0" expanded="false" />
+            <element signature="e#1609#2142#0" expanded="false" />
+            <element signature="e#2183#2621#0" expanded="false" />
+            <element signature="e#2818#2969#0" expanded="false" />
+            <element signature="e#3027#3499#0" expanded="false" />
+            <element signature="e#3560#4289#0" expanded="false" />
+            <element signature="e#4318#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
           <folding>
-            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="439" column="44" selection-start-line="439" selection-start-column="44" selection-end-line="439" selection-end-column="44" />
+          <caret line="372" column="64" selection-start-line="372" selection-start-column="64" selection-end-line="372" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
           <folding>
             <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#152#287#0" expanded="false" />
+            <element signature="e#314#575#0" expanded="false" />
+            <element signature="e#613#821#0" expanded="false" />
+            <element signature="e#849#1106#0" expanded="false" />
+            <element signature="e#1138#1411#0" expanded="false" />
+            <element signature="e#1442#1498#0" expanded="false" />
+            <element signature="e#1527#1978#0" expanded="false" />
+            <element signature="e#2029#2234#0" expanded="false" />
+            <element signature="e#2263#2412#0" expanded="false" />
+            <element signature="e#2447#2658#0" expanded="false" />
+            <element signature="e#2686#2775#0" expanded="false" />
+            <element signature="e#2803#2892#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="410" column="0" selection-start-line="410" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="339" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="339" selection-end-column="0" />
           <folding>
-            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#21#31#0" expanded="true" />
+            <element signature="e#152#831#0" expanded="false" />
+            <element signature="e#444#567#0" expanded="false" />
+            <element signature="e#849#11616#0" expanded="false" />
+            <element signature="e#1396#1556#0" expanded="false" />
+            <element signature="e#1597#1688#0" expanded="false" />
+            <element signature="e#1721#1834#0" expanded="false" />
+            <element signature="e#1881#1996#0" expanded="false" />
+            <element signature="e#2037#3934#0" expanded="false" />
+            <element signature="e#3976#8990#0" expanded="false" />
+            <element signature="e#9024#9128#0" expanded="false" />
+            <element signature="e#9170#9505#0" expanded="false" />
+            <element signature="e#9553#10077#0" expanded="false" />
+            <element signature="e#10443#11616#0" expanded="false" />
+            <element signature="e#11634#11879#0" expanded="false" />
+            <element signature="e#12566#12764#0" expanded="false" />
+            <element signature="e#12783#13108#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="410" column="0" selection-start-line="410" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
+          <caret line="87" column="69" selection-start-line="87" selection-start-column="69" selection-end-line="87" selection-end-column="69" />
+          <folding>
+            <element signature="e#21#36#0" expanded="true" />
+            <element signature="e#205#295#1" expanded="false" />
+            <element signature="e#1396#1566#0" expanded="false" />
+            <element signature="e#1609#2142#0" expanded="false" />
+            <element signature="e#2183#2621#0" expanded="false" />
+            <element signature="e#2818#2969#0" expanded="false" />
+            <element signature="e#3027#3499#0" expanded="false" />
+            <element signature="e#3560#4289#0" expanded="false" />
+            <element signature="e#4318#5640#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="372" column="64" selection-start-line="372" selection-start-column="64" selection-end-line="372" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
           <folding>
             <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#152#287#0" expanded="false" />
+            <element signature="e#314#575#0" expanded="false" />
+            <element signature="e#613#821#0" expanded="false" />
+            <element signature="e#849#1106#0" expanded="false" />
+            <element signature="e#1138#1411#0" expanded="false" />
+            <element signature="e#1442#1498#0" expanded="false" />
+            <element signature="e#1527#1978#0" expanded="false" />
+            <element signature="e#2029#2234#0" expanded="false" />
+            <element signature="e#2263#2412#0" expanded="false" />
+            <element signature="e#2447#2658#0" expanded="false" />
+            <element signature="e#2686#2775#0" expanded="false" />
+            <element signature="e#2803#2892#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="358" column="26" selection-start-line="358" selection-start-column="26" selection-end-line="358" selection-end-column="26" />
+          <folding>
+            <element signature="e#21#31#0" expanded="true" />
+            <element signature="e#152#831#0" expanded="false" />
+            <element signature="e#444#567#0" expanded="false" />
+            <element signature="e#849#11616#0" expanded="false" />
+            <element signature="e#1396#1556#0" expanded="false" />
+            <element signature="e#1597#1688#0" expanded="false" />
+            <element signature="e#1721#1834#0" expanded="false" />
+            <element signature="e#1881#1996#0" expanded="false" />
+            <element signature="e#2037#3934#0" expanded="false" />
+            <element signature="e#3976#8990#0" expanded="false" />
+            <element signature="e#9024#9128#0" expanded="false" />
+            <element signature="e#9170#9505#0" expanded="false" />
+            <element signature="e#9553#10077#0" expanded="false" />
+            <element signature="e#10443#11616#0" expanded="false" />
+            <element signature="e#11634#11879#0" expanded="false" />
+            <element signature="e#12566#12764#0" expanded="false" />
+            <element signature="e#12783#13108#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="69" selection-start-line="87" selection-start-column="69" selection-end-line="87" selection-end-column="69" />
+          <folding>
+            <element signature="e#21#36#0" expanded="true" />
+            <element signature="e#205#295#1" expanded="false" />
+            <element signature="e#1396#1566#0" expanded="false" />
+            <element signature="e#1609#2142#0" expanded="false" />
+            <element signature="e#2183#2621#0" expanded="false" />
+            <element signature="e#2818#2969#0" expanded="false" />
+            <element signature="e#3027#3499#0" expanded="false" />
+            <element signature="e#3560#4289#0" expanded="false" />
+            <element signature="e#4318#5640#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+          <folding>
+            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#152#287#0" expanded="false" />
+            <element signature="e#314#575#0" expanded="false" />
+            <element signature="e#613#821#0" expanded="false" />
+            <element signature="e#849#1106#0" expanded="false" />
+            <element signature="e#1138#1411#0" expanded="false" />
+            <element signature="e#1442#1498#0" expanded="false" />
+            <element signature="e#1527#1978#0" expanded="false" />
+            <element signature="e#2029#2234#0" expanded="false" />
+            <element signature="e#2263#2412#0" expanded="false" />
+            <element signature="e#2447#2658#0" expanded="false" />
+            <element signature="e#2686#2775#0" expanded="false" />
+            <element signature="e#2803#2892#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#21#31#0" expanded="true" />
+            <element signature="e#152#831#0" expanded="false" />
+            <element signature="e#444#567#0" expanded="false" />
+            <element signature="e#849#11616#0" expanded="false" />
+            <element signature="e#1396#1556#0" expanded="false" />
+            <element signature="e#1597#1688#0" expanded="false" />
+            <element signature="e#1721#1834#0" expanded="false" />
+            <element signature="e#1881#1996#0" expanded="false" />
+            <element signature="e#2037#3934#0" expanded="false" />
+            <element signature="e#3976#8990#0" expanded="false" />
+            <element signature="e#9024#9128#0" expanded="false" />
+            <element signature="e#9170#9505#0" expanded="false" />
+            <element signature="e#9553#10077#0" expanded="false" />
+            <element signature="e#10443#11616#0" expanded="false" />
+            <element signature="e#11634#11879#0" expanded="false" />
+            <element signature="e#12566#12764#0" expanded="false" />
+            <element signature="e#12783#13108#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="357" column="11" selection-start-line="357" selection-start-column="11" selection-end-line="357" selection-end-column="11" />
+          <folding>
+            <element signature="e#21#36#0" expanded="true" />
+            <element signature="e#205#295#1" expanded="false" />
+            <element signature="e#1396#1566#0" expanded="false" />
+            <element signature="e#1609#2142#0" expanded="false" />
+            <element signature="e#2183#2621#0" expanded="false" />
+            <element signature="e#2818#2969#0" expanded="false" />
+            <element signature="e#3027#3499#0" expanded="false" />
+            <element signature="e#3560#4289#0" expanded="false" />
+            <element signature="e#4318#5640#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+          <folding>
+            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#152#287#0" expanded="false" />
+            <element signature="e#314#575#0" expanded="false" />
+            <element signature="e#613#821#0" expanded="false" />
+            <element signature="e#849#1106#0" expanded="false" />
+            <element signature="e#1138#1411#0" expanded="false" />
+            <element signature="e#1442#1498#0" expanded="false" />
+            <element signature="e#1527#1978#0" expanded="false" />
+            <element signature="e#2029#2234#0" expanded="false" />
+            <element signature="e#2263#2412#0" expanded="false" />
+            <element signature="e#2447#2658#0" expanded="false" />
+            <element signature="e#2686#2775#0" expanded="false" />
+            <element signature="e#2803#2892#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="e#21#31#0" expanded="true" />
+            <element signature="e#152#831#0" expanded="false" />
+            <element signature="e#444#567#0" expanded="false" />
+            <element signature="e#849#11616#0" expanded="false" />
+            <element signature="e#1396#1556#0" expanded="false" />
+            <element signature="e#1597#1688#0" expanded="false" />
+            <element signature="e#1721#1834#0" expanded="false" />
+            <element signature="e#1881#1996#0" expanded="false" />
+            <element signature="e#2037#3934#0" expanded="false" />
+            <element signature="e#3976#8990#0" expanded="false" />
+            <element signature="e#9024#9128#0" expanded="false" />
+            <element signature="e#9170#9505#0" expanded="false" />
+            <element signature="e#9553#10077#0" expanded="false" />
+            <element signature="e#10443#11616#0" expanded="false" />
+            <element signature="e#11634#11879#0" expanded="false" />
+            <element signature="e#12566#12764#0" expanded="false" />
+            <element signature="e#12783#13108#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#21#36#0" expanded="true" />
+            <element signature="e#205#295#1" expanded="false" />
+            <element signature="e#1396#1566#0" expanded="false" />
+            <element signature="e#1609#2142#0" expanded="false" />
+            <element signature="e#2183#2621#0" expanded="false" />
+            <element signature="e#2818#2969#0" expanded="false" />
+            <element signature="e#3027#3499#0" expanded="false" />
+            <element signature="e#3560#4289#0" expanded="false" />
+            <element signature="e#4318#5640#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#152#287#0" expanded="false" />
+            <element signature="e#314#575#0" expanded="false" />
+            <element signature="e#613#821#0" expanded="false" />
+            <element signature="e#849#1106#0" expanded="false" />
+            <element signature="e#1138#1411#0" expanded="false" />
+            <element signature="e#1442#1498#0" expanded="false" />
+            <element signature="e#1527#1978#0" expanded="false" />
+            <element signature="e#2029#2234#0" expanded="false" />
+            <element signature="e#2263#2412#0" expanded="false" />
+            <element signature="e#2447#2658#0" expanded="false" />
+            <element signature="e#2686#2775#0" expanded="false" />
+            <element signature="e#2803#2892#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -741,12 +1300,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Streamlined.py">
+    <entry file="file://$PROJECT_DIR$/src/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="207" column="47" selection-start-line="207" selection-start-column="47" selection-end-line="207" selection-end-column="47" />
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="624" column="0" selection-start-line="624" selection-start-column="0" selection-end-line="624" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="52" />
           <folding>
-            <element signature="e#21#32#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,7 +1335,7 @@
     <entry file="file://$PROJECT_DIR$/src/screenutils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
           <folding>
             <element signature="e#21#32#0" expanded="true" />
             <element signature="e#152#287#0" expanded="false" />
@@ -769,98 +1350,93 @@
             <element signature="e#2447#2658#0" expanded="false" />
             <element signature="e#2686#2775#0" expanded="false" />
             <element signature="e#2803#2892#0" expanded="false" />
-            <element signature="e#2919#3087#0" expanded="false" />
-            <element signature="e#3118#3213#0" expanded="false" />
-            <element signature="e#3253#3464#0" expanded="false" />
+            <element signature="e#2915#3138#0" expanded="false" />
+            <element signature="e#3165#3333#0" expanded="false" />
+            <element signature="e#3364#3459#0" expanded="false" />
+            <element signature="e#3499#3710#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python34/Lib/unittest/case.py">
+    <entry file="file://C:/Python34/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21764706">
-          <caret line="775" column="0" selection-start-line="775" selection-start-column="0" selection-end-line="775" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_pokerengine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="509" column="0" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#78#895#0" expanded="false" />
-            <element signature="e#943#2171#0" expanded="false" />
-            <element signature="e#2226#3545#0" expanded="false" />
-            <element signature="e#3602#4938#0" expanded="false" />
-            <element signature="e#4998#5742#0" expanded="false" />
-            <element signature="e#5793#7078#0" expanded="false" />
-            <element signature="e#7132#8455#0" expanded="false" />
-            <element signature="e#8507#9994#0" expanded="false" />
-            <element signature="e#10044#11326#0" expanded="false" />
-            <element signature="e#11372#12581#0" expanded="false" />
-            <element signature="e#12630#13877#0" expanded="false" />
-            <element signature="e#13923#15127#0" expanded="false" />
-            <element signature="e#15175#16262#0" expanded="false" />
-            <element signature="e#16307#17352#0" expanded="false" />
-            <element signature="e#17401#18485#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.46636772">
+          <caret line="1124" column="32" selection-start-line="1124" selection-start-column="32" selection-end-line="1124" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cardutils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027542373">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
           <folding>
-            <element signature="e#21#32#0" expanded="true" />
-            <element signature="e#386#1065#0" expanded="false" />
-            <element signature="e#1083#11519#0" expanded="false" />
-            <element signature="e#1624#1784#0" expanded="false" />
-            <element signature="e#1825#1916#0" expanded="false" />
-            <element signature="e#1949#2062#0" expanded="false" />
-            <element signature="e#2109#2224#0" expanded="false" />
-            <element signature="e#4204#9218#0" expanded="false" />
-            <element signature="e#9252#9356#0" expanded="false" />
-            <element signature="e#9398#9856#0" expanded="false" />
-            <element signature="e#9904#10296#0" expanded="false" />
-            <element signature="e#10346#11519#0" expanded="false" />
-            <element signature="e#11537#11782#0" expanded="false" />
-            <element signature="e#11565#11723#0" expanded="false" />
-            <element signature="e#12264#12589#0" expanded="false" />
-            <element signature="e#12607#34479#0" expanded="false" />
-            <element signature="e#14670#15287#0" expanded="false" />
-            <element signature="e#15323#23522#0" expanded="false" />
-            <element signature="e#23567#25941#0" expanded="false" />
-            <element signature="e#25977#26109#0" expanded="false" />
-            <element signature="e#26147#26280#0" expanded="false" />
-            <element signature="e#26316#26731#0" expanded="false" />
-            <element signature="e#26767#26878#0" expanded="false" />
-            <element signature="e#26911#34479#0" expanded="false" />
-            <element signature="e#34537#35559#0" expanded="false" />
-            <element signature="e#35588#35870#0" expanded="false" />
-            <element signature="e#35905#36524#0" expanded="false" />
-            <element signature="e#36558#36989#0" expanded="false" />
-            <element signature="e#37022#37541#0" expanded="false" />
-            <element signature="e#37564#37704#0" expanded="false" />
-            <element signature="e#37739#38027#0" expanded="false" />
-            <element signature="e#38058#38400#0" expanded="false" />
-            <element signature="e#38453#39330#0" expanded="false" />
-            <element signature="e#39362#40123#0" expanded="false" />
-            <element signature="e#40150#41641#0" expanded="false" />
-            <element signature="e#41834#43916#0" expanded="false" />
-            <element signature="e#44106#45195#0" expanded="false" />
-            <element signature="e#45229#48056#0" expanded="false" />
-            <element signature="e#48122#50300#0" expanded="false" />
+            <element signature="e#21#31#0" expanded="true" />
+            <element signature="e#152#831#0" expanded="false" />
+            <element signature="e#444#567#0" expanded="false" />
+            <element signature="e#849#11616#0" expanded="false" />
+            <element signature="e#1396#1556#0" expanded="false" />
+            <element signature="e#1597#1688#0" expanded="false" />
+            <element signature="e#1721#1834#0" expanded="false" />
+            <element signature="e#1881#1996#0" expanded="false" />
+            <element signature="e#2037#3934#0" expanded="false" />
+            <element signature="e#3976#8990#0" expanded="false" />
+            <element signature="e#9024#9128#0" expanded="false" />
+            <element signature="e#9170#9505#0" expanded="false" />
+            <element signature="e#9553#10077#0" expanded="false" />
+            <element signature="e#10443#11616#0" expanded="false" />
+            <element signature="e#11634#11879#0" expanded="false" />
+            <element signature="e#12566#12764#0" expanded="false" />
+            <element signature="e#12783#13108#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToyProgram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+          <folding>
+            <element signature="e#21#35#0" expanded="true" />
+            <element signature="e#121#1650#0" expanded="false" />
+            <element signature="e#179#325#0" expanded="false" />
+            <element signature="e#374#1650#0" expanded="false" />
+            <element signature="e#1748#1894#0" expanded="false" />
+            <element signature="e#3625#3881#0" expanded="false" />
+            <element signature="e#5823#5835#0" expanded="false" />
+            <element signature="e#5875#5886#0" expanded="false" />
+            <element signature="e#6060#8166#0" expanded="false" />
+            <element signature="e#8189#8271#0" expanded="false" />
+            <element signature="e#8299#8953#0" expanded="false" />
+            <element signature="e#8985#9073#0" expanded="false" />
+            <element signature="e#9105#9312#0" expanded="false" />
+            <element signature="e#9353#9580#0" expanded="false" />
+            <element signature="e#9613#9977#0" expanded="false" />
+            <element signature="e#10008#10132#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="12" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
+          <folding>
+            <element signature="e#21#36#0" expanded="true" />
+            <element signature="e#205#295#1" expanded="false" />
+            <element signature="e#1396#1566#0" expanded="false" />
+            <element signature="e#1609#2142#0" expanded="false" />
+            <element signature="e#2183#2621#0" expanded="false" />
+            <element signature="e#2818#2969#0" expanded="false" />
+            <element signature="e#3027#3499#0" expanded="false" />
+            <element signature="e#3560#4289#0" expanded="false" />
+            <element signature="e#4318#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -42,16 +42,10 @@ class AKsHandTestCase(unittest.TestCase):
         """Is the number of cards two for two cards in hand?"""
         self.assertEqual(self.hand.numCards, 2)
 
-    def test_is_AKs_Premium(self):
-        """Is AKs considered premium?"""
+    def test_AKs_Properties(self):
+        """Are the properties of AKs correct? Suited,Connected etc"""
         self.assertEqual(self.hand.PremInd, 1)
-
-    def test_is_AKs_Connected(self):
-        """Is AKs considered connected?"""
         self.assertEqual(self.hand.connectedInd, 1)
-
-    def test_is_AKs_Suited(self):
-        """Is AKs considered suited?"""
         self.assertEqual(self.hand.suitedInd, 1)
 
     def test_AKs_correct_preflop_odds(self):
@@ -71,33 +65,18 @@ class PocketNineHandTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_is_99_Premium(self):
-        """Is 99 considered premium?"""
-        self.assertEqual(self.hand.PremInd, 0)
-
-    def test_is_99_Connected(self):
-        """Is 99 considered connected?"""
-        self.assertEqual(self.hand.connectedInd, 0)
-
     def test_is_99_1SpaceConnected(self):
-        """Is 99 considered 1spaceconnected?"""
+        """Are the properties of 99 correct? Suited,Connected etc"""
         self.assertEqual(self.hand.oneSpaceConnectedInd, 0)
-
-    def test_is_99_Suited(self):
-        """Is 99 considered suited?"""
         self.assertEqual(self.hand.suitedInd, 0)
+        self.assertEqual(self.hand.PremInd, 0)
+        self.assertEqual(self.hand.connectedInd, 0)
+        self.assertEqual(self.hand.PPInd, 1)
+        self.assertEqual(self.hand.PPCard, 9)
 
     def test_99_correct_preflop_odds(self):
         """Is 99 preflop 10 player odds the correct value"""
         self.assertEqual(self.hand.preFlopOdds10, 15.6)
-
-    def test_is_99_a_PockedPair(self):
-        """Is 99 considered a pocket pair?"""
-        self.assertEqual(self.hand.PPInd, 1)
-
-    def test_does_99_have_Pair_card_9(self):
-        """Does 99 have pair card 9?"""
-        self.assertEqual(self.hand.PPCard, 9)
 
     def test_is_99_preHandSimple_correct(self):
         """Does 99 have the correct preHandSimple expression?"""
@@ -112,33 +91,18 @@ class FiveSevenOffHandTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_is_57o_Premium(self):
-        """Is 57o considered premium?"""
+    def test_57o_Properties(self):
+        """Are the properties of 99 correct? Suited,Connected etc"""
         self.assertEqual(self.hand.PremInd, 0)
-
-    def test_is_57o_Connected(self):
-        """Is 57o considered connected?"""
         self.assertEqual(self.hand.connectedInd, 0)
-
-    def test_is_57o_1SpaceConnected(self):
-        """Is 57o considered 1spaceconnected?"""
         self.assertEqual(self.hand.oneSpaceConnectedInd, 1)
-
-    def test_is_57o_Suited(self):
-        """Is 57o considered suited?"""
         self.assertEqual(self.hand.suitedInd, 0)
+        self.assertEqual(self.hand.PPInd, 0)
+        self.assertEqual(self.hand.PPCard, 0)
 
     def test_57o_correct_preflop_odds(self):
         """Is 57o preflop 10 player odds the correct value"""
         self.assertEqual(self.hand.preFlopOdds10, 7.9)
-
-    def test_is_57o_a_PockedPair(self):
-        """Is 57o considered a pocket pair?"""
-        self.assertEqual(self.hand.PPInd, 0)
-
-    def test_does_57o_have_Pair_card_0(self):
-        """Does 57o have pair card 0?"""
-        self.assertEqual(self.hand.PPCard, 0)
 
     def test_is_57o_preHandSimple_correct(self):
         """Does 57o have the correct preHandSimple expression?"""
@@ -154,7 +118,7 @@ class AKsHandAddFlushFlopTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_shared_cards_are_zero(self):
+    def test_shared_cards_len(self):
         """Are shared cards now 3?"""
         self.assertEqual(len(self.hand.sharedCards), 3)
 
@@ -162,9 +126,10 @@ class AKsHandAddFlushFlopTestCase(unittest.TestCase):
         """Is the number of cards five for five cards in hand?"""
         self.assertEqual(self.hand.numCards, 5)
 
-    def test_is_a_flush(self):
-        """Is the full hand considered a flush?"""
+    def test_is_a_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.FlushInd, 1)
+        self.assertEqual(self.hand.StraightInd, 0)
 
 class RoyalFlushTestCase(unittest.TestCase):
     """Tests for a royal flush in Hand class in cardutils.py"""
@@ -176,24 +141,12 @@ class RoyalFlushTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_royal_flush_flush_ind(self):
-        """Is the flush ind set correctly for Royal Flushes?"""
+    def test_royal_flush_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.FlushInd, 1)
-
-    def test_royal_flush_straight_ind(self):
-        """Is the straight ind set correctly for Royal Flushes?"""
         self.assertEqual(self.hand.StraightInd, 1)
-
-    def test_royal_flush_straight_head(self):
-        """Is the straight head set correctly for Royal Flushes?"""
         self.assertEqual(self.hand.StraightHead, 14)
-
-    def test_royal_flush_hand_type(self):
-        """Is the hand_type set correctly for Royal Flushes?"""
         self.assertEqual(self.hand.PostHandType, 1)
-
-    def test_royal_flush_hand_value(self):
-        """Is the hand_value set correctly for Royal Flushes?"""
         self.assertEqual(self.hand.PostHandValue, 1)
 
     def test_is_hand_string_correct(self):
@@ -210,24 +163,12 @@ class StraightFlushTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_straight_flush_flush_ind(self):
-        """Is the flush ind set correctly for straight Flushes?"""
+    def test_straight_flush_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.FlushInd, 1)
-
-    def test_straight_flush_straight_ind(self):
-        """Is the straight ind set correctly for straight Flushes?"""
         self.assertEqual(self.hand.StraightInd, 1)
-
-    def test_straight_flush_straight_head(self):
-        """Is the straight head set correctly for straiht Flushes?"""
         self.assertEqual(self.hand.StraightHead, 10)
-
-    def test_straight_flush_hand_type(self):
-        """Is the hand_type set correctly for straight Flushes?"""
         self.assertEqual(self.hand.PostHandType, 2)
-
-    def test_straight_flush_hand_value(self):
-        """Is the hand_value set correctly for straight Flushes?"""
         self.assertEqual(self.hand.PostHandValue, 5)
 
     def test_is_hand_string_correct(self):
@@ -245,31 +186,16 @@ class FourOfAKindTestCase(unittest.TestCase):
         self.hand = None
 
     def test_quad_flush_ind(self):
-        """Is the flush ind set correctly for quads?"""
-        self.assertEqual(self.hand.FlushInd, 0)
+        """Are the hand properties correct?"""
 
-    def test_quad_straight_ind(self):
+    def test_quad_properties(self):
         """Is the straight ind set correctly for quads?"""
+        self.assertEqual(self.hand.FlushInd, 0)
         self.assertEqual(self.hand.StraightInd, 0)
-
-    def test_quad_straight_head(self):
-        """Is the straight head set correctly for quads?"""
         self.assertEqual(self.hand.StraightHead, 0)
-
-    def test_quad_quad_rank(self):
-        """Is the quad head set correctly for quads?"""
         self.assertEqual(self.hand.QuadRank, 10)
-
-    def test_quad_quad_ind(self):
-        """Is the quad ind set correctly for quads?"""
         self.assertEqual(self.hand.QuadInd, 1)
-
-    def test_quad_hand_type(self):
-        """Is the hand_type set correctly for quads?"""
         self.assertEqual(self.hand.PostHandType, 3)
-
-    def test_quad_hand_value(self):
-        """Is the hand_value set correctly for quads?"""
         self.assertEqual(self.hand.PostHandValue, 15)
 
     def test_is_hand_string_correct(self):
@@ -287,23 +213,14 @@ class FullHouseTestCase(unittest.TestCase):
         self.hand = None
 
     def test_full_house_flush_ind(self):
-        """Is the flush ind set correctly for full house?"""
-        self.assertEqual(self.hand.FlushInd, 0)
+        """Are the hand properties correct?"""
 
-    def test_full_house_straight_ind(self):
+    def test_full_house_properties(self):
         """Is the straight ind set correctly for full house?"""
+        self.assertEqual(self.hand.FlushInd, 0)
         self.assertEqual(self.hand.StraightInd, 0)
-
-    def test_full_house_straight_head(self):
-        """Is the straight head set correctly for full house?"""
         self.assertEqual(self.hand.StraightHead, 0)
-
-    def test_full_house_hand_type(self):
-        """Is the hand_type set correctly for full house?"""
         self.assertEqual(self.hand.PostHandType, 4)
-
-    def test_full_house_hand_value(self):
-        """Is the hand_value set correctly for full house?"""
         self.assertEqual(self.hand.PostHandValue, 171)
 
     def test_is_full_house_hand_string_correct(self):
@@ -320,24 +237,12 @@ class FlushTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_flush_flush_ind(self):
-        """Is the flush ind set correctly for Flushes?"""
+    def test_flush_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.FlushInd, 1)
-
-    def test_flush_straight_ind(self):
-        """Is the straight ind set correctly for Flushes?"""
         self.assertEqual(self.hand.StraightInd, 0)
-
-    def test_flush_straight_head(self):
-        """Is the straight head set correctly for Flushes?"""
         self.assertEqual(self.hand.HighCard, 10)
-
-    def test_flush_hand_type(self):
-        """Is the hand_type set correctly for Flushes?"""
         self.assertEqual(self.hand.PostHandType, 5)
-
-    def test_flush_hand_value(self):
-        """Is the hand_value set correctly for Flushes?"""
         self.assertEqual(self.hand.PostHandValue, 183)
 
     def test_is_hand_string_correct(self):
@@ -354,24 +259,12 @@ class StraightTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_straight_flush_ind(self):
-        """Is the flush ind set correctly for straight?"""
+    def test_straight_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.FlushInd, 0)
-
-    def test_straight_straight_ind(self):
-        """Is the straight ind set correctly for straight?"""
         self.assertEqual(self.hand.StraightInd, 1)
-
-    def test_straight_straight_head(self):
-        """Is the straight head set correctly for straiht?"""
         self.assertEqual(self.hand.StraightHead, 5)
-
-    def test_straight_hand_type(self):
-        """Is the hand_type set correctly for straight?"""
         self.assertEqual(self.hand.PostHandType, 6)
-
-    def test_straight_hand_value(self):
-        """Is the hand_value set correctly for straight?"""
         self.assertEqual(self.hand.PostHandValue, 196)
 
     def test_is_hand_string_correct(self):
@@ -388,24 +281,12 @@ class TripsTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_trips_flush_ind(self):
-        """Is the flush ind set correctly for trips?"""
+    def test_trips_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.FlushInd, 0)
-
-    def test_trips_trip_ind(self):
-        """Is the straight ind set correctly for trips?"""
         self.assertEqual(self.hand.TripInd, 1)
-
-    def test_trips_straight_head(self):
-        """Is the straight head set correctly for trips?"""
         self.assertEqual(self.hand.TripRank, 14)
-
-    def test_trips_hand_type(self):
-        """Is the hand_type set correctly for trips?"""
         self.assertEqual(self.hand.PostHandType, 7)
-
-    def test_trips_hand_value(self):
-        """Is the hand_value set correctly for trips?"""
         self.assertEqual(self.hand.PostHandValue, 197)
 
     def test_is_hand_string_correct(self):
@@ -422,20 +303,11 @@ class TwoPairTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_twopair_first_pair(self):
-        """Is the first pair set correctly for two pairs?"""
+    def test_twopair_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.Pair1Rank, 14)
-
-    def test_twopair_second_pair(self):
-        """Is the second pair set correctly for two pairs?"""
         self.assertEqual(self.hand.Pair2Rank, 4)
-
-    def test_twopair_hand_type(self):
-        """Is the hand_type set correctly for two pairs?"""
         self.assertEqual(self.hand.PostHandType, 8)
-
-    def test_twopair_hand_value(self):
-        """Is the hand_value set correctly for two pairs?"""
         self.assertEqual(self.hand.PostHandValue, 219)
 
     def test_is_hand_string_correct(self):
@@ -452,20 +324,11 @@ class PairTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_pair_first_pair(self):
-        """Is the first pair set correctly for pairs?"""
+    def test_pair_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.Pair1Rank, 4)
-
-    def test_pair_second_pair(self):
-        """Is the second pair set correctly for pairs?"""
         self.assertEqual(self.hand.Pair2Rank, 0)
-
-    def test_pair_hand_type(self):
-        """Is the hand_type set correctly for pairs?"""
         self.assertEqual(self.hand.PostHandType, 9)
-
-    def test_pair_hand_value(self):
-        """Is the hand_value set correctly for pairs?"""
         self.assertEqual(self.hand.PostHandValue, 243)
 
     def test_is_hand_string_correct(self):
@@ -482,20 +345,11 @@ class HighCardTestCase(unittest.TestCase):
     def tearDown(self):
         self.hand = None
 
-    def test_highcard_first_pair(self):
-        """Is the first pair set correctly for high card?"""
+    def test_highcard_properties(self):
+        """Are the hand properties correct?"""
         self.assertEqual(self.hand.Pair1Rank, 0)
-
-    def test_highcard_high_card(self):
-        """Is the high card set correctly for high cards?"""
         self.assertEqual(self.hand.HighCard, 14)
-
-    def test_highcard_hand_type(self):
-        """Is the hand_type set correctly for high cards?"""
         self.assertEqual(self.hand.PostHandType, 10)
-
-    def test_highcard_hand_value(self):
-        """Is the hand_value set correctly for high cards?"""
         self.assertEqual(self.hand.PostHandValue, 247)
 
     def test_is_hand_string_correct(self):

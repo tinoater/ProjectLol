@@ -107,6 +107,17 @@ def foldAction(wait):
     click(c.FOLDBUTTONPOS)
     return True
 
+def grabcard(x):
+    """
+    Returns an image from the BBox
+    :param x: BBox
+    :return:
+    """
+    (left, top, right, bot) = x
+    cardim = ImageGrab.grab(bbox = (left, top, right, bot))
+    cardim = cardim.convert("RGB")
+    return cardim
+
 def getbetamount(p):
     move(p,0.1)
     click(p)
