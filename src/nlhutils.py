@@ -145,7 +145,7 @@ class Game:
         """
         self.numplayers = [x.FoldedInd for x in self.player].count(0)
 
-    def updateHeroBetting(self, action, bet=0):
+    def updateHeroBetting(self, action, bet=0.00):
         """
         Sets info about the hand before each bet:
         totalhandbet, bettingHist,PFAgressor.
@@ -163,7 +163,7 @@ class Game:
 
         # TODO set the herocash so that it is measured in pennies
 
-    def betoutput(self, action, bet=0, cBetInd=0):
+    def betoutput(self, action, bet=0.00, cBetInd=0):
         """
         Returns the betting action variables after they have been calculated:
         bettingaction, betamount, wait
@@ -471,6 +471,11 @@ class Game:
                 return self.betoutput(0, 0)
 
     def betPP(self):
+        """
+        Pocket pair betting. This is only different pre-flop, from there it should be played like a normal hand
+        :return:
+        """
+        #TODO: Update logic here to play sneakily if I flop a set?
         if self.street == 0:
             self.logstr += "Have pocket pairs "
             if self.movedPlayers == 0:
@@ -714,6 +719,46 @@ class Game:
                     else:
                         self.logstr += "Will fold"
                         return self.betoutput(0, 0)
+        elif self.street == 2:
+            #Not bothering with 2nd street CBetting at this point. Just consider calling/stealing
+            self.logstr += "Have a misc hand."
+            if self.checkedPot == 1:
+                self.logstr += "Pot has been checked"
+                if self.shouldSteal() == 1:
+                    self.logstr += "Will try to Steal."
+                    bet = round(self.potamount * random.uniform(0.5, 0.7))
+                    return self.betoutput(2, bet)
+                else:
+                    self.logstr += "Won't Steal."
+                    return self.betoutput(1, self.currbet)
+            else:
+                self.logstr += "Pot has been opened."
+                if self.shouldCall() == 1:
+                    self.logstr += "Will call"
+                    return self.betoutput(1, self.currbet)
+                else:
+                    self.logstr += "Will fold"
+                    return self.betoutput(0, 0)
+        elif self.street == 3:
+            #Not bothering with 3rd street CBetting at this point. Just consider calling/stealing
+            self.logstr += "Have a misc hand."
+            if self.checkedPot == 1:
+                self.logstr += "Pot has been checked"
+                if self.shouldSteal() == 1:
+                    self.logstr += "Will try to Steal."
+                    bet = round(self.potamount * random.uniform(0.5, 0.7))
+                    return self.betoutput(2, bet)
+                else:
+                    self.logstr += "Won't Steal."
+                    return self.betoutput(1, self.currbet)
+            else:
+                self.logstr += "Pot has been opened."
+                if self.shouldCall() == 1:
+                    self.logstr += "Will call"
+                    return self.betoutput(1, self.currbet)
+                else:
+                    self.logstr += "Will fold"
+                    return self.betoutput(0, 0)
 
     def analyseBoard(self):
         """
@@ -851,8 +896,7 @@ class Game:
         """
         Returns ind to handle making calls with middling hands. Uses potodds vs currentbet
         """
-        # TODO: Improve
-        # TODO: Take street input and use this on later streets
+        # TODO: Improve, take into account street
         if self.potodds <= self.currbet:
             return 1
         else:
