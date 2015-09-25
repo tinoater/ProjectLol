@@ -231,34 +231,13 @@ def initButton():
 
 def betButton():
     currentGame.updateNumPlayers()
+    FlopCards = []
 
     if currentGame.street != 0:
-        FlopCard1 = FlopCard2 = FlopCard3 = FlopCard4 = FlopCard5 = None
-
-        try:
-            FlopCard1 = currentGame.hand.sharedCards[0]
-        except:
-            FlopCard1 = None
-        try:
-            FlopCard2 = currentGame.hand.sharedCards[1]
-        except:
-            FlopCard2 = None
-        try:
-            FlopCard3 = currentGame.hand.sharedCards[2]
-        except:
-            FlopCard3 = None
-        try:
-            FlopCard4 = currentGame.hand.sharedCards[3]
-        except:
-            FlopCard4 = None
-        try:
-            FlopCard5 = currentGame.hand.sharedCards[4]
-        except:
-            FlopCard5 = None
-
-        currentGame.hand.PostFlopOdds = nlhutils.GenerateProbabilities(currentGame.numplayers
-                                                                  , currentGame.hand._cards[0], currentGame.hand._cards[1]
-                                       , FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5)
+        FlopCards = currentGame.hand.sharedCards
+        currentGame.hand.PostFlopOdds = nlhutils.GenerateProbabilities(currentGame.numplayers,
+                                                                  [currentGame.hand._cards[0], currentGame.hand._cards[1]],
+                                                                  [FlopCards])
     action, amount, wait, logstr = currentGame.bet()
     logVar.set(logstr)
 

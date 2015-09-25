@@ -544,9 +544,9 @@ if __name__ == "__main__":
         logging.debug("Current pot size is " + str(CurrentGame.potamount))
         logging.debug("Hero has cash " + str(CurrentGame.herocash))
         logging.debug("Beginning odds function")
-        CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers, cardutils.Card(herocard1rank,herocard1suit)
-                                         ,cardutils.Card(herocard2rank,herocard2suit),streetcard1, streetcard2
-                                         ,streetcard3)
+        CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers,
+                                            [herohand._cards[0], herohand._cards[1]],
+                                            herohand.sharedCards)
         logging.debug("Exiting odds function")
         logging.info("Players post flop odds are :" + str(CurrentGame.PostFlopOdds))
         action, amount, wait = CurrentGame.betFlop()
@@ -601,9 +601,9 @@ if __name__ == "__main__":
         logging.debug("Current pot size is " + str(CurrentGame.potamount))
         logging.debug("Hero has cash " + str(CurrentGame.herocash))
         logging.debug("Beginning odds function")
-        CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers, cardutils.Card(herocard1rank,herocard1suit)
-                                         ,cardutils.Card(herocard2rank,herocard2suit),streetcard1, streetcard2
-                                         ,streetcard3,streetcard4)
+        CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers,
+                                            [herohand._cards[0], herohand._cards[1]],
+                                            herohand.sharedCards)
         logging.debug("Exiting odds function")
         logging.info("Players post flop odds are :" + str(CurrentGame.PostFlopOdds))
         action, amount, wait = CurrentGame.betTurn()
@@ -642,6 +642,40 @@ if __name__ == "__main__":
         if cardutils.pollforheroturn(c.HEROBOXPOS) == 0:
             logging.debug("Poll for hero turn timeout!")
         numplayers = cardutils.updatetablebetting(c.PLAYERPOSLIST)
+        CurrentGame.currbet = screenutils.getbetamount(c.BETBOXPOS) / 2
+        CurrentGame.potamount = screenutils.getpotamount(c.FULLPOTBETBOXPOS, c.BETBOXPOS)
+        if CurrentGame.currbet != c.BIGBLIND:
+            CurrentGame.potamount -= 2*CurrentGame.currbet
+        else:
+            CurrentGame.potamount -= CurrentGame.currbet
+        CurrentGame.herocash = float(CurrentGame.player[0].cash)
+
+        for each in CurrentGame.player:
+            if each.FoldedInd != 1:
+                logging.debug(each.debugPlayerInfo())
+        logging.debug("Current bet is " + str(CurrentGame.currbet))
+        logging.debug("Current pot size is " + str(CurrentGame.potamount))
+        logging.debug("Hero has cash " + str(CurrentGame.herocash))
+        logging.debug("Beginning odds function")
+        CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers,
+                                            [herohand._cards[0], herohand._cards[1]],
+                                            herohand.sharedCards)
+        logging.debug("Exiting odds function")
+        logging.info("Players post flop odds are :" + str(CurrentGame.PostFlopOdds))
+        action, amount, wait = CurrentGame.betRiver()
+        logging.info("We will do action " + str(action) + " with amount " + str(amount) +
+                     " and wait " + str(wait))
+        logging.info("----Beginning bet wait----")
+        screenutils.bettingAction(action, amount, wait)
+        logging.info("----Bet complete----")
+
+        time.sleep(1)
+        logging.debug("-" * 20)
+        logging.debug("Waiting for heros turn")
+        logging.debug("-" * 20)
+        if cardutils.pollforheroturn(c.HEROBOXPOS) == 0:
+            logging.debug("Poll for hero turn timeout!")
+        time.sleep(2.5)
 
         #Check if it is still river
         if cardutils.findstreet(c.STREETBOXPOS) == 4:

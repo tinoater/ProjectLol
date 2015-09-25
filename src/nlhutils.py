@@ -859,30 +859,29 @@ class Game:
             return 0
 
 
-def PlayOddsHand(NumPlayers, HeroCard1, HeroCard2, FlopCard1=None, FlopCard2=None, FlopCard3=None,
-                 FlopCard4=None, FlopCard5=None, OutputInd=0):
+def PlayOddsHand(NumPlayers, HeroCards, FlopCards, OutputInd=0):
     """
     Returns ind if the hero won the game given a heros hand and either the flop, turn or river shared cards
     """
-    removeList = [HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5]
-    removeList.remove(None)
+    removeList = []
+    for each in HeroCards:
+        removeList.append(each)
+    for each in FlopCards:
+        removeList.append(each)
+    try:
+        removeList.remove(None)
+    except:
+        pass
+
     # Set up the Deck
     FirstDeck = cardutils.Deck(removeList)
     FirstDeck.shuffle()
     # Set up hero hand
     PlayerHands = []
-    PlayerHands.append(cardutils.Hand(HeroCard1, HeroCard2, setCalcAllStreetValues = 0))
+    PlayerHands.append(cardutils.Hand(HeroCards[0], HeroCards[1], setCalcAllStreetValues = 0))
 
-    if FlopCard1 is None:
-        FlopCard1 = FirstDeck._Deck.pop()
-    if FlopCard2 is None:
-        FlopCard2 = FirstDeck._Deck.pop()
-    if FlopCard3 is None:
-        FlopCard3 = FirstDeck._Deck.pop()
-    if FlopCard4 is None:
-        FlopCard4 = FirstDeck._Deck.pop()
-    if FlopCard5 is None:
-        FlopCard5 = FirstDeck._Deck.pop()
+    while len(FlopCards)<5:
+        FlopCards.append(FirstDeck._Deck.pop())
 
     for i in range(1, NumPlayers):
         PlayerHands.append(cardutils.Hand(FirstDeck._Deck.pop(), FirstDeck._Deck.pop(), setCalcAllStreetValues = 0))
@@ -892,13 +891,10 @@ def PlayOddsHand(NumPlayers, HeroCard1, HeroCard2, FlopCard1=None, FlopCard2=Non
             logging.debug(PlayerHands[i].getPreHandSimple())
     # Generate the flop
     if OutputInd != 0:
-        print(FlopCard1)
-        print(FlopCard2)
-        print(FlopCard3)
-        print(FlopCard4)
-        print(FlopCard5)
+        for each in FlopCards:
+            print(each)
     for i in range(0, NumPlayers):
-        PlayerHands[i].addSharedCards([FlopCard1, FlopCard2, FlopCard3, FlopCard4, FlopCard5])
+        PlayerHands[i].addSharedCards(FlopCards)
     if OutputInd != 0:
         print("SHOWDOWN")
     winningHand = []
@@ -912,33 +908,15 @@ def PlayOddsHand(NumPlayers, HeroCard1, HeroCard2, FlopCard1=None, FlopCard2=Non
     return (winningHand[0][0])
 
 
-def GenerateProbabilities(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3, FlopCard4=None,
-                          FlopCard5=None, Runs=1000, OutputInd=0):
+def GenerateProbabilities(NumPlayers, HeroCards, FlopCards, Runs=1000, OutputInd=0):
     """
     Outputs the Monte Carlo chance of heros odds. Runs PlaysOddsHands in a loop
     """
     HeroWin = 0
-
-    # TODO Why does this always take 12 seconds? Maybe the iterations are awful. Probably because of the hand eval proc
-    # TODO Make the flop cards a list
-    if FlopCard4 is None:
-        for i in range(0, Runs):
-            result = PlayOddsHand(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3,
-                                  OutputInd=OutputInd)
-            if result == 0:
-                HeroWin += 1
-    elif FlopCard5 is None:
-        for i in range(0, Runs):
-            result = PlayOddsHand(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2, FlopCard3,
-                                  FlopCard4, OutputInd=OutputInd)
-            if result == 0:
-                HeroWin += 1
-    else:
-        for i in range(0, Runs):
-            result = PlayOddsHand(NumPlayers, HeroCard1, HeroCard2, FlopCard1, FlopCard2,
-                                  FlopCard3, FlopCard4, FlopCard5, OutputInd=OutputInd)
-            if result == 0:
-                HeroWin += 1
+    for i in range(0, Runs):
+        result = PlayOddsHand(NumPlayers, HeroCards, FlopCards, OutputInd = OutputInd)
+        if result == 0:
+            HeroWin += 1
 
     if OutputInd != 0:
         print("Hero won " + str(HeroWin) + " out of " + str(Runs) + " : " + str(HeroWin / Runs * 100))
