@@ -17,24 +17,25 @@ class Card:
         self._suit = suit
 
     def __eq__(self, other):
-        if other == None:
+        if other is None:
             return False
-        return (self._rank == other.getRank() and self._suit == other.getSuit())
+        return (self._rank == other._rank and self._suit == other._suit)
 
     def __str__(self):
         return c.RANK_DICT[self._rank]+ c.SUIT_DICT[self._suit]
 
     def getRank(self):
-        return (self._rank)
+        return self._rank
 
     def getSuit(self):
-        return (self._suit)
+        return self._suit
 
     def getCard(self):
-        return (self.getRank(), self.getSuit())
+        return (self._rank, self._suit)
 
 class Hand:
-    def __init__(self, *cards):
+    def __init__(self, *cards, **kwargs):
+        self.calcAllStreetValues = kwargs.get('setCalcAllStreetValues', 1)
     #TODO change the *cards so its standard
         self.PreFlopOdds = None
         self.PostFlopOdds = None
@@ -43,9 +44,10 @@ class Hand:
             self._cards.append(card)
         self.numCards = len(self._cards)
         if self.numCards == 2:
-            self.setPreHandValue()
+            if self.calcAllStreetValues == 1:
+                self.setPreHandValue()
             self.sharedCards = []
-        elif self.numCards >= 5:
+        elif (self.numCards >= 5 and self.calcAllStreetValues == 1) or (self.calcAllStreetValues == 0 and self.numCards == 7):
             self.setPostHandValue()
     #TODO update this so the sharedCards are read from the *cards input
 
@@ -68,17 +70,23 @@ class Hand:
             string = string + str(each) + " "
         return(string)
 
+    def setCalcAllStreetValues(self, input):
+        if input not in (0,1):
+            raise Exception("CalcAllStreetValues should be 0 or 1")
+        self.calcAllStreetValues = input
+
     def addSharedCards(self, cards):
         for each in cards:
             self.__add__(each)
         if self.numCards >=2:
-            self.setPostHandValue()
+            if self.calcAllStreetValues == 1 or (self.calcAllStreetValues == 0 and self.numCards == 7):
+                self.setPostHandValue()
 
     def setPreHandValue(self):
         if self.numCards != 2:
             raise Exception("Trying to set PreHandValue with more than two cards")
 
-        if self._cards[0].getSuit() == self._cards[1].getSuit():
+        if self._cards[0]._suit == self._cards[1]._suit:
             self.suitedInd = 1
         else:
             self.suitedInd = 0
@@ -86,25 +94,25 @@ class Hand:
         self.connectedInd = 0
         self.oneSpaceConnectedInd = 0
         self.PremInd = 0
-        self.highcard = max(self._cards[0].getRank(), self._cards[1].getRank())
-        self.lowcard = min(self._cards[0].getRank(), self._cards[1].getRank())
+        self.highcard = max(self._cards[0]._rank, self._cards[1]._rank)
+        self.lowcard = min(self._cards[0]._rank, self._cards[1]._rank)
 
-        if abs(self._cards[0].getRank() - self._cards[1].getRank()) == 1:
+        if abs(self._cards[0]._rank - self._cards[1]._rank) == 1:
             self.connectedInd = 1
-        elif abs(self._cards[0].getRank() - self._cards[1].getRank()) == 2:
+        elif abs(self._cards[0]._rank - self._cards[1]._rank) == 2:
             self.oneSpaceConnectedInd = 1
-            if self._cards[0].getRank() == 14 and self._cards[1].getRank() == 2:
+            if self._cards[0]._rank == 14 and self._cards[1]._rank == 2:
                 self.connectedInd = 1
-            elif self._cards[1].getRank() == 14 and self._cards[0].getRank() == 2:
+            elif self._cards[1]._rank == 14 and self._cards[0]._rank == 2:
                 self.connectedInd = 1
-            elif self._cards[1].getRank() == 14 and self._cards[0].getRank() == 3:
+            elif self._cards[1]._rank == 14 and self._cards[0]._rank == 3:
                 self.oneSpaceConnectedInd = 1
-            elif self._cards[0].getRank() == 14 and self._cards[1].getRank() == 3:
+            elif self._cards[0]._rank == 14 and self._cards[1]._rank == 3:
                 self.oneSpaceConnectedInd = 1
 
-        if self._cards[0].getRank() == self._cards[1].getRank():
+        if self._cards[0]._rank == self._cards[1]._rank:
             self.PPInd = 1
-            self.PPCard = self._cards[0].getRank()
+            self.PPCard = self._cards[0]._rank
         else:
             self.PPInd = 0
             self.PPCard = 0
@@ -112,9 +120,9 @@ class Hand:
         if self.PPInd == 1 and self.PPCard in c.PREM_PAIRS:
             self.PremInd = 1
         elif self.suitedInd == 1:
-            if (self._cards[0].getRank() == 14 and self._cards[1].getRank() == 13):
+            if (self._cards[0]._rank == 14 and self._cards[1]._rank == 13):
                 self.PremInd =  1
-            elif (self._cards[1].getRank() == 14 and self._cards[0].getRank() == 13):
+            elif (self._cards[1]._rank == 14 and self._cards[0]._rank == 13):
                 self.PremInd =  1
         else:
             self.PremInd = 0
@@ -127,10 +135,11 @@ class Hand:
         suit_list = []
         self.FlushInd = 0
         self.FlushSuit = 0
+        self.HighCard = 0
         for each in self._cards:
-            card_list.append([each.getRank(),each.getSuit()])
-            rank_list.append(each.getRank())
-            suit_list.append(each.getSuit())
+            card_list.append([each._rank,each._suit])
+            rank_list.append(each._rank)
+            suit_list.append(each._suit)
         card_list = sorted(card_list, key=lambda tup: tup[0], reverse = True)
 
         #Check for flushInd
@@ -271,8 +280,8 @@ class Hand:
         else:
             suited_ind = 'o'
 
-        return c.RANK_DICT[max(self._cards[0].getRank(),self._cards[1].getRank())] \
-               + c.RANK_DICT[min(self._cards[0].getRank(),self._cards[1].getRank())]+suited_ind
+        return c.RANK_DICT[max(self._cards[0]._rank,self._cards[1]._rank)] \
+               + c.RANK_DICT[min(self._cards[0]._rank,self._cards[1]._rank)]+suited_ind
 
     def setPreHandOdds(self,players):
         """
@@ -288,9 +297,10 @@ class Hand:
         for row in pf_reader:
             if row[0] == targethand:
                 odds = float(row[int(players) - 1])
+                break
 
         pf_file.close()
-        if odds == None:
+        if odds is None:
             raise Exception("Failed to get pre flop odds")
         self.PreFlopOdds = odds
 
@@ -327,12 +337,22 @@ class Hand:
         return HandOutput
 
 class Deck:
-    def __init__(self):
+    def __init__(self,cardlist = []):
+        """
+        Creates a deck without the specified list of cards inputted.
+        Pass in a list of cards
+        :return:
+        """
         self._Deck = []
+        tuplelist = []
+        for each in cardlist:
+            if each is not None:
+                tuplelist.append((each._rank,each._suit))
         for rank in c.RANK_DICT:
             for suit in c.SUIT_DICT:
-                c = Card(rank,suit)
-                self._Deck.append(c)
+                if (rank,suit) not in tuplelist:
+                    card = Card(rank,suit)
+                    self._Deck.append(card)
 
     def shuffle(self):
         random.shuffle(self._Deck)
