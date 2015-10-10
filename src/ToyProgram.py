@@ -3,13 +3,14 @@ __author__ = 'Ahab'
 import tkinter
 import cardutils
 import nlhutils
+import constants as c
 
 BIGBLIND = 2
 
 class HeroFrame(tkinter.Frame):
 
     def __init__(self, parent, name, seat, cash, id):
-        tkinter.Frame.__init__(self, parent, background = "white")
+        tkinter.Frame.__init__(self, parent)
         self.parent = parent
         self.id = id
         self.initUI(name, seat, cash)
@@ -44,7 +45,7 @@ class HeroFrame(tkinter.Frame):
 class PlayerFrame(tkinter.Frame):
 
     def __init__(self,parent, name, seat, cash, id):
-        tkinter.Frame.__init__(self, parent, background = "white")
+        tkinter.Frame.__init__(self, parent)
         self.parent = parent
         self.id = id
         self.initUI(name, seat, cash)
@@ -102,7 +103,7 @@ class PlayerFrame(tkinter.Frame):
 
     def callbuttonClick(self):
         callbuttonButton(self.id)
-        self.cashVar.set(int(self.cashVar.get()) - currentGame.currbet)
+        self.cashVar.set(int(self.cashVar.get()) - currentGame.currBet)
 
     def raisebuttonClick(self):
         raisebuttonButton(self.id, int(self.betAmountV.get()))
@@ -115,9 +116,10 @@ class PlayerFrame(tkinter.Frame):
 class GameFrame(tkinter.Frame):
 
     def __init__(self,parent):
-        tkinter.Frame.__init__(self, parent, background = "white", bd = 10)
+        tkinter.Frame.__init__(self, parent, bd = 10)
         self.parent = parent
         self.initUI()
+        self.streetcount = 0
 
     def initUI(self):
         cardsFrame = tkinter.Frame(self)
@@ -146,6 +148,7 @@ class GameFrame(tkinter.Frame):
         self.card3E = tkinter.Entry(streetFrame, textvariable = self.card3V, width = 4)
         self.card4E = tkinter.Entry(streetFrame, textvariable = self.card4V, width = 4)
         self.card5E = tkinter.Entry(streetFrame, textvariable = self.card5V, width = 4)
+        nextstreetcountButton = tkinter.Button(streetFrame, text = "Next Bet", command = self.nextstreetcountButtonclick)
 
         cardLabel.pack(side = "left")
 
@@ -162,6 +165,7 @@ class GameFrame(tkinter.Frame):
         self.card3E.pack(side = "left")
         self.card4E.pack(side = "left")
         self.card5E.pack(side = "left")
+        nextstreetcountButton.pack(side = "left")
 
         cardsFrame.pack()
         initFrame.pack()
@@ -185,14 +189,19 @@ class GameFrame(tkinter.Frame):
         herobetButton(int(self.heroBetAmountV.get()))
 
     def nextstreetButtonclick(self):
+        self.streetcount = 0
         nextstreetButton()
+
+    def nextstreetcountButtonclick(self):
+        self.streetcount += 1
+        setplayerfocus()
 
 def initButton():
     c1rank, c1suit = heroFrame.c1Var.get().split(",")
     c2rank, c2suit = heroFrame.c2Var.get().split(",")
     card1 = cardutils.Card(int(c1rank), int(c1suit))
     card2 = cardutils.Card(int(c2rank), int(c2suit))
-    heroHand = cardutils.Hand(card1, card2)
+    heroHand = cardutils.Hand([card1, card2])
 
     player1Player = cardutils.Player(player1.seatVar.get(), player1.nameVar.get(), player1.cashVar.get(), [])
     player2Player = cardutils.Player(player2.seatVar.get(), player2.nameVar.get(), player2.cashVar.get(), [])
@@ -211,18 +220,18 @@ def initButton():
     for count, each in enumerate(players):
         if int(each.seatVar.get()) in (0,1):
             if int(each.seatVar.get()) == 0:
-                currentGame.player[count].updatePlayerbHist(0,'SB')
+                currentGame.players[count].updatePlayerbHist(0,c.BETSTRING_SB)
             elif int(each.seatVar.get()) == 1:
-                currentGame.player[count].updatePlayerbHist(0,'BB')
+                currentGame.players[count].updatePlayerbHist(0,c.BETSTRING_BB)
         if count != 0:
-            each.bHistVar.set(currentGame.player[count].bHist)
+            each.bHistVar.set(currentGame.players[count].bHist)
 
     currentGame.setHeroPosition()
     currentGame.setHeroPlayer("hero")
     currentGame.updateNumPlayers()
 
-    currentGame.currbet = int(BIGBLIND)
-    currentGame.potamount = int(1.5 * BIGBLIND)
+    currentGame.currBet = int(BIGBLIND)
+    currentGame.potAmount = int(1.5 * BIGBLIND)
 
     setplayerfocus()
 
@@ -235,74 +244,73 @@ def betButton():
 
     if currentGame.street != 0:
         FlopCards = currentGame.hand.sharedCards
-        currentGame.hand.PostFlopOdds = nlhutils.GenerateProbabilities(currentGame.numplayers,
+        currentGame.hand.PostFlopOdds = nlhutils.GenerateProbabilities(currentGame.numPlayers,
                                                                   [currentGame.hand._cards[0], currentGame.hand._cards[1]],
-                                                                  [FlopCards])
+                                                                  FlopCards)
     action, amount, wait, logstr = currentGame.bet()
     logVar.set(logstr)
 
     return
 
 def moveseatButton():
-    player1.seatVar.set(str((int(player1.seatVar.get()) + 1) % 9))
+    player1.seatVar.set(str((int(player1.seatVar.get()) - 1) % 9))
     #currentGame.player[1].seat = (int(player1.seatVar.get()) + 1) % 9
-    player2.seatVar.set(str((int(player2.seatVar.get()) + 1) % 9))
+    player2.seatVar.set(str((int(player2.seatVar.get()) - 1) % 9))
     #currentGame.player[2].seat = (int(player2.seatVar.get()) + 1) % 9
-    player3.seatVar.set(str((int(player3.seatVar.get()) + 1) % 9))
+    player3.seatVar.set(str((int(player3.seatVar.get()) - 1) % 9))
     #currentGame.player[3].seat = (int(player3.seatVar.get()) + 1) % 9
-    player4.seatVar.set(str((int(player4.seatVar.get()) + 1) % 9))
+    player4.seatVar.set(str((int(player4.seatVar.get()) - 1) % 9))
     #currentGame.player[4].seat = (int(player4.seatVar.get()) + 1) % 9
-    player5.seatVar.set(str((int(player5.seatVar.get()) + 1) % 9))
+    player5.seatVar.set(str((int(player5.seatVar.get()) - 1) % 9))
     #currentGame.player[5].seat = (int(player5.seatVar.get()) + 1) % 9
-    player6.seatVar.set(str((int(player6.seatVar.get()) + 1) % 9))
+    player6.seatVar.set(str((int(player6.seatVar.get()) - 1) % 9))
     #currentGame.player[6].seat = (int(player6.seatVar.get()) + 1) % 9
-    player7.seatVar.set(str((int(player7.seatVar.get()) + 1) % 9))
+    player7.seatVar.set(str((int(player7.seatVar.get()) - 1) % 9))
     #currentGame.player[7].seat = (int(player7.seatVar.get()) + 1) % 9
-    player8.seatVar.set(str((int(player8.seatVar.get()) + 1) % 9))
+    player8.seatVar.set(str((int(player8.seatVar.get()) - 1) % 9))
     #currentGame.player[8].seat = (int(player8.seatVar.get()) + 1) % 9
-    heroFrame.seatVar.set(str((int(heroFrame.seatVar.get()) + 1) % 9))
+    heroFrame.seatVar.set(str((int(heroFrame.seatVar.get()) - 1) % 9))
     #currentGame.player[0].seat = (int(heroFrame.seatVar.get()) + 1) % 9
 
-    setplayerfocus()
     betting.msgstr.set("Players moved")
     return
 
 def foldbuttonButton(id):
-    currentGame.player[id].updatePlayerbHist(currentGame.street,'X')
+    currentGame.players[id].updatePlayerbHist(currentGame.street,c.BETSTRING_FOLD)
     resetPlayerLabels()
     setplayerfocus()
 
 def callbuttonButton(id):
-    currentGame.player[id].updatePlayerbHist(currentGame.street,'C')
-    currentpotVar.set(int(currentpotVar.get()) + currentGame.currbet)
-    currentGame.potamount += currentGame.currbet
+    currentGame.players[id].updatePlayerbHist(currentGame.street,c.BETSTRING_CALL)
+    currentpotVar.set(int(currentpotVar.get()) + currentGame.currBet)
+    currentGame.potAmount += currentGame.currBet
     resetPlayerLabels()
     setplayerfocus()
 
 def raisebuttonButton(id, amount):
-    currentGame.player[id].updatePlayerbHist(currentGame.street,'R')
+    currentGame.players[id].updatePlayerbHist(currentGame.street,c.BETSTRING_RAISE)
     currentpotVar.set(int(currentpotVar.get()) + amount)
-    currentGame.currbet = amount
-    currentGame.potamount += currentGame.currbet
+    currentGame.currBet = amount
+    currentGame.potAmount += currentGame.currBet
     resetPlayerLabels()
     setplayerfocus()
 
 def herobetButton(amount):
-    if amount == currentGame.currbet:
-        currentGame.player[0].updatePlayerbHist(currentGame.street,'C')
+    if amount == currentGame.currBet:
+        currentGame.players[0].updatePlayerbHist(currentGame.street,c.BETSTRING_CALL)
     else:
-        currentGame.player[0].updatePlayerbHist(currentGame.street,'R')
+        currentGame.players[0].updatePlayerbHist(currentGame.street,c.BETSTRING_RAISE)
 
-    currentGame.currbet = amount
-    currentpotVar.set(int(currentpotVar.get()) + currentGame.currbet)
-    currentGame.potamount += currentGame.currbet
+    currentGame.currBet = amount
+    currentpotVar.set(int(currentpotVar.get()) + currentGame.currBet)
+    currentGame.potAmount += currentGame.currBet
     resetPlayerLabels()
     setplayerfocus()
 
 def resetPlayerLabels():
     for count, each in enumerate(players):
         if count != 0:
-            each.bHistVar.set(currentGame.player[count].bHist)
+            each.bHistVar.set(currentGame.players[count].bHist)
 
 def nextstreetButton():
     cardslabel = betting.cardstr.get()
@@ -336,8 +344,8 @@ def nextstreetButton():
         pass
 
     currentGame.street += 1
-    currentGame.streetcount = 0
-    currentGame.currbet = 0
+    currentGame.streetCount = 0
+    currentGame.currBet = 0
 
     setplayerfocus()
 
@@ -346,18 +354,27 @@ def nextstreetButton():
 
 def setplayerfocus():
     try:
-        focus = min([player.seat for player in currentGame.player if len(player.bHist[currentGame.street]) < currentGame.streetcount + 1])
+        playerlist = [player for player in currentGame.players if player.FoldedInd == 0]
+    except:
+        pass
+
+    try:
+        focus = min([player.seat for player in playerlist if len(player.bHist[currentGame.street]) <= betting.streetcount])
     except:
         try:
-            focus = min([player.seat for player in currentGame.player if player.bHist[currentGame.street][currentGame.streetcount + 1] not in ("A","R","X")])
+            focus = min([player.seat for player in playerlist if player.bHist[currentGame.street][betting.streetcount] not in ("A","R","X")])
         except:
             focus = -1
 
+    heroFrame.configure(bg = "systembuttonface")
     for each in players:
         if each.seatVar.get() == str(focus):
-            each.configure(bg = "black")
+            if each.nameVar.get() == 'hero':
+                heroFrame.configure(bg = "black")
+            else:
+                each.configure(bg = "black")
         else:
-            each.configure(background = "white")
+            each.configure(background = "systembuttonface")
 
 if __name__ == "__main__":
     root = tkinter.Tk()
@@ -405,7 +422,16 @@ if __name__ == "__main__":
     betting.pack()
 
     logVar = tkinter.StringVar()
-    logLabel = tkinter.Label(root, textvariable = logVar)
+    logLabel = tkinter.Label(root, textvariable = logVar, font=("Helvetica", 8))
     logLabel.pack()
+
+    #Set the window position
+    root.update()
+    w = root.winfo_width()
+    h = root.winfo_screenheight() * 0.95
+    x = root.winfo_screenwidth() - w*1.05
+    y = 0
+
+    root.geometry('%dx%d+%d+%d' % (w,h,x,y))
 
     root.mainloop()

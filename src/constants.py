@@ -6,22 +6,8 @@ LOG_FILE_NAME = "\\PokerEnging.log"
 HAND_HISTORY_DIR ="C:\\Users\\Ahab\\AppData\\Roaming\\PacificPoker\\HandHistory\\tinoater"
 MEDIA_DIR = "Media"
 PF_ODDS_FILENAME = '\\PreFlop.csv'
-RANK_DICT = {2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'T',11:'J',12:'Q',13:'K',14:'A'}
-SUIT_DICT = {1:'H',2:'D',3:'S',4:'C'}
-PREM_PAIRS = [14,13,12]
-HAND_DICT = {1:'Royal Flush', 2:'Straight Flush', 3:'Four of a Kind', 4:'Full House', 5:'Flush', 6:'Straight'
-             ,7:'Three of a Kind',8:'Two Pairs',9:'One Pair',10:'High Card'}
 QUERY_DICT={'Name':0, 'NumHands':1, 'VPIP_Perc':2, 'PFR_Perc':3, 'Call_Perc':4, 'CBet_Perc':5, 'CBet_Fold_Perc':6
           , 'CBet_Call_Perc':7, 'CBet_Raise_Perc':8, 'CBet_Turn_Perc':9}
-ACTION_DICT={0:'X', 1:'C', 2:'R', 3:'A'}
-
-#TODO: Implement this everywhere
-BETSTRING_FOLD = "X"
-BETSTRING_CALL = "C"
-BETSTRING_RAISE = "R"
-BETSTRING_ALLIN = "A"
-BETSTRING_SB = "SB"
-BETSTRING_BB = "BB"
 
 HERONAME = 'tinoater'
 CARDCROP_BBOX = (1,1,10,15)
@@ -89,6 +75,8 @@ TURN_STEAL = 0.1 #How often try to steal a turn
 RIVER_STEAL = 0.1 #How often try to steal a river
 BH_T_RAISE = 0.1 #When reraise a bet on the turn when have BH
 BH_R_RAISE = 1 #When reraise a bet on the turn when have BH
+
+ODDSRUNCOUNT = 10000 #Number of runs for the odds calc program. Should get to nearest percent in ~4s
 
 if __name__ == "__main__":
 	pass

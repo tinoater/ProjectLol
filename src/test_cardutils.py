@@ -29,7 +29,7 @@ class AKsHandTestCase(unittest.TestCase):
     """Tests for AKs Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(13,1))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(13,1)])
 
     def tearDown(self):
         self.hand = None
@@ -60,7 +60,7 @@ class PocketNineHandTestCase(unittest.TestCase):
     """Tests for 99 Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(9,1),cardutils.Card(9,2))
+        self.hand = cardutils.Hand([cardutils.Card(9,1),cardutils.Card(9,2)])
 
     def tearDown(self):
         self.hand = None
@@ -86,7 +86,7 @@ class FiveSevenOffHandTestCase(unittest.TestCase):
     """Tests for 57o Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(5,1),cardutils.Card(7,2))
+        self.hand = cardutils.Hand([cardutils.Card(5,1),cardutils.Card(7,2)])
 
     def tearDown(self):
         self.hand = None
@@ -112,7 +112,7 @@ class AKsHandAddFlushFlopTestCase(unittest.TestCase):
     """Tests for adding flop cards to make a flush in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(13,1))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(13,1)])
         self.hand.addSharedCards([cardutils.Card(2,1),cardutils.Card(4,1),cardutils.Card(8,1)])
 
     def tearDown(self):
@@ -135,7 +135,7 @@ class RoyalFlushTestCase(unittest.TestCase):
     """Tests for a royal flush in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(13,1))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(13,1)])
         self.hand.addSharedCards([cardutils.Card(12,1),cardutils.Card(11,1),cardutils.Card(10,1)])
 
     def tearDown(self):
@@ -157,7 +157,7 @@ class StraightFlushTestCase(unittest.TestCase):
     """Tests for a straight flush in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(10,1),cardutils.Card(7,1))
+        self.hand = cardutils.Hand([cardutils.Card(10,1),cardutils.Card(7,1)])
         self.hand.addSharedCards([cardutils.Card(9,1),cardutils.Card(8,1),cardutils.Card(6,1)])
 
     def tearDown(self):
@@ -179,7 +179,7 @@ class FourOfAKindTestCase(unittest.TestCase):
     """Tests for a quads in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(10,1),cardutils.Card(10,2))
+        self.hand = cardutils.Hand([cardutils.Card(10,1),cardutils.Card(10,2)])
         self.hand.addSharedCards([cardutils.Card(10,3),cardutils.Card(10,4),cardutils.Card(6,1)])
 
     def tearDown(self):
@@ -206,7 +206,7 @@ class FullHouseTestCase(unittest.TestCase):
     """Tests for a full house in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(10,1),cardutils.Card(10,2))
+        self.hand = cardutils.Hand([cardutils.Card(10,1),cardutils.Card(10,2)])
         self.hand.addSharedCards([cardutils.Card(2,1),cardutils.Card(2,2),cardutils.Card(2,3)])
 
     def tearDown(self):
@@ -231,7 +231,7 @@ class FlushTestCase(unittest.TestCase):
     """Tests for a flush in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(10,1),cardutils.Card(7,1))
+        self.hand = cardutils.Hand([cardutils.Card(10,1),cardutils.Card(7,1)])
         self.hand.addSharedCards([cardutils.Card(9,1),cardutils.Card(8,1),cardutils.Card(5,1)])
 
     def tearDown(self):
@@ -253,7 +253,7 @@ class StraightTestCase(unittest.TestCase):
     """Tests for a straight in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(2,1))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(2,1)])
         self.hand.addSharedCards([cardutils.Card(3,1),cardutils.Card(4,2),cardutils.Card(5,1)])
 
     def tearDown(self):
@@ -275,7 +275,7 @@ class TripsTestCase(unittest.TestCase):
     """Tests for a trips in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(14,2))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(14,2)])
         self.hand.addSharedCards([cardutils.Card(3,1),cardutils.Card(14,4),cardutils.Card(5,1)])
 
     def tearDown(self):
@@ -297,7 +297,7 @@ class TwoPairTestCase(unittest.TestCase):
     """Tests for two pair in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(14,2))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(14,2)])
         self.hand.addSharedCards([cardutils.Card(4,1),cardutils.Card(4,2),cardutils.Card(5,1)])
 
     def tearDown(self):
@@ -318,7 +318,7 @@ class PairTestCase(unittest.TestCase):
     """Tests for pair in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(2,2))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(2,2)])
         self.hand.addSharedCards([cardutils.Card(4,1),cardutils.Card(4,2),cardutils.Card(5,1)])
 
     def tearDown(self):
@@ -339,7 +339,7 @@ class HighCardTestCase(unittest.TestCase):
     """Tests for high cards in Hand class in cardutils.py"""
 
     def setUp(self):
-        self.hand = cardutils.Hand(cardutils.Card(14,1),cardutils.Card(13,2))
+        self.hand = cardutils.Hand([cardutils.Card(14,1),cardutils.Card(13,2)])
         self.hand.addSharedCards([cardutils.Card(4,1),cardutils.Card(6,2),cardutils.Card(5,1)])
 
     def tearDown(self):

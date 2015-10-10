@@ -412,6 +412,8 @@ def updatetablebetting(game, street, poslist):
     return
 
 
+# TODO set the herocash so that it is measured in pennies
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename=c.LOG_FILE_DIR + c.LOG_FILE_NAME
                         ,format='%(asctime)s %(levelname)s:%(message)s')
@@ -439,10 +441,11 @@ if __name__ == "__main__":
     #TODO clean this up a bit?
     herocardim1 = cardutils.grabcard(c.CARD1POS)
     herocard1suit = cardutils.findcardsuit(herocardim1)
-    herocardim1 = cardutils.processflopcard(herocardim1)
     herocardim2 = cardutils.grabcard(c.CARD2POS)
     herocard2suit = cardutils.findcardsuit(herocardim2)
+
     herocardim2 = cardutils.processflopcard(herocardim2)
+    herocardim1 = cardutils.processflopcard(herocardim1)
     herocard1rank = cardutils.findcardrank(herocardim1, herocard1suit)
     herocard2rank = cardutils.findcardrank(herocardim2, herocard2suit)
     logging.debug("Card 1 is " + str(herocard1rank) + " of " + c.SUIT_DICT[herocard1suit])
@@ -545,7 +548,7 @@ if __name__ == "__main__":
         logging.debug("Hero has cash " + str(CurrentGame.herocash))
         logging.debug("Beginning odds function")
         CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers,
-                                            [herohand._cards[0], herohand._cards[1]],
+                                            [herohand.cards[0], herohand.cards[1]],
                                             herohand.sharedCards)
         logging.debug("Exiting odds function")
         logging.info("Players post flop odds are :" + str(CurrentGame.PostFlopOdds))
@@ -602,7 +605,7 @@ if __name__ == "__main__":
         logging.debug("Hero has cash " + str(CurrentGame.herocash))
         logging.debug("Beginning odds function")
         CurrentGame.PostFlopOdds = cardutils.GenerateProbabilities(CurrentGame.numplayers,
-                                            [herohand._cards[0], herohand._cards[1]],
+                                            [herohand.cards[0], herohand.cards[1]],
                                             herohand.sharedCards)
         logging.debug("Exiting odds function")
         logging.info("Players post flop odds are :" + str(CurrentGame.PostFlopOdds))
