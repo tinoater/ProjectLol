@@ -66,15 +66,18 @@ PF_STEAL = 0.3 #Perc of trying to steal from button or more
 PF_OTHER_HANDS_OPEN = 0.2 #Perc of PF opening the pot with other hand > 10%
 PF_OTHER_HANDS_CALL = 0.7 #Perc of PF callling into the pot with other hand > 10%
 BH_THRESHOLD = 0.85 #Odds of winning threshold to assume best hand
-BH_FP_RAISE = 0.2 #When reraise a bet on flop when have BH
+BH_FP_RERAISE = 0.2 #When reraise a bet on flop when have BH
 FLOP_CBET = 0.5 #How often CBet the flop
 TURN_CBET = 0.1 #How often CBet the turn
 RIVER_CBET = 0.1 #How often CBet the river
 FLOP_STEAL = 0.2 #How often try to steal a flop
 TURN_STEAL = 0.1 #How often try to steal a turn
 RIVER_STEAL = 0.1 #How often try to steal a river
-BH_T_RAISE = 0.1 #When reraise a bet on the turn when have BH
-BH_R_RAISE = 1 #When reraise a bet on the turn when have BH
+BH_T_RERAISE = 0.1 #When reraise a bet on the turn when have BH
+BH_R_RERAISE = 1 #When reraise a bet on the turn when have BH
+
+# Lists used by betting program
+BH_RERAISE = [BH_FP_RERAISE, BH_T_RERAISE, BH_R_RERAISE]
 
 ODDSRUNCOUNT = 10000 #Number of runs for the odds calc program. Should get to nearest percent in ~4s
 

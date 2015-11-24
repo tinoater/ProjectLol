@@ -42,13 +42,15 @@ class Card:
 
 
 class Deck:
-    def __init__(self, cardlist=[]):
+    def __init__(self, cardlist=None):
         """
         Creates a deck of cards with an optional list parameter of cards to be excluded
 
         Pass in a list of cards that should not appear in the deck (i.e already dealt out)
         :return:
         """
+        if cardlist is None:
+            cardlist = []
         self.deck = []
         tuplelist = []
         for each in cardlist:
@@ -64,32 +66,52 @@ class Deck:
         random.shuffle(self.deck)
 
 
+class Stats:
+    def __init__(self, hands=0, VPIP=0, PFR=0, Call=0, CBet=0, CBet_F=0, CBet_C=0, CBet_R=0, CBet_T=0, **kwargs):
+        if kwargs.get('empty',False):
+            self.statsPresent = False
+        else:
+            self.statsPresent = True
+
+        self.numhands = hands
+        self.VPIP = VPIP
+        self.PFR = PFR
+        self.Call = Call
+        self.CBet = CBet
+        self.CBet_F = CBet_F
+        self.CBet_C = CBet_C
+        self.CBet_R = CBet_R
+        self.CBet_T = CBet_T
+
 class Player:
     """
     Creates an object to hold information for seat, name, cash, stats
 
     :type seat:int
     :type name:str
-    :type cash:float
+    :type cash:int
     :type stats:Stats
 
     """
 
-    def __init__(self, seat, name, cash, stats):
+    def __init__(self, seat, name, cash, stats = Stats(empty=True)):
         if type(seat) != int:
             raise Exception("Seat type invalid")
         if type(name) != str:
             raise Exception("Name type invalid")
-        if type(cash) != float:
+        if type(cash) != int:
             raise Exception("Cash type invalid")
-        if type(stats) != Stats:
-            raise Exception("Stats type invalid")
+        if stats is not None:
+            if type(stats) != Stats:
+                raise Exception("Stats type invalid")
+        else:
+            stats = Stats(0,0,0,0,0,0,0,0,0)
         self.seat = seat
         self.name = name
         self.cash = cash
         self.stats = stats
         self.bHist = [[], [], [], []]
-        self.FoldedInd = 0
+        self.foldedInd = 0
         self.cashWon = 0
         self.cashWonAgainstHero = 0
         self.handsPlayed = 0
@@ -106,9 +128,9 @@ class Player:
             raise Exception("Betstring invalid")
         self.bHist[street].append(betstring)
         if betstring == BETSTRING_DICT['FOLD']:
-            self.FoldedInd = 1
+            self.foldedInd = 1
 
-    def resetPlayers(self, cashWon=0.00, cashWonAgainstHero=0.00):
+    def resetPlayer(self, cashWon=0.00, cashWonAgainstHero=0.00):
         """
         Resets the variables for the player at the end of a hand
         :return:
@@ -116,7 +138,7 @@ class Player:
         self.handsPlayed += 1
         self.cashWon += cashWon
         self.cashWonAgainstHero += cashWonAgainstHero
-        self.FoldedInd = 0
+        self.foldedInd = 0
 
     def debugPlayerInfo(self):
         string = self.name
@@ -127,19 +149,6 @@ class Player:
         string += " cash won against hero: " + str(self.cashWonAgainstHero)
 
         return string
-
-
-class Stats:
-    def __init__(self, hands, VPIP, PFR, Call, CBet, CBet_F, CBet_C, CBet_R, CBet_T):
-        self.numhands = hands
-        self.VPIP = VPIP
-        self.PFR = PFR
-        self.Call = Call
-        self.CBet = CBet
-        self.CBet_F = CBet_F
-        self.CBet_C = CBet_C
-        self.CBet_R = CBet_R
-        self.CBet_T = CBet_T
 
 
 class Hand:
@@ -269,7 +278,7 @@ class Hand:
         else:
             self.premInd = 0
 
-        self.preFlopOdds10 = self.getPreHandOdds(10)
+        self.preFlopOdds10 = self.setPreHandOdds(10)
 
     def setPostHandValue(self):
         card_list = []
@@ -442,16 +451,6 @@ class Hand:
             raise Exception("Failed to get pre flop odds")
         self.preFlopOdds = odds
 
-        return self.preFlopOdds
-
-    def getPreHandOdds(self, players):
-        """
-        Returns the PreFlop odds of the Hand. If None then will set them first.
-        :param players:
-        :return: PreFlop odds
-        """
-        if self.preFlopOdds is None:
-            self.setPreHandOdds(players)
         return self.preFlopOdds
 
     def getPostCurrentHandString(self):
