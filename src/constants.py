@@ -86,6 +86,8 @@ ODDSRUNCOUNT = 10000 #Number of runs for the odds calc program. Should get to ne
 def updatePositionVariables(txtfile):
     """
     Set the constant values from reading from the input text file
+
+    Lines of length 3 or 5 get set up as tuples
     :param txtfile:
     :return:
     """
