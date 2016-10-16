@@ -1,5 +1,7 @@
 __author__ = 'Ahab'
 
+import csv
+
 #TODO read this from a csv file instead of being hardcoded
 LOG_FILE_DIR = "C:\\Users\\Ahab\\Desktop"
 LOG_FILE_NAME = "\\PokerEnging.log"
@@ -56,8 +58,8 @@ PF_FL_DRAW = 2 #Amount the pot will scale by from PF to SD for flush draw
 PF_STR_DRAW = 2 #Amount the pot will scale by from PF to SD for straight draw
 PF_STRFL_DRAW = 2 #Amount the pot will scale by from PF to SD for straight draw
 PF_FL_ODDS = 10 #Threshold for how often try to draw for a flush
-PF_STR_ODDS = 7 #Threshold for how often try to draw for a flush
-PF_STRFL_ODDS = 13 #Threshold for how often try to draw with straightflush draw
+PF_STR_ODDS = 13 #Threshold for how often try to draw for a flush
+PF_STRFL_ODDS = 7 #Threshold for how often try to draw with straightflush draw
 RAISE_TO_ALLIN_THRESH = 0.2 #If 1+this * raise >= cash then go all in
 
 PF_CALL_AFTER_RAISE_PERC = 0.8 #Perc of a PF call of a raise
@@ -81,5 +83,34 @@ BH_RERAISE = [BH_FP_RERAISE, BH_T_RERAISE, BH_R_RERAISE]
 
 ODDSRUNCOUNT = 10000 #Number of runs for the odds calc program. Should get to nearest percent in ~4s
 
+def updatePositionVariables(txtfile):
+    """
+    Set the constant values from reading from the input text file
+    :param txtfile:
+    :return:
+    """
+    try:
+        con_file = open(txtfile, "r")
+    except:
+        raise Exception("Couldn't open constants text file")
+    con_reader = csv.reader(con_file)
+
+    for row in con_reader:
+        if row[0] in ('PLAYERPOSLIST','PLAYERACTIONPOSLIST'):
+            if len(row) != 37:
+                raise Exception("Constant " + row[0] + " in file " + txtfile + "has incorrect length")
+            globals()[row[0]] = [(float(row[1]), float(row[2]), float(row[3]), float(row[4])), (float(row[5]), float(row[6]), float(row[7]), float(row[8])),
+                                 (float(row[9]), float(row[10]), float(row[11]), float(row[12])), (float(row[13]), float(row[14]), float(row[15]), float(row[16])),
+                                 (float(row[17]), float(row[18]), float(row[19]), float(row[20])), (float(row[21]), float(row[22]), float(row[23]), float(row[24])),
+                                 (float(row[25]), float(row[26]), float(row[27]), float(row[28])), (float(row[29]), float(row[30]), float(row[31]), float(row[32])),
+                                 (float(row[33]), float(row[34]), float(row[35]), float(row[36]))]
+        else:
+            if len(row) == 5:
+                globals()[row[0]] = (float(row[1]), float(row[2]), float(row[3]), float(row[4]))
+            elif len(row) == 3:
+                globals()[row[0]] = (float(row[1]), float(row[2]))
+
+    con_file.close()
+
 if __name__ == "__main__":
-	pass
+    updatePositionVariables('pokerpositions.txt')

@@ -696,7 +696,7 @@ class BettingDrawPreFlop(unittest.TestCase):
         self.strat.hand.connectedInd = 1
         self.strat.movedPlayers = 5
         self.strat.unmovedPlayers = 0
-        self.strat.potAmount = 50
+        self.strat.potAmount = 80
 
         self.strat.betOutput = mock.MagicMock()
         self.strat.betDrawStreet0()
@@ -718,7 +718,7 @@ class BettingDrawPreFlop(unittest.TestCase):
         self.strat.hand.connectedInd = 0
         self.strat.movedPlayers = 5
         self.strat.unmovedPlayers = 0
-        self.strat.potAmount = 50
+        self.strat.potAmount = 80
 
         self.strat.betOutput = mock.MagicMock()
         self.strat.betDrawStreet0()
@@ -740,7 +740,7 @@ class BettingDrawPreFlop(unittest.TestCase):
         self.strat.hand.connectedInd = 1
         self.strat.movedPlayers = 5
         self.strat.unmovedPlayers = 0
-        self.strat.potAmount = 50
+        self.strat.potAmount = 100
 
         self.strat.betOutput = mock.MagicMock()
         self.strat.betDrawStreet0()
@@ -771,8 +771,8 @@ class BettingDrawFlop(unittest.TestCase):
     def tearDown(self):
         self.strat = None
 
+    @mock.patch('nlhbetting.shouldCBet')
     @mock.patch('random.uniform')
-    @mock.patch('shouldCBet')
     def test_betting_Draw_Flop_CheckedPot_PFAgg_ShouldCBet(self,random_call,cBet_call):
         self.checkedPot = 1
         self.PFAggressor = -1
@@ -783,7 +783,7 @@ class BettingDrawFlop(unittest.TestCase):
         self.strat.betDrawStreet0()
         self.strat.betOutput.assert_called_with(2,15)
 
-    @mock.patch('shouldCBet')
+    @mock.patch('nlhbetting.shouldCBet')
     def test_betting_Draw_Flop_CheckedPot_PFAgg_ShouldntCBet(self,cBet_call):
         self.checkedPot = 1
         self.PFAggressor = -1
@@ -794,7 +794,7 @@ class BettingDrawFlop(unittest.TestCase):
         self.strat.betOutput.assert_called_with(1,10)
 
     @mock.patch('random.uniform')
-    @mock.patch('shouldSteal')
+    @mock.patch('nlhbetting.shouldSteal')
     def test_betting_Draw_Flop_CheckedPot_NotPFAgg_Steal(self,random_call,steal_call):
         self.checkedPot = 1
         self.PFAggressor = 0
@@ -805,7 +805,7 @@ class BettingDrawFlop(unittest.TestCase):
         self.strat.betDrawStreet0()
         self.strat.betOutput.assert_called_with(2,15)
 
-    @mock.patch('shouldSteal')
+    @mock.patch('nlhbetting.shouldSteal')
     def test_betting_Draw_Flop_CheckedPot_NotPFAgg_Check(self, steal_call):
         self.checkedPot = 1
         self.PFAggressor = 0
@@ -815,7 +815,7 @@ class BettingDrawFlop(unittest.TestCase):
         self.strat.betDrawStreet0()
         self.strat.betOutput.assert_called_with(1,10)
 
-    @mock.patch('shouldDraw')
+    @mock.patch('nlhbetting.shouldDraw')
     def test_betting_Draw_Flop_NotCheckedPot_Draw(self,draw_call):
         self.checkedPot = 0
         draw_call.return_value = 1
@@ -824,7 +824,7 @@ class BettingDrawFlop(unittest.TestCase):
         self.strat.betDrawStreet0()
         self.strat.betOutput.assert_called_with(1,10)
 
-    @mock.patch('shouldDraw')
+    @mock.patch('nlhbetting.shouldDraw')
     def test_betting_Draw_Flop_NotCheckedPot_Fold(self,draw_call):
         self.checkedPot = 0
         draw_call.return_value = 0

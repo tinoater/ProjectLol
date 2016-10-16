@@ -6,6 +6,7 @@ import constants as c
 import cardutils
 
 #TODO: Can incorporate an aggro parameter - have it as an input?
+#TODO: Move the predicted pot variables to functions
 class BettingStrat:
     def __init__(self, **kwargs):
         """
@@ -104,7 +105,6 @@ class BettingStrat:
         Returns ind if flop should be CBet
         """
         # TODO: Improve this Cbet proc
-        # TODO: Add street ind to also handle Turn (and River?) CBet
         if self.street == 1:
             if random.uniform(0, 1) <= c.FLOP_CBET:
                 return 1
@@ -457,8 +457,8 @@ class BettingStrat:
                                                  + self.unmovedPlayers * c.PF_CALL_PERC) * self.currBet + self.potAmount)
             self.addLogging("Is predicted pot size / factor >= bet * high card scale?:")
             self.addLogging(str(predictedSDPot) + " / " + str(c.PF_STRFL_ODDS) + " >= " + str(self.currBet) + " * " \
-                            + str(14 / self.hand.highcard) + " ?")
-            if predictedSDPot / c.PF_STRFL_ODDS >= (self.currBet * 14 / self.hand.highcard):
+                            + str(14 / self.hand.highCard) + " ?")
+            if predictedSDPot / c.PF_STRFL_ODDS >= (self.currBet * 14 / self.hand.highCard):
                 self.addLogging("Call worth it")
                 return self.betOutput(1, self.currBet)
             else:
@@ -471,8 +471,8 @@ class BettingStrat:
                                               + self.unmovedPlayers * c.PF_CALL_PERC) * self.currBet + self.potAmount)
             self.addLogging("Predicted pot size / factor >= bet * high card scale?:")
             self.addLogging(str(predictedSDPot) + " / " + str(c.PF_FL_ODDS) + " >= " + str(self.currBet) + " * " \
-                            + str(14 / self.hand.highcard) + " ?")
-            if predictedSDPot / c.PF_FL_ODDS >= (self.currBet * 14 / self.hand.highcard):
+                            + str(14 / self.hand.highCard) + " ?")
+            if predictedSDPot / c.PF_FL_ODDS >= (self.currBet * 14 / self.hand.highCard):
                 self.addLogging("Call worth it")
                 return self.betOutput(1, self.currBet)
             else:
@@ -484,8 +484,8 @@ class BettingStrat:
                                                + self.unmovedPlayers * c.PF_CALL_PERC) * self.currBet + self.potAmount)
             self.addLogging("Predicted pot size / factor >= bet * high card scale?:")
             self.addLogging(str(predictedSDPot) + " / " + str(c.PF_STR_ODDS) + " >= " + str(self.currBet) + " * " \
-                            + str(14 / self.hand.highcard) + " ?")
-            if predictedSDPot / c.PF_STR_ODDS >= (self.currBet * 14 / self.hand.highcard):
+                            + str(14 / self.hand.highCard) + " ?")
+            if predictedSDPot / c.PF_STR_ODDS >= (self.currBet * 14 / self.hand.highCard):
                 self.addLogging("Call worth it")
                 return self.betOutput(1, self.currBet)
             else:

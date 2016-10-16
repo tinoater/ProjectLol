@@ -6,13 +6,16 @@ import win32con
 import win32gui
 import time
 import pyperclip
+from PIL import ImageGrab
 
 import constants as c
+
 
 def click(p):
     (x,y) = p
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
+
 
 def move(p, t=1.00):
     (x, y) = p
@@ -24,6 +27,7 @@ def move(p, t=1.00):
         win32api.SetCursorPos((x2, y2))
         time.sleep(t/100)
 
+
 def callback(hwnd, resultList):
     rect = win32gui.GetWindowRect(hwnd)
     x = rect[0]
@@ -31,6 +35,7 @@ def callback(hwnd, resultList):
     w = rect[2] - x
     h = rect[3] - y
     resultList.append((hwnd, win32gui.GetWindowText(hwnd), x, y, w, h, win32gui.GetClassName(hwnd)))
+
 
 def gethandleofNLH():
     emptylist =[]
@@ -41,6 +46,7 @@ def gethandleofNLH():
     else:
         return(emptylist[0][0])
 
+
 def getwindownameofNLH():
     emptylist =[]
     win32gui.EnumWindows(callback, emptylist)
@@ -49,8 +55,10 @@ def getwindownameofNLH():
     windowname = windowname[:windowname.find("NLH") - 1]
     return str(windowname)
 
+
 def setwindowposition():
     win32gui.MoveWindow(gethandleofNLH(), 0, 0, 502, 362, 1)
+
 
 def dokey(key1,key2=None):
 #shift - 16, ctrl = 17, left = 37, right = 39, space = 32
@@ -65,6 +73,7 @@ def dokey(key1,key2=None):
         win32api.keybd_event(key2,0,win32con.KEYEVENTF_KEYUP,0)
         win32api.keybd_event(key1,0,win32con.KEYEVENTF_KEYUP,0)
 
+
 def bettingAction(action, amount, wait = 2):
     if action == 0:
         foldAction(wait)
@@ -76,6 +85,7 @@ def bettingAction(action, amount, wait = 2):
         allInAction(wait)
     return True
 
+
 def allInAction(wait):
     time.sleep(wait)
     move(c.ALLINPOTBETBOXPOS, 0.1)
@@ -83,6 +93,7 @@ def allInAction(wait):
     move(c.RAISEBUTTONPOS,0.1)
     click(c.RAISEBUTTONPOS)
     return True
+
 
 def betAction(amount, wait):
     time.sleep(wait)
@@ -95,17 +106,20 @@ def betAction(amount, wait):
     click(c.RAISEBUTTONPOS)
     return True
 
+
 def callAction(wait):
     time.sleep(wait)
     move(c.CALLBUTTONPOS,0.1)
     click(c.CALLBUTTONPOS)
     return True
 
+
 def foldAction(wait):
     time.sleep(wait)
     move(c.FOLDBUTTONPOS,0.1)
     click(c.FOLDBUTTONPOS)
     return True
+
 
 def grabcard(x):
     """
@@ -115,8 +129,9 @@ def grabcard(x):
     """
     (left, top, right, bot) = x
     cardim = ImageGrab.grab(bbox = (left, top, right, bot))
-    cardim = cardim.convert("RGB")
+   #cardim = cardim.convert("RGB")
     return cardim
+
 
 def getbetamount(p):
     move(p,0.1)
@@ -128,12 +143,14 @@ def getbetamount(p):
     variable = pyperclip.paste()
     return float(float(variable) * 100)
 
+
 def getpotamount(p1,p2):
     move(p1, 0.1)
     click(p1)
     time.sleep(0.1)
     amount = getbetamount(p2)
     return amount
+
 
 def getpotsize(potbetbox,betbox):
     move(potbetbox,0.01)

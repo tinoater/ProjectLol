@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65bf415e-7a8c-4377-8614-d82535ce73bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/nlhbetting.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test_nlhbetting.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Ahab.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Ahab.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cardutils.py" afterPath="$PROJECT_DIR$/src/cardutils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.py" afterPath="$PROJECT_DIR$/src/constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nlhutils.py" afterPath="$PROJECT_DIR$/src/nlhutils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_cardutils.py" afterPath="$PROJECT_DIR$/src/test_cardutils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_nlhutils.py" afterPath="$PROJECT_DIR$/src/test_nlhutils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Mess.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/screensetup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.py" afterPath="$PROJECT_DIR$/src/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nlhbetting.py" afterPath="$PROJECT_DIR$/src/nlhbetting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screenutils.py" afterPath="$PROJECT_DIR$/src/screenutils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_nlhbetting.py" afterPath="$PROJECT_DIR$/src/test_nlhbetting.py" />
     </list>
     <list id="a0e2de8d-9b4b-4fab-99e0-7852901172bd" name="New changelist" comment="" />
     <ignored path="PokerEngine.iws" />
@@ -34,176 +33,30 @@
     <favorites_list name="PokerEngine" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42578125">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/constants.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test_nlhutils.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="405" column="44" selection-start-line="405" selection-start-column="44" selection-end-line="405" selection-end-column="44" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                    <element signature="e#230#860#0" expanded="false" />
-                    <element signature="e#917#8281#0" expanded="false" />
-                    <element signature="e#8340#12628#0" expanded="false" />
-                    <element signature="e#8365#11710#0" expanded="false" />
-                    <element signature="e#21502#23050#0" expanded="false" />
-                    <element signature="e#23113#24810#0" expanded="false" />
-                    <element signature="e#24876#26871#0" expanded="false" />
-                    <element signature="e#26936#29383#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="nlhutils.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#21#36#0" expanded="true" />
-                    <element signature="e#2536#2931#0" expanded="false" />
-                    <element signature="e#2972#4125#0" expanded="false" />
-                    <element signature="e#4168#4916#0" expanded="false" />
-                    <element signature="e#5940#6080#0" expanded="false" />
-                    <element signature="e#6122#6274#0" expanded="false" />
-                    <element signature="e#6335#6649#0" expanded="false" />
-                    <element signature="e#6687#10732#0" expanded="false" />
-                    <element signature="e#12144#12378#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="cardutils.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/cardutils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="443" column="0" selection-start-line="443" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#21#31#0" expanded="true" />
-                    <element signature="e#1280#2017#0" expanded="false" />
-                    <element signature="e#2155#2518#0" expanded="false" />
-                    <element signature="e#2538#4649#0" expanded="false" />
-                    <element signature="e#2779#3444#0" expanded="false" />
-                    <element signature="e#3506#3966#0" expanded="false" />
-                    <element signature="e#4042#4282#0" expanded="false" />
-                    <element signature="e#4323#4649#0" expanded="false" />
-                    <element signature="e#6443#6534#0" expanded="false" />
-                    <element signature="e#6567#6678#0" expanded="false" />
-                    <element signature="e#6725#7188#0" expanded="false" />
-                    <element signature="e#9010#13883#0" expanded="false" />
-                    <element signature="e#15021#16170#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test_nlhbetting.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/test_nlhbetting.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.18584071">
-                  <caret line="828" column="27" selection-start-line="828" selection-start-column="27" selection-end-line="828" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#21#36#0" expanded="true" />
-                    <element signature="e#276#1559#0" expanded="false" />
-                    <element signature="e#1623#2589#0" expanded="false" />
-                    <element signature="e#2640#3203#0" expanded="false" />
-                    <element signature="e#3254#4693#0" expanded="false" />
-                    <element signature="e#4743#6534#0" expanded="false" />
-                    <element signature="e#6584#6986#0" expanded="false" />
-                    <element signature="e#7033#13976#0" expanded="false" />
-                    <element signature="e#14023#20972#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="nlhbetting.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/nlhbetting.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="446" column="30" selection-start-line="446" selection-start-column="30" selection-end-line="446" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#21#34#0" expanded="true" />
-                    <element signature="e#214#2965#0" expanded="false" />
-                    <element signature="e#214#374#1" expanded="false" />
-                    <element signature="e#3421#4039#0" expanded="false" />
-                    <element signature="e#4076#4630#0" expanded="false" />
-                    <element signature="e#4666#4935#0" expanded="false" />
-                    <element signature="e#4971#5224#0" expanded="false" />
-                    <element signature="e#5277#6007#0" expanded="false" />
-                    <element signature="e#6036#7514#0" expanded="false" />
-                    <element signature="e#7550#8254#0" expanded="false" />
-                    <element signature="e#8287#8807#0" expanded="false" />
-                    <element signature="e#8840#9360#0" expanded="false" />
-                    <element signature="e#9394#9806#0" expanded="false" />
-                    <element signature="e#9844#10024#0" expanded="false" />
-                    <element signature="e#10062#14454#0" expanded="false" />
-                    <element signature="e#14492#14511#0" expanded="false" />
-                    <element signature="e#14549#14568#0" expanded="false" />
-                    <element signature="e#14606#16151#0" expanded="false" />
-                    <element signature="e#16199#17171#0" expanded="false" />
-                    <element signature="e#17219#17549#0" expanded="false" />
-                    <element signature="e#17597#17626#0" expanded="false" />
-                    <element signature="e#17674#17703#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="nlhbetting.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/nlhbetting.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.23893805">
-                  <caret line="509" column="29" selection-start-line="509" selection-start-column="29" selection-end-line="509" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#21#34#0" expanded="true" />
-                    <element signature="e#214#2965#0" expanded="false" />
-                    <element signature="e#214#374#1" expanded="false" />
-                    <element signature="e#3421#4039#0" expanded="false" />
-                    <element signature="e#4076#4630#0" expanded="false" />
-                    <element signature="e#4666#4935#0" expanded="false" />
-                    <element signature="e#4971#5224#0" expanded="false" />
-                    <element signature="e#5277#6007#0" expanded="false" />
-                    <element signature="e#6036#7514#0" expanded="false" />
-                    <element signature="e#7550#8254#0" expanded="false" />
-                    <element signature="e#8287#8807#0" expanded="false" />
-                    <element signature="e#8840#9360#0" expanded="false" />
-                    <element signature="e#9394#9806#0" expanded="false" />
-                    <element signature="e#9844#10024#0" expanded="false" />
-                    <element signature="e#10062#14454#0" expanded="false" />
-                    <element signature="e#14492#14511#0" expanded="false" />
-                    <element signature="e#14549#14568#0" expanded="false" />
-                    <element signature="e#14606#16151#0" expanded="false" />
-                    <element signature="e#16199#17171#0" expanded="false" />
-                    <element signature="e#17219#17549#0" expanded="false" />
-                    <element signature="e#17597#17626#0" expanded="false" />
-                    <element signature="e#17674#17703#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="Mess.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+              <folding>
+                <element signature="e#21#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screensetup.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/screensetup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.77978337">
+              <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -225,31 +78,29 @@
       <list>
         <option value="$PROJECT_DIR$/src/OddsEngine.py" />
         <option value="$PROJECT_DIR$/src/Learning.py" />
-        <option value="$PROJECT_DIR$/src/Mess.py" />
         <option value="$PROJECT_DIR$/src/test_pokerengine.py" />
         <option value="$PROJECT_DIR$/src/Streamlined.py" />
-        <option value="$PROJECT_DIR$/src/screenutils.py" />
         <option value="$PROJECT_DIR$/src/Other Decks/ToyProgram.py" />
         <option value="$PROJECT_DIR$/src/ToyProgram.py" />
         <option value="$PROJECT_DIR$/src/NineHandCash888.py" />
         <option value="$PROJECT_DIR$/src/test_cardutils.py" />
-        <option value="$PROJECT_DIR$/src/cardutils.py" />
         <option value="$PROJECT_DIR$/src/nlhutils.py" />
         <option value="$PROJECT_DIR$/src/test_nlhutils.py" />
-        <option value="$PROJECT_DIR$/src/constants.py" />
-        <option value="$PROJECT_DIR$/src/nlhbetting.py" />
+        <option value="$PROJECT_DIR$/src/cardutils.py" />
         <option value="$PROJECT_DIR$/src/test_nlhbetting.py" />
+        <option value="$PROJECT_DIR$/src/nlhbetting.py" />
+        <option value="$PROJECT_DIR$/src/constants.py" />
+        <option value="$PROJECT_DIR$/src/screenutils.py" />
+        <option value="$PROJECT_DIR$/src/Mess.py" />
+        <option value="$PROJECT_DIR$/src/screensetup.py" />
       </list>
     </option>
   </component>
-  <component name="NamedScopeManager">
-    <order />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="816" />
-    <option name="height" value="588" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -262,7 +113,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -272,15 +123,43 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/nlhbetting.py" />
-    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screenutils.py" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -288,29 +167,7 @@
       <recent name="C:\Users\Ahab\PycharmProjects\PokerEngine\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_nlhbetting">
-    <configuration default="false" name="Unittests in test_cardutils" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_cardutils.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.screensetup">
     <configuration default="false" name="Unittests in test_nlhutils" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -326,45 +183,6 @@
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ToyProgram" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/ToyProgram.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in DeckTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PokerEngine" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_cardutils.py" />
-      <option name="CLASS_NAME" value="DeckTestCase" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_CLASS" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -392,6 +210,57 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="constants" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PokerEngine" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/constants.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="screensetup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PokerEngine" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/screensetup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Mess" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PokerEngine" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Mess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -553,19 +422,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.Learning" />
       <item index="1" class="java.lang.String" itemvalue="Python.Streamlined" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_cardutils" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhutils" />
-      <item index="4" class="java.lang.String" itemvalue="Python.ToyProgram" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in DeckTestCase" />
-      <item index="6" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhbetting" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhutils" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhbetting" />
+      <item index="4" class="java.lang.String" itemvalue="Python.constants" />
+      <item index="5" class="java.lang.String" itemvalue="Python.screensetup" />
+      <item index="6" class="java.lang.String" itemvalue="Python.Mess" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhbetting" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhutils" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_cardutils" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ToyProgram" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in DeckTestCase" />
+        <item index="0" class="java.lang.String" itemvalue="Python.screensetup" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Mess" />
+        <item index="2" class="java.lang.String" itemvalue="Python.constants" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhbetting" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_nlhutils" />
       </list>
     </recent_temporary>
   </component>
@@ -623,8 +492,46 @@
       <option name="project" value="LOCAL" />
       <updated>1444477379137</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Committing to save from my dead computer">
+      <created>1448383228930</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1448383228930</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 30m 58s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 31m 08s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 31m 31s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 31m 35s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 33m 56s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 35m 13s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 36m 02s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 38m 57s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 39m 14s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 39m 28s.xml">
+      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,49 +543,49 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="816" height="588" extended-state="6" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35588235" sideWeight="0.51783353" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3387574" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.49678457" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997175" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33050847" sideWeight="0.48216644" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24458532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3464481" sideWeight="0.51875" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33821872" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.49678457" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997175" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34535518" sideWeight="0.48125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33005464" sideWeight="0.48216644" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35588235" sideWeight="0.51783353" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997175" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3387574" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.49678457" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33050847" sideWeight="0.48216644" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35588235" sideWeight="0.51783353" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997175" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3387574" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2937853" sideWeight="0.48480844" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.49678457" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33050847" sideWeight="0.48216644" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -700,7 +607,8 @@
     <MESSAGE value="Cleaned up the probabilities input structure" />
     <MESSAGE value="Finished basic betting logic for all streets" />
     <MESSAGE value="Big code consistency clean-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Big code consistency clean-up" />
+    <MESSAGE value="Committing to save from my dead computer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Committing to save from my dead computer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,21 +617,6 @@
           <url>file://$PROJECT_DIR$/src/ToyProgram.py</url>
           <line>351</line>
           <option name="timeStamp" value="434" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/src/test_nlhbetting.py</url>
-          <line>763</line>
-          <option name="timeStamp" value="517" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/src/test_nlhbetting.py</url>
-          <line>683</line>
-          <option name="timeStamp" value="518" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/src/test_nlhbetting.py</url>
-          <line>764</line>
-          <option name="timeStamp" value="520" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -736,7 +629,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="521" />
+      <option name="time" value="601" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
@@ -753,21 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="340" column="26" selection-start-line="340" selection-start-column="22" selection-end-line="340" selection-end-column="26" />
-          <folding>
-            <element signature="e#21#31#0" expanded="true" />
-            <element signature="e#1280#2017#0" expanded="false" />
-            <element signature="e#2155#2518#0" expanded="false" />
-            <element signature="e#2538#4649#0" expanded="false" />
-            <element signature="e#2779#3444#0" expanded="false" />
-            <element signature="e#3506#3966#0" expanded="false" />
-            <element signature="e#4042#4282#0" expanded="false" />
-            <element signature="e#4323#4649#0" expanded="false" />
-            <element signature="e#6443#6534#0" expanded="false" />
-            <element signature="e#6567#6678#0" expanded="false" />
-            <element signature="e#6725#7188#0" expanded="false" />
-            <element signature="e#9010#13883#0" expanded="false" />
-            <element signature="e#15021#16170#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -775,17 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#2536#2931#0" expanded="false" />
-            <element signature="e#2972#4125#0" expanded="false" />
-            <element signature="e#4168#4916#0" expanded="false" />
-            <element signature="e#5940#6080#0" expanded="false" />
-            <element signature="e#6122#6274#0" expanded="false" />
-            <element signature="e#6335#6649#0" expanded="false" />
-            <element signature="e#6687#10732#0" expanded="false" />
-            <element signature="e#12144#12378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -793,17 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#230#860#0" expanded="false" />
-            <element signature="e#917#8281#0" expanded="false" />
-            <element signature="e#8340#12628#0" expanded="false" />
-            <element signature="e#8365#11710#0" expanded="false" />
-            <element signature="e#21502#23050#0" expanded="false" />
-            <element signature="e#23113#24810#0" expanded="false" />
-            <element signature="e#24876#26871#0" expanded="false" />
-            <element signature="e#26936#29383#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,21 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="339" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="339" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#31#0" expanded="true" />
-            <element signature="e#1280#2017#0" expanded="false" />
-            <element signature="e#2155#2518#0" expanded="false" />
-            <element signature="e#2538#4649#0" expanded="false" />
-            <element signature="e#2779#3444#0" expanded="false" />
-            <element signature="e#3506#3966#0" expanded="false" />
-            <element signature="e#4042#4282#0" expanded="false" />
-            <element signature="e#4323#4649#0" expanded="false" />
-            <element signature="e#6443#6534#0" expanded="false" />
-            <element signature="e#6567#6678#0" expanded="false" />
-            <element signature="e#6725#7188#0" expanded="false" />
-            <element signature="e#9010#13883#0" expanded="false" />
-            <element signature="e#15021#16170#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -862,17 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="87" column="69" selection-start-line="87" selection-start-column="69" selection-end-line="87" selection-end-column="69" />
-          <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#2536#2931#0" expanded="false" />
-            <element signature="e#2972#4125#0" expanded="false" />
-            <element signature="e#4168#4916#0" expanded="false" />
-            <element signature="e#5940#6080#0" expanded="false" />
-            <element signature="e#6122#6274#0" expanded="false" />
-            <element signature="e#6335#6649#0" expanded="false" />
-            <element signature="e#6687#10732#0" expanded="false" />
-            <element signature="e#12144#12378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -880,17 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#230#860#0" expanded="false" />
-            <element signature="e#917#8281#0" expanded="false" />
-            <element signature="e#8340#12628#0" expanded="false" />
-            <element signature="e#8365#11710#0" expanded="false" />
-            <element signature="e#21502#23050#0" expanded="false" />
-            <element signature="e#23113#24810#0" expanded="false" />
-            <element signature="e#24876#26871#0" expanded="false" />
-            <element signature="e#26936#29383#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -912,7 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,21 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="358" column="26" selection-start-line="358" selection-start-column="26" selection-end-line="358" selection-end-column="26" />
-          <folding>
-            <element signature="e#21#31#0" expanded="true" />
-            <element signature="e#1280#2017#0" expanded="false" />
-            <element signature="e#2155#2518#0" expanded="false" />
-            <element signature="e#2538#4649#0" expanded="false" />
-            <element signature="e#2779#3444#0" expanded="false" />
-            <element signature="e#3506#3966#0" expanded="false" />
-            <element signature="e#4042#4282#0" expanded="false" />
-            <element signature="e#4323#4649#0" expanded="false" />
-            <element signature="e#6443#6534#0" expanded="false" />
-            <element signature="e#6567#6678#0" expanded="false" />
-            <element signature="e#6725#7188#0" expanded="false" />
-            <element signature="e#9010#13883#0" expanded="false" />
-            <element signature="e#15021#16170#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -949,17 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="87" column="69" selection-start-line="87" selection-start-column="69" selection-end-line="87" selection-end-column="69" />
-          <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#2536#2931#0" expanded="false" />
-            <element signature="e#2972#4125#0" expanded="false" />
-            <element signature="e#4168#4916#0" expanded="false" />
-            <element signature="e#5940#6080#0" expanded="false" />
-            <element signature="e#6122#6274#0" expanded="false" />
-            <element signature="e#6335#6649#0" expanded="false" />
-            <element signature="e#6687#10732#0" expanded="false" />
-            <element signature="e#12144#12378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,17 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#230#860#0" expanded="false" />
-            <element signature="e#917#8281#0" expanded="false" />
-            <element signature="e#8340#12628#0" expanded="false" />
-            <element signature="e#8365#11710#0" expanded="false" />
-            <element signature="e#21502#23050#0" expanded="false" />
-            <element signature="e#23113#24810#0" expanded="false" />
-            <element signature="e#24876#26871#0" expanded="false" />
-            <element signature="e#26936#29383#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -999,7 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,21 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#31#0" expanded="true" />
-            <element signature="e#1280#2017#0" expanded="false" />
-            <element signature="e#2155#2518#0" expanded="false" />
-            <element signature="e#2538#4649#0" expanded="false" />
-            <element signature="e#2779#3444#0" expanded="false" />
-            <element signature="e#3506#3966#0" expanded="false" />
-            <element signature="e#4042#4282#0" expanded="false" />
-            <element signature="e#4323#4649#0" expanded="false" />
-            <element signature="e#6443#6534#0" expanded="false" />
-            <element signature="e#6567#6678#0" expanded="false" />
-            <element signature="e#6725#7188#0" expanded="false" />
-            <element signature="e#9010#13883#0" expanded="false" />
-            <element signature="e#15021#16170#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1036,17 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="357" column="11" selection-start-line="357" selection-start-column="11" selection-end-line="357" selection-end-column="11" />
-          <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#2536#2931#0" expanded="false" />
-            <element signature="e#2972#4125#0" expanded="false" />
-            <element signature="e#4168#4916#0" expanded="false" />
-            <element signature="e#5940#6080#0" expanded="false" />
-            <element signature="e#6122#6274#0" expanded="false" />
-            <element signature="e#6335#6649#0" expanded="false" />
-            <element signature="e#6687#10732#0" expanded="false" />
-            <element signature="e#12144#12378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1054,17 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#230#860#0" expanded="false" />
-            <element signature="e#917#8281#0" expanded="false" />
-            <element signature="e#8340#12628#0" expanded="false" />
-            <element signature="e#8365#11710#0" expanded="false" />
-            <element signature="e#21502#23050#0" expanded="false" />
-            <element signature="e#23113#24810#0" expanded="false" />
-            <element signature="e#24876#26871#0" expanded="false" />
-            <element signature="e#26936#29383#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1086,7 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="47" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,21 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="e#21#31#0" expanded="true" />
-            <element signature="e#1280#2017#0" expanded="false" />
-            <element signature="e#2155#2518#0" expanded="false" />
-            <element signature="e#2538#4649#0" expanded="false" />
-            <element signature="e#2779#3444#0" expanded="false" />
-            <element signature="e#3506#3966#0" expanded="false" />
-            <element signature="e#4042#4282#0" expanded="false" />
-            <element signature="e#4323#4649#0" expanded="false" />
-            <element signature="e#6443#6534#0" expanded="false" />
-            <element signature="e#6567#6678#0" expanded="false" />
-            <element signature="e#6725#7188#0" expanded="false" />
-            <element signature="e#9010#13883#0" expanded="false" />
-            <element signature="e#15021#16170#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1116,17 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#2536#2931#0" expanded="false" />
-            <element signature="e#2972#4125#0" expanded="false" />
-            <element signature="e#4168#4916#0" expanded="false" />
-            <element signature="e#5940#6080#0" expanded="false" />
-            <element signature="e#6122#6274#0" expanded="false" />
-            <element signature="e#6335#6649#0" expanded="false" />
-            <element signature="e#6687#10732#0" expanded="false" />
-            <element signature="e#12144#12378#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1134,17 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#230#860#0" expanded="false" />
-            <element signature="e#917#8281#0" expanded="false" />
-            <element signature="e#8340#12628#0" expanded="false" />
-            <element signature="e#8365#11710#0" expanded="false" />
-            <element signature="e#21502#23050#0" expanded="false" />
-            <element signature="e#23113#24810#0" expanded="false" />
-            <element signature="e#24876#26871#0" expanded="false" />
-            <element signature="e#26936#29383#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1169,75 +873,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.058631923">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.9576547">
+          <caret line="386" column="52" selection-start-line="386" selection-start-column="52" selection-end-line="386" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/mock/mock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1065" column="0" selection-start-line="1065" selection-start-column="0" selection-end-line="1065" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_nlhbetting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29591838">
+          <caret line="769" column="0" selection-start-line="769" selection-start-column="0" selection-end-line="769" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62637365">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5275862">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/1181394660/builtins.py">
+    <entry file="file://C:/Python34/Lib/site-packages/PIL/_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33251834">
-          <caret line="744" column="8" selection-start-line="744" selection-start-column="8" selection-end-line="744" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/debugutils.py">
+    <entry file="file://C:/Python34/Lib/site-packages/PIL/Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1625" column="0" selection-start-line="1625" selection-start-column="0" selection-end-line="1625" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokerpositions.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python34/Lib/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1843" column="0" selection-start-line="1843" selection-start-column="0" selection-end-line="1843" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/tokenize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33183858">
-          <caret line="418" column="0" selection-start-line="418" selection-start-column="0" selection-end-line="418" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/traceback.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33183858">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6694915">
-          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ToyProgram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="253" column="0" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
+          <caret line="132" column="73" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="73" />
           <folding>
             <element signature="e#21#35#0" expanded="false" />
-            <element signature="e#143#1284#0" expanded="false" />
-            <element signature="e#374#1284#0" expanded="false" />
-            <element signature="e#1325#3927#0" expanded="false" />
-            <element signature="e#1556#3196#0" expanded="false" />
-            <element signature="e#3966#7170#0" expanded="false" />
             <element signature="e#4001#4126#0" expanded="false" />
-            <element signature="e#4158#6695#0" expanded="false" />
             <element signature="e#6817#6828#0" expanded="false" />
             <element signature="e#7194#9380#0" expanded="false" />
             <element signature="e#9403#9918#0" expanded="false" />
@@ -1247,145 +945,105 @@
             <element signature="e#11711#11974#0" expanded="false" />
             <element signature="e#12007#12421#0" expanded="false" />
             <element signature="e#12452#12577#0" expanded="false" />
-            <element signature="e#12607#13952#0" expanded="false" />
             <element signature="e#13980#14790#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
+    <entry file="file://$PROJECT_DIR$/src/screenutils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="414" column="0" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2244898">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python34/Lib/unittest/case.py">
+    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33262712">
-          <caret line="421" column="8" selection-start-line="421" selection-start-column="8" selection-end-line="421" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_cardutils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19558823">
-          <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_nlhutils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="405" column="44" selection-start-line="405" selection-start-column="44" selection-end-line="405" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.042154565">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#230#860#0" expanded="false" />
-            <element signature="e#917#8281#0" expanded="false" />
-            <element signature="e#8340#12628#0" expanded="false" />
-            <element signature="e#8365#11710#0" expanded="false" />
-            <element signature="e#21502#23050#0" expanded="false" />
-            <element signature="e#23113#24810#0" expanded="false" />
-            <element signature="e#24876#26871#0" expanded="false" />
-            <element signature="e#26936#29383#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-          <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#2536#2931#0" expanded="false" />
-            <element signature="e#2972#4125#0" expanded="false" />
-            <element signature="e#4168#4916#0" expanded="false" />
-            <element signature="e#5940#6080#0" expanded="false" />
-            <element signature="e#6122#6274#0" expanded="false" />
-            <element signature="e#6335#6649#0" expanded="false" />
-            <element signature="e#6687#10732#0" expanded="false" />
-            <element signature="e#12144#12378#0" expanded="false" />
+            <element signature="e#590#1261#0" expanded="false" />
+            <element signature="e#1280#2017#0" expanded="false" />
+            <element signature="e#2037#2518#0" expanded="false" />
+            <element signature="e#2538#4649#0" expanded="false" />
+            <element signature="e#4668#16170#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+        <state vertical-scroll-proportion="2.1288056">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/debugutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlhutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10538641">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#124#10732#0" expanded="false" />
+            <element signature="e#10792#12055#0" expanded="false" />
+            <element signature="e#12144#12378#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nlhbetting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="446" column="30" selection-start-line="446" selection-start-column="30" selection-end-line="446" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.1264637">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
-            <element signature="e#21#34#0" expanded="true" />
-            <element signature="e#214#2965#0" expanded="false" />
-            <element signature="e#214#374#1" expanded="false" />
-            <element signature="e#3421#4039#0" expanded="false" />
-            <element signature="e#4076#4630#0" expanded="false" />
-            <element signature="e#4666#4935#0" expanded="false" />
-            <element signature="e#4971#5224#0" expanded="false" />
-            <element signature="e#5277#6007#0" expanded="false" />
-            <element signature="e#6036#7514#0" expanded="false" />
-            <element signature="e#7550#8254#0" expanded="false" />
-            <element signature="e#8287#8807#0" expanded="false" />
-            <element signature="e#8840#9360#0" expanded="false" />
-            <element signature="e#9394#9806#0" expanded="false" />
-            <element signature="e#9844#10024#0" expanded="false" />
-            <element signature="e#10062#14454#0" expanded="false" />
-            <element signature="e#14492#14511#0" expanded="false" />
-            <element signature="e#14549#14568#0" expanded="false" />
-            <element signature="e#14606#16151#0" expanded="false" />
-            <element signature="e#16199#17171#0" expanded="false" />
-            <element signature="e#17219#17549#0" expanded="false" />
-            <element signature="e#17597#17626#0" expanded="false" />
-            <element signature="e#17674#17703#0" expanded="false" />
+            <element signature="e#229#28581#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cardutils.py">
+    <entry file="file://$PROJECT_DIR$/src/NineHandCash888.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="443" column="0" selection-start-line="443" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.037470724">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#21#31#0" expanded="true" />
-            <element signature="e#1280#2017#0" expanded="false" />
-            <element signature="e#2155#2518#0" expanded="false" />
-            <element signature="e#2538#4649#0" expanded="false" />
-            <element signature="e#2779#3444#0" expanded="false" />
-            <element signature="e#3506#3966#0" expanded="false" />
-            <element signature="e#4042#4282#0" expanded="false" />
-            <element signature="e#4323#4649#0" expanded="false" />
-            <element signature="e#6443#6534#0" expanded="false" />
-            <element signature="e#6567#6678#0" expanded="false" />
-            <element signature="e#6725#7188#0" expanded="false" />
-            <element signature="e#9010#13883#0" expanded="false" />
-            <element signature="e#15021#16170#0" expanded="false" />
+            <element signature="e#356#1564#0" expanded="false" />
+            <element signature="e#1593#1934#0" expanded="false" />
+            <element signature="e#1969#2701#0" expanded="false" />
+            <element signature="e#2735#3305#0" expanded="false" />
+            <element signature="e#3338#4070#0" expanded="false" />
+            <element signature="e#4101#4570#0" expanded="false" />
+            <element signature="e#4597#6192#0" expanded="false" />
+            <element signature="e#6224#7114#0" expanded="false" />
+            <element signature="e#7148#9827#0" expanded="false" />
+            <element signature="e#9893#12109#0" expanded="false" />
+            <element signature="e#12162#12773#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_nlhbetting.py">
+    <entry file="file://$PROJECT_DIR$/src/Mess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18584071">
-          <caret line="828" column="27" selection-start-line="828" selection-start-column="27" selection-end-line="828" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding>
-            <element signature="e#21#36#0" expanded="true" />
-            <element signature="e#276#1559#0" expanded="false" />
-            <element signature="e#1623#2589#0" expanded="false" />
-            <element signature="e#2640#3203#0" expanded="false" />
-            <element signature="e#3254#4693#0" expanded="false" />
-            <element signature="e#4743#6534#0" expanded="false" />
-            <element signature="e#6584#6986#0" expanded="false" />
-            <element signature="e#7033#13976#0" expanded="false" />
-            <element signature="e#14023#20972#0" expanded="false" />
+            <element signature="e#21#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screensetup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77978337">
+          <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
