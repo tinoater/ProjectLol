@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="65bf415e-7a8c-4377-8614-d82535ce73bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tests/files/tests_constants.txt" afterPath="$PROJECT_DIR$/src/Tests/files/tests_constants.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tests/test_constants.py" afterPath="$PROJECT_DIR$/src/Tests/test_constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.py" afterPath="$PROJECT_DIR$/src/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screensetup.py" afterPath="$PROJECT_DIR$/src/screensetup.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pokerpositions.txt" afterPath="$PROJECT_DIR$/src/config.txt" />
     </list>
     <list id="a0e2de8d-9b4b-4fab-99e0-7852901172bd" name="New changelist" comment="" />
     <ignored path="PokerEngine.iws" />
@@ -26,60 +31,52 @@
     <favorites_list name="PokerEngine" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="Mess.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Mess.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="6" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#21#30#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="test_constants.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Tests/test_constants.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.234657">
-                  <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tests_constants.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Tests/files/tests_constants.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="20" column="128" selection-start-line="20" selection-start-column="128" selection-end-line="20" selection-end-column="143" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="constants.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/constants.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7617329">
-                  <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="Mess.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="6" selection-end-column="16" />
+              <folding>
+                <element signature="e#21#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_constants.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tests/test_constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.566787">
+              <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests_constants.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tests/files/tests_constants.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -116,6 +113,7 @@
         <option value="$PROJECT_DIR$/src/screensetup.py" />
         <option value="$PROJECT_DIR$/src/Mess.py" />
         <option value="$PROJECT_DIR$/src/Tests/files/test_constants.py" />
+        <option value="$PROJECT_DIR$/src/Tests/files/tests_constants.txt" />
         <option value="$PROJECT_DIR$/src/Tests/test_constants.py" />
         <option value="$PROJECT_DIR$/src/constants.py" />
       </list>
@@ -560,39 +558,45 @@
       <option name="project" value="LOCAL" />
       <updated>1476632030054</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Adding test files">
+      <created>1476632081735</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1476632081735</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 17m 10s.xml">
-      <configuration name="Unittests in test_constants" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 22m 20s.xml">
-      <configuration name="Unittests in test_constants" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 23m 19s.xml">
-      <configuration name="Unittests in test_constants" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 23m 46s.xml">
-      <configuration name="Unittests in test_constants" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 23m 56s.xml">
-      <configuration name="Unittests in test_constants" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 24m 52s.xml">
       <configuration name="Unittests in test_constants" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_test_constants - 2016.10.16 at 16h 29m 50s.xml">
       <configuration name="Unittests in test_constants" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 38m 57s.xml">
-      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 00m 27s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 39m 14s.xml">
-      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 00m 55s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_nlhbetting - 2015.11.28 at 12h 39m 28s.xml">
-      <configuration name="Unittests in test_nlhbetting" configurationId="tests" />
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 01m 33s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 03m 23s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 03m 43s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 12m 20s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 12m 44s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_constants - 2016.10.16 at 17h 13m 10s.xml">
+      <configuration name="Unittests in test_constants" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -612,7 +616,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3464481" sideWeight="0.51875" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32344633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32243517" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32807216" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33821872" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3449831" sideWeight="0.48125" order="2" side_tool="false" content_ui="tabs" />
@@ -981,7 +985,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokerpositions.txt">
+    <entry file="file://$PROJECT_DIR$/src/config.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1043,28 +1047,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/files/tests_constants.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="128" selection-start-line="20" selection-start-column="128" selection-end-line="20" selection-end-column="143" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/test_constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.234657">
-          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/files/tests_constants.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7617329">
-          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.566787">
+          <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
           <folding />
         </state>
       </provider>

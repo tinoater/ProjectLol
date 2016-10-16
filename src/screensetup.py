@@ -50,11 +50,11 @@ class TransparentWindow(tkinter.Frame):
         self.root.attributes('-alpha', 0.2)
 
         # Load the constant variables from file
-        c.updatePositionVariables('pokerpositions.txt')
+        c.updatePositionVariables('config.txt')
 
         # Load the constants into a local varlist for some reason
         try:
-            con_file = open('pokerpositions.txt', "r")
+            con_file = open('config.txt', "r")
         except:
             raise Exception("Couldn't open constants text file")
         con_reader = csv.reader(con_file)

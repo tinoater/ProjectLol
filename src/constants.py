@@ -2,7 +2,6 @@ __author__ = 'Ahab'
 
 import csv
 
-#TODO read this from a csv file instead of being hardcoded
 LOG_FILE_DIR = "C:\\Users\\Ahab\\Desktop"
 LOG_FILE_NAME = "\\PokerEnging.log"
 HAND_HISTORY_DIR ="C:\\Users\\Ahab\\AppData\\Roaming\\PacificPoker\\HandHistory\\tinoater"
@@ -98,21 +97,30 @@ def updatePositionVariables(txtfile):
     con_reader = csv.reader(con_file)
 
     for row in con_reader:
-        if row[0] in ('PLAYERPOSLIST','PLAYERACTIONPOSLIST'):
-            if len(row) != 37:
-                raise Exception("Constant " + row[0] + " in file " + txtfile + "has incorrect length")
-            globals()[row[0]] = [(float(row[1]), float(row[2]), float(row[3]), float(row[4])), (float(row[5]), float(row[6]), float(row[7]), float(row[8])),
+        if len(row) == 0:
+            continue
+        if '#' in row[0]:
+            continue
+        var_name = row[0]
+        var_type = row[1]
+        var_value = ''.join(row[2:])
+
+        if var_type == 't4':
+            globals()[var_name] = (float(row[2]), float(row[3]), float(row[4]), float(row[5]))
+        elif var_type == 't2':
+            globals()[var_name] = (float(row[2]), float(row[3]))
+        elif var_type == 'p':
+            globals()[var_name] = var_value.replace("\"", "\\\"")
+        elif var_name in ('PLAYERPOSLIST', 'PLAYERACTIONPOSLIST'):
+            globals()[var_name] = [(float(row[1]), float(row[2]), float(row[3]), float(row[4])), (float(row[5]), float(row[6]), float(row[7]), float(row[8])),
                                  (float(row[9]), float(row[10]), float(row[11]), float(row[12])), (float(row[13]), float(row[14]), float(row[15]), float(row[16])),
                                  (float(row[17]), float(row[18]), float(row[19]), float(row[20])), (float(row[21]), float(row[22]), float(row[23]), float(row[24])),
                                  (float(row[25]), float(row[26]), float(row[27]), float(row[28])), (float(row[29]), float(row[30]), float(row[31]), float(row[32])),
                                  (float(row[33]), float(row[34]), float(row[35]), float(row[36]))]
         else:
-            if len(row) == 5:
-                globals()[row[0]] = (float(row[1]), float(row[2]), float(row[3]), float(row[4]))
-            elif len(row) == 3:
-                globals()[row[0]] = (float(row[1]), float(row[2]))
+            raise Exception("Unknown variable type: " + var_type)
 
     con_file.close()
 
 if __name__ == "__main__":
-    updatePositionVariables('pokerpositions.txt')
+    updatePositionVariables('config.txt')

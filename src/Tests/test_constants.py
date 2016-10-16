@@ -17,6 +17,10 @@ class ConstantDefaultTestCase(unittest.TestCase):
         """Is the default BH_R_RERAISE value correct?"""
         self.assertEqual(constants.BH_R_RERAISE, 1)
 
+    def test_default_LOG_FILE_DIR(self):
+        """Is the default LOG_FILE_DIR value correct?"""
+        self.assertEqual(constants.LOG_FILE_DIR, "C:\\Users\\Ahab\\Desktop")
+
 
 class ConstantFileTestCase(unittest.TestCase):
     """Tests for constants after reading from a file"""
@@ -37,3 +41,7 @@ class ConstantFileTestCase(unittest.TestCase):
     def test_file_PLAYERACTIONPOSLIST_8(self):
         """Are the files PLAYERACTIONPOSLIST values correct?"""
         self.assertEqual(constants.PLAYERACTIONPOSLIST[8], (375, 269, 437, 270))
+
+    def test_file_LOG_FILE_DIR(self):
+        """Is the files LOG_FILE_DIR value correct?"""
+        self.assertEqual(constants.LOG_FILE_DIR, "C:\\Users\\Ahab\Desktop\\NewDir")
